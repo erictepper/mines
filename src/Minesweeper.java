@@ -7,11 +7,9 @@ public class Minesweeper implements MouseListener {
     private GameView VIEW;
 
     private Minesweeper(String size) {
-        GameGrid gameGrid = new GameGrid(size, 50, 200, 30);
-
         JFrame gameFrame = new JFrame("Minesweeper");
         gameFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        VIEW = new GameView(50, 200, 30, gameGrid);
+        VIEW = new GameView(50, 200, size);
         VIEW.setSize(1000, 730);
         VIEW.setBackground(Color.WHITE);
         VIEW.addMouseListener(this);
