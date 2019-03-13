@@ -1,7 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
 
-class MinesweeperDisplay extends JPanel {
+class GameView extends JPanel {
     private int BOARD_START_X;
     private int BOARD_START_Y;
     private int SQUARE_SIZE;
@@ -12,7 +12,7 @@ class MinesweeperDisplay extends JPanel {
     private int NUMBER_OF_FLAGS;
     private int NUMBER_OF_REVEALED_NUMBERS;
 
-    MinesweeperDisplay(int boardXStart, int boardYStart, int boardSquareSize, GameGrid gameGrid) {
+    GameView(int boardXStart, int boardYStart, int boardSquareSize, GameGrid gameGrid) {
         BOARD_START_X = boardXStart;
         BOARD_START_Y = boardYStart;
         SQUARE_SIZE = boardSquareSize;
