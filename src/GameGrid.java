@@ -70,7 +70,6 @@ class GameGrid {
             }
         }
 
-        // Updates the number of adjacent mines for each tile.
         updateAdjacentMines();
     }
 
