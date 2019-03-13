@@ -24,7 +24,7 @@ class GameView extends JPanel {
         NUMBER_OF_REVEALED_NUMBERS = 0;
     }
 
-    void mouseClicked(int xPosition, int yPosition, int button) {
+    void mousePressed(int xPosition, int yPosition, int button) {
         if (xPosition < BOARD_START_X || xPosition > BOARD_START_X + (30*SQUARE_SIZE)) { return; }
         if (yPosition < BOARD_START_Y || yPosition > BOARD_START_Y + (16*SQUARE_SIZE)) { return; }
         int gridXPosition = (xPosition - BOARD_START_X) / SQUARE_SIZE;
