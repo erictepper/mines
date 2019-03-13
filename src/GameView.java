@@ -65,15 +65,13 @@ class GameView extends JPanel {
 
         if (GAME_LOST) {
             g.setColor(Color.RED);
-            Font lostFont = new Font("Courier New", Font.BOLD, 60);
-            g.setFont(lostFont);
+            g.setFont(new Font("Courier New", Font.BOLD, 60));
             g.drawString("GAME OVER", 350, 100);
         }
 
         else if (GAME_WON) {
             g.setColor(Color.GREEN);
-            Font lostFont = new Font("Courier New", Font.BOLD, 60);
-            g.setFont(lostFont);
+            g.setFont(new Font("Courier New", Font.BOLD, 60));
             g.drawString("GAME WON!", 350, 100);
         }
     }
