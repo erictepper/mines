@@ -1,24 +1,24 @@
 class GameTile {
-    private int DISPLAY_STATUS;  // 0 for hidden tile, 1 for number tile, 2 for bomb tile, 3 for flag tile
-    private int TILE_TYPE;  // 1 for number tile, 2 for bomb tile
-    private int NUMBER_OF_ADJACENT_BOMBS;
+    private int DISPLAY_STATUS;  // 0 for hidden tile, 1 for number tile, 2 for mine tile, 3 for flag tile
+    private int TILE_TYPE;  // 1 for number tile, 2 for mine tile
+    private int NUMBER_OF_ADJACENT_MINES;
 
     GameTile() {
         DISPLAY_STATUS = 0;
         TILE_TYPE = 1;
-        NUMBER_OF_ADJACENT_BOMBS = 0;
+        NUMBER_OF_ADJACENT_MINES = 0;
     }
 
     void setTileType(int tileType) {
         TILE_TYPE = tileType;
     }
 
-    void setNumberOfAdjacentBombs(int numberOfAdjacentBombs) {
-        NUMBER_OF_ADJACENT_BOMBS = numberOfAdjacentBombs;
+    void setNumberOfAdjacentMines(int numberOfAdjacentMines) {
+        NUMBER_OF_ADJACENT_MINES = numberOfAdjacentMines;
     }
 
     // Returns 0 if the display status didn't change, 1 if it revealed a number square, and 2 if it revealed a
-    // bomb square.
+    // mine square.
     int reveal() {
         if (DISPLAY_STATUS == TILE_TYPE || DISPLAY_STATUS == 3) { return 0; }
         else {
@@ -27,7 +27,10 @@ class GameTile {
         }
     }
 
-    // Returns 1 if flagged, returns -1 if un-flagged, else returns 0.
+    // Changes the flagged status of a hidden tile.
+    // Returns 1 if this tile is originally un-flagged and becomes flagged,
+    // returns -1 if it is originally flagged and becomes un-flagged,
+    // else returns 0 if the position is already revealed (i.e. can't be flagged).
     int flag() {
         if (DISPLAY_STATUS == 0) { DISPLAY_STATUS = 3; return 1; }
         else if (DISPLAY_STATUS == 3) { DISPLAY_STATUS = 0; return -1; }
@@ -37,8 +40,8 @@ class GameTile {
     String getLabel() {
         if (DISPLAY_STATUS == 0) { return ""; }
         else if (DISPLAY_STATUS == 1) {
-            if (NUMBER_OF_ADJACENT_BOMBS == 0) { return ""; }
-            else return String.valueOf(NUMBER_OF_ADJACENT_BOMBS);
+            if (NUMBER_OF_ADJACENT_MINES == 0) { return ""; }
+            else return String.valueOf(NUMBER_OF_ADJACENT_MINES);
         }
         else if (DISPLAY_STATUS == 2) { return "B"; }
         else if (DISPLAY_STATUS == 3) { return "F"; }
@@ -55,7 +58,7 @@ class GameTile {
         return TILE_TYPE;
     }
 
-    int getNumberOfAdjacentBombs() {
-        return NUMBER_OF_ADJACENT_BOMBS;
+    int getNumberOfAdjacentMines() {
+        return NUMBER_OF_ADJACENT_MINES;
     }
 }

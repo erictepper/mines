@@ -24,7 +24,7 @@ class GameGrid {
             }
         }
 
-        // Generates random grid spaces to place bombs.
+        // Generates random grid spaces to place mines.
         ArrayList<Integer> rowValues = new ArrayList<>();
         ArrayList<Integer> columnValues = new ArrayList<>();
         Random numberGenerator = new Random();
@@ -33,27 +33,30 @@ class GameGrid {
             columnValues.add(numberGenerator.nextInt(BOARD_WIDTH));
         }
 
-        // Fills the grid with 99 bombs in the spaces determined above.
+        // Fills the grid with 99 mines in the spaces determined above.
         for (int i = 0; i < 99; i++) {
-            // If the space already has a bomb, relocate the bomb.
+            // If the space already has a mine, relocate the mine.
             if (GAME_GRID[rowValues.get(i)][columnValues.get(i)].getActualStatus() == 2) {
-                relocateBomb(columnValues.get(i), rowValues.get(i));
+                relocateMine(columnValues.get(i), rowValues.get(i));
             }
             GAME_GRID[rowValues.get(i)][columnValues.get(i)].setTileType(2);
         }
 
-        // Updates the number of adjacent bombs for each tile.
-        updateAdjacentBombs();
+        // Updates the number of adjacent mines for each tile.
+        updateAdjacentMines();
     }
 
-    void moveBombs(int xPosition, int yPosition) {
+    // Moves the mine at position (xPosition, yPosition) and also moves any directly adjacent mines.
+    void moveMines(int xPosition, int yPosition) {
         Random numberGenerator = new Random();
-        for (int iterator1 = Math.max(0, yPosition-1); iterator1 < Math.min(BOARD_HEIGHT, yPosition+2); iterator1++) {
-            for (int iterator2 = Math.max(0, xPosition-1); iterator2 < Math.min(BOARD_WIDTH, xPosition+2);
-                 iterator2++) {
-                // If the space already has a bomb, relocate the bomb.
-                if (GAME_GRID[iterator1][iterator2].getActualStatus() == 2) {
-                    GAME_GRID[iterator1][iterator2].setTileType(1);
+        for (int adjacentYPosition = Math.max(0, yPosition-1); adjacentYPosition < Math.min(BOARD_HEIGHT, yPosition+2);
+             adjacentYPosition++) {
+            for (int adjacentXPosition = Math.max(0, xPosition-1);
+                 adjacentXPosition < Math.min(BOARD_WIDTH, xPosition+2); adjacentXPosition++) {
+                // If the adjacent position already has a mine, relocate the mine to some non-adjacent, free space.
+                // Note that extra conditions have been added to the while loop not present in relocateMine(int, int).
+                if (GAME_GRID[adjacentYPosition][adjacentXPosition].getActualStatus() == 2) {
+                    GAME_GRID[adjacentYPosition][adjacentXPosition].setTileType(1);
                     int j = numberGenerator.nextInt(BOARD_HEIGHT);
                     int k = numberGenerator.nextInt(BOARD_WIDTH);
                     while (GAME_GRID[j][k].getActualStatus() == 2 ||
@@ -67,12 +70,12 @@ class GameGrid {
             }
         }
 
-        // Updates the number of adjacent bombs for each tile.
-        updateAdjacentBombs();
+        // Updates the number of adjacent mines for each tile.
+        updateAdjacentMines();
     }
 
-    // Find a new, random, empty space and place the bomb there.
-    private void relocateBomb(int xPosition, int yPosition) {
+    // Find a new, random, empty space and place the mine there.
+    private void relocateMine(int xPosition, int yPosition) {
         Random numberGenerator = new Random();
         GAME_GRID[yPosition][xPosition].setTileType(1);
         int j = numberGenerator.nextInt(BOARD_HEIGHT);
@@ -84,24 +87,28 @@ class GameGrid {
         GAME_GRID[j][k].setTileType(2);
     }
 
-    private void updateAdjacentBombs() {
+    // Counts and stores the number of adjacent mines for each GameTile.
+    private void updateAdjacentMines() {
         for (int i = 0; i < BOARD_HEIGHT; i++) {
             for (int j = 0; j < BOARD_WIDTH; j++) {
-                int totalBombs = 0;
+                int totalMines = 0;
                 for (int iterator1 = Math.max(0, i-1); iterator1 < Math.min(BOARD_HEIGHT, i+2); iterator1++) {
                     for (int iterator2 = Math.max(0, j-1); iterator2 < Math.min(BOARD_WIDTH, j+2); iterator2++) {
-                        totalBombs = (GAME_GRID[iterator1][iterator2].getActualStatus() == 2) ? totalBombs + 1 :
-                                totalBombs;
+                        totalMines = (GAME_GRID[iterator1][iterator2].getActualStatus() == 2) ? totalMines + 1 :
+                                totalMines;
                     }
                 }
-                GAME_GRID[i][j].setNumberOfAdjacentBombs(totalBombs);
+                GAME_GRID[i][j].setNumberOfAdjacentMines(totalMines);
             }
         }
     }
 
-    // Returns -1 if revealed space is a bomb, and returns the number of bombs otherwise otherwise
+    // Reveals position (xPosition, yPosition) if it has an adjacent mine.
+    // If this position has no adjacent mines, it reveals the space and recursively reveals adjacent spaces.
+    // If the space has already been revealed, it does nothing and returns 0.
+    // Returns -1 if revealed space is a mine, and returns the number of total revealed spaces otherwise.
     int reveal(int xPosition, int yPosition) {
-        if (GAME_GRID[yPosition][xPosition].getNumberOfAdjacentBombs() == 0 &&
+        if (GAME_GRID[yPosition][xPosition].getNumberOfAdjacentMines() == 0 &&
                 GAME_GRID[yPosition][xPosition].getDisplayStatus() == 0) {
             int totalRevealed = GAME_GRID[yPosition][xPosition].reveal();
             for (int i = Math.max(0, yPosition-1); i < Math.min(BOARD_HEIGHT, yPosition+2); i++) {
@@ -118,11 +125,17 @@ class GameGrid {
         }
     }
 
-    // Returns true if flagged, returns false if un-flagged.
+    /* (Potentially) alters the flag status of the tile at GAME_GRID[yPosition][xPosition].
+    / If this position is a hidden tile:
+    / Returns 1 if position is originally un-flagged and becomes flagged.
+    / returns -1 if position is originally flagged and becomes un-flagged.
+    /
+    / If this position is a revealed tile: this method does nothing and returns 0. */
     int flag(int xPosition, int yPosition) {
         return GAME_GRID[yPosition][xPosition].flag();
     }
 
+    // Paints the grid in the view.
     void paint(Graphics g) {
         g.setFont(new Font("Courier New", Font.PLAIN, 20));
 
@@ -144,7 +157,7 @@ class GameGrid {
                         g.drawString(GAME_GRID[i][j].getLabel(), BOARD_START_X + (j * SQUARE_SIZE) + 7,
                                 BOARD_START_Y + ((i + 1) * SQUARE_SIZE) - 7);
                         break;
-                    case 2:  // bomb tile
+                    case 2:  // mine tile
                         g.setColor(Color.RED);
                         g.fillRect(BOARD_START_X + (j * SQUARE_SIZE),
                                 BOARD_START_Y + (i * SQUARE_SIZE),

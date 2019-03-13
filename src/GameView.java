@@ -30,7 +30,7 @@ class GameView extends JPanel {
         int gridIndexYPosition = (yPosition - BOARD_START_Y) / SQUARE_SIZE;
 
         if (!GAME_STARTED && button == 1) {
-            GAME_GRID.moveBombs(gridIndexXPosition, gridIndexYPosition);
+            GAME_GRID.moveMines(gridIndexXPosition, gridIndexYPosition);
             GAME_STARTED = true;
         }
         if (button == 3) {
