@@ -124,6 +124,17 @@ class GameGrid {
         }
     }
 
+    // Reveals all bombs that are not currently flagged.
+    void revealAllBombs() {
+        for (int y = 0; y < BOARD_HEIGHT; y++) {
+            for (int x = 0; x < BOARD_WIDTH; x++) {
+                if (GAME_GRID[y][x].getActualStatus() == 2) {
+                    GAME_GRID[y][x].reveal();
+                }
+            }
+        }
+    }
+
     /* (Potentially) alters the flag status of the tile at GAME_GRID[yPosition][xPosition].
     / If this position is a hidden tile:
     / Returns 1 if position is originally un-flagged and becomes flagged.

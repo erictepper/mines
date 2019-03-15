@@ -41,6 +41,7 @@ class GameView extends JPanel {
             int typeRevealed = GAME_GRID.reveal(gridIndexXPosition, gridIndexYPosition);
             if (typeRevealed == -1) {
                 GAME_LOST = true;
+                GAME_GRID.revealAllBombs();
             }
             else {
                 NUMBER_OF_REVEALED_NUMBERS = NUMBER_OF_REVEALED_NUMBERS + typeRevealed;
