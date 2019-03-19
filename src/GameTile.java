@@ -43,7 +43,7 @@ class GameTile {
             if (NUMBER_OF_ADJACENT_MINES == 0) { return ""; }
             else return String.valueOf(NUMBER_OF_ADJACENT_MINES);
         }
-        else if (DISPLAY_STATUS == 2) { return "B"; }
+        else if (DISPLAY_STATUS == 2) { return "M"; }
         else if (DISPLAY_STATUS == 3) { return "F"; }
         else {
             throw new IndexOutOfBoundsException();

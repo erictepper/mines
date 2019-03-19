@@ -6,10 +6,10 @@ import java.awt.event.*;
 public class Minesweeper implements MouseListener {
     private GameView VIEW;
 
-    private Minesweeper(String size) {
+    private Minesweeper() {
         JFrame gameFrame = new JFrame("Minesweeper");
         gameFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        VIEW = new GameView(50, 200, size);
+        VIEW = new GameView();
         VIEW.setSize(1000, 730);
         VIEW.setBackground(Color.WHITE);
         VIEW.addMouseListener(this);
@@ -19,7 +19,7 @@ public class Minesweeper implements MouseListener {
     }
 
     public static void main(String[] args) {
-        new Minesweeper("large");
+        new Minesweeper();
     }
 
     public void mouseClicked(MouseEvent e) { }

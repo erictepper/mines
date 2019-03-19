@@ -3,7 +3,7 @@ import java.awt.*;
 
 class GameView extends JPanel {
     private int BOARD_START_X;
-    private int BOARD_START_Y;
+    private static int BOARD_START_Y = 200;
     private static int SQUARE_SIZE = 30;
     private GameGrid GAME_GRID;
     private boolean GAME_STARTED;  // true if the game has been started, false if not.
@@ -12,10 +12,33 @@ class GameView extends JPanel {
     private int NUMBER_OF_FLAGS;
     private int NUMBER_OF_REVEALED_NUMBERS;
 
-    GameView(int boardXStart, int boardYStart, String gameSize) {
-        BOARD_START_X = boardXStart;
-        BOARD_START_Y = boardYStart;
-        GAME_GRID = new GameGrid(gameSize, BOARD_START_X, BOARD_START_Y, SQUARE_SIZE);
+    GameView() {
+        BOARD_START_X = 50;
+        GAME_GRID = new GameGrid("expert", BOARD_START_X, BOARD_START_Y, SQUARE_SIZE);
+        GAME_STARTED = false;
+        GAME_LOST = false;
+        GAME_WON = false;
+        NUMBER_OF_FLAGS = 0;
+        NUMBER_OF_REVEALED_NUMBERS = 0;
+    }
+
+    private void reset(String difficulty) {
+        switch (difficulty) {
+            case "beginner":
+                BOARD_START_X = 365;
+                GAME_GRID = new GameGrid(difficulty, BOARD_START_X, BOARD_START_Y, SQUARE_SIZE);
+                break;
+
+            case "intermediate":
+                BOARD_START_X = 260;
+                GAME_GRID = new GameGrid(difficulty, BOARD_START_X, BOARD_START_Y, SQUARE_SIZE);
+                break;
+
+            case "expert":
+                BOARD_START_X = 50;
+                GAME_GRID = new GameGrid(difficulty, BOARD_START_X, BOARD_START_Y, SQUARE_SIZE);
+                break;
+        }
         GAME_STARTED = false;
         GAME_LOST = false;
         GAME_WON = false;

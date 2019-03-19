@@ -10,8 +10,29 @@ class GameGrid {
     private int BOARD_START_Y;
     private int SQUARE_SIZE;
 
+    // gameSize should be one of "beginner", "intermediate", or "expert".
     GameGrid(String gameSize, int boardXStart, int boardYStart, int boardSquareSize) {
-        if (gameSize.equals("large")) { BOARD_HEIGHT = 16; BOARD_WIDTH = 30; }
+        int numMines = 10;
+        switch (gameSize) {
+            case "beginner":
+                BOARD_HEIGHT = 9;
+                BOARD_WIDTH = 9;
+                numMines = 10;
+                break;
+
+            case "intermediate":
+                BOARD_HEIGHT = 16;
+                BOARD_WIDTH = 16;
+                numMines = 40;
+                break;
+
+            case "expert":
+                BOARD_HEIGHT = 16;
+                BOARD_WIDTH = 30;
+                numMines = 99;
+                break;
+        }
+
         BOARD_START_X = boardXStart;
         BOARD_START_Y = boardYStart;
         SQUARE_SIZE = boardSquareSize;
@@ -28,13 +49,13 @@ class GameGrid {
         ArrayList<Integer> rowValues = new ArrayList<>();
         ArrayList<Integer> columnValues = new ArrayList<>();
         Random numberGenerator = new Random();
-        for (int i = 0; i < 99; i++) {
+        for (int i = 0; i < numMines; i++) {
             rowValues.add(numberGenerator.nextInt(BOARD_HEIGHT));
             columnValues.add(numberGenerator.nextInt(BOARD_WIDTH));
         }
 
         // Fills the grid with 99 mines in the spaces determined above.
-        for (int i = 0; i < 99; i++) {
+        for (int i = 0; i < numMines; i++) {
             // If the space already has a mine, relocate the mine.
             if (GAME_GRID[rowValues.get(i)][columnValues.get(i)].getActualStatus() == 2) {
                 relocateMine(columnValues.get(i), rowValues.get(i));
