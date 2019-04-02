@@ -6,6 +6,7 @@ import java.awt.event.*;
 public class Minesweeper implements MouseListener, ActionListener {
     private JFrame GAME_FRAME;
     private GameView VIEW;
+    private JButton NEW_GAME_BUTTON;
     private JButton BEGINNER_BUTTON;
     private JButton INTERMEDIATE_BUTTON;
     private JButton EXPERT_BUTTON;
@@ -19,11 +20,11 @@ public class Minesweeper implements MouseListener, ActionListener {
         VIEW.setBackground(Color.WHITE);
         VIEW.addMouseListener(this);
 
-        JButton new_game_button = new JButton("NEW GAME");
-        new_game_button.setFont(new Font("Courier New", Font.PLAIN, 16));
-        new_game_button.setBounds(310, 120, 130, 40);
-        new_game_button.addActionListener(this);
-        new_game_button.setActionCommand("new_game");
+        NEW_GAME_BUTTON = new JButton("NEW GAME");
+        NEW_GAME_BUTTON.setFont(new Font("Courier New", Font.PLAIN, 16));
+        NEW_GAME_BUTTON.setBounds(310, 120, 130, 40);
+        NEW_GAME_BUTTON.addActionListener(this);
+        NEW_GAME_BUTTON.setActionCommand("new_game_1");
 
         JButton reset = new JButton("RESET");
         reset.setFont(new Font("Courier New", Font.PLAIN, 16));
@@ -44,7 +45,7 @@ public class Minesweeper implements MouseListener, ActionListener {
         EXPERT_BUTTON.setBounds(685, 300, 130, 40);
 
 
-        GAME_FRAME.add(new_game_button);
+        GAME_FRAME.add(NEW_GAME_BUTTON);
         GAME_FRAME.add(reset);
         GAME_FRAME.add(BEGINNER_BUTTON);
         GAME_FRAME.add(INTERMEDIATE_BUTTON);
@@ -90,10 +91,11 @@ public class Minesweeper implements MouseListener, ActionListener {
                 INTERMEDIATE_BUTTON.removeActionListener(this);
                 EXPERT_BUTTON.setVisible(false);
                 EXPERT_BUTTON.removeActionListener(this);
+                NEW_GAME_BUTTON.setActionCommand("new_game_1");
 
                 GAME_FRAME.repaint();
                 break;
-            case "new_game":
+            case "new_game_1":
                 VIEW.hideGrid();
                 VIEW.removeMouseListener(this);
 
@@ -109,6 +111,22 @@ public class Minesweeper implements MouseListener, ActionListener {
                 EXPERT_BUTTON.addActionListener(this);
                 EXPERT_BUTTON.setActionCommand("expert");
                 EXPERT_BUTTON.setVisible(true);
+                NEW_GAME_BUTTON.setActionCommand("new_game_2");
+
+                GAME_FRAME.repaint();
+                break;
+            case "new_game_2":
+                VIEW.showGrid();
+                VIEW.addMouseListener(this);
+
+                BEGINNER_BUTTON.setVisible(false);
+                BEGINNER_BUTTON.removeActionListener(this);
+                INTERMEDIATE_BUTTON.setVisible(false);
+                INTERMEDIATE_BUTTON.removeActionListener(this);
+                EXPERT_BUTTON.setVisible(false);
+                EXPERT_BUTTON.removeActionListener(this);
+                NEW_GAME_BUTTON.setActionCommand("new_game_1");
+
                 GAME_FRAME.repaint();
                 break;
             case "beginner":
@@ -121,6 +139,7 @@ public class Minesweeper implements MouseListener, ActionListener {
                 INTERMEDIATE_BUTTON.removeActionListener(this);
                 EXPERT_BUTTON.setVisible(false);
                 EXPERT_BUTTON.removeActionListener(this);
+                NEW_GAME_BUTTON.setActionCommand("new_game_1");
 
                 GAME_FRAME.repaint();
                 break;
@@ -134,6 +153,7 @@ public class Minesweeper implements MouseListener, ActionListener {
                 INTERMEDIATE_BUTTON.removeActionListener(this);
                 EXPERT_BUTTON.setVisible(false);
                 EXPERT_BUTTON.removeActionListener(this);
+                NEW_GAME_BUTTON.setActionCommand("new_game_1");
 
                 GAME_FRAME.repaint();
                 break;
@@ -147,6 +167,7 @@ public class Minesweeper implements MouseListener, ActionListener {
                 INTERMEDIATE_BUTTON.removeActionListener(this);
                 EXPERT_BUTTON.setVisible(false);
                 EXPERT_BUTTON.removeActionListener(this);
+                NEW_GAME_BUTTON.setActionCommand("new_game_1");
 
                 GAME_FRAME.repaint();
                 break;

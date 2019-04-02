@@ -68,6 +68,10 @@ class GameView extends JPanel {
         GRID_HIDDEN = true;
     }
 
+    void showGrid() {
+        GRID_HIDDEN = false;
+    }
+
     void mousePressed(int xPosition, int yPosition, int button) {
         if (xPosition <= BOARD_START_X || xPosition >= BOARD_START_X + (GAME_GRID.getBoardWidth()*SQUARE_SIZE)) {
             return;
