@@ -15,6 +15,7 @@ class GameGrid {
     private int SQUARE_SIZE;
     private Image FLAG;
     private Image MINE;
+    int TESTING_MINE_TOTAL;  // TODO: Remove this and below for loop after testing.
 
     // gameSize should be one of "beginner", "intermediate", or "expert".
     GameGrid(String gameSize, int boardXStart, int boardYStart, int boardSquareSize) {
@@ -106,6 +107,15 @@ class GameGrid {
         }
 
         updateAdjacentMines();
+
+        TESTING_MINE_TOTAL = 0;  // TODO: Remove this and the following for loop when testing is done.
+        for (int i = 0; i < BOARD_HEIGHT; i++) {
+            for (int j = 0; j < BOARD_WIDTH; j++) {
+                if (GAME_GRID[i][j].getActualStatus() == 2) {
+                    TESTING_MINE_TOTAL++;
+                }
+            }
+        }
     }
 
     // Find a new, random, empty space and place the mine there.
@@ -158,6 +168,18 @@ class GameGrid {
             else return revealedStatus;
         }
     }
+
+    //  TODO: Hint
+    //  void giveHint() {
+    //      for all spaces on the grid
+    //          if flagged and should not be flagged:
+    //              un-flag and return
+    //          else if revealed:
+    //              count # of adjacent correctly flagged, subtract from # of adjacent bombs
+    //              keep index of lowest difference that is not 0
+    //              if difference is 1, flag adjacent bomb and return - no need to continue with loop
+    //          at the index of the lowest difference, flag one adjacent bomb and return.
+    //  }
 
     // Reveals all bombs that are not currently flagged.
     void revealAllBombs() {

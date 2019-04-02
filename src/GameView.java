@@ -1,5 +1,8 @@
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.io.File;
+import java.io.IOException;
 
 class GameView extends JPanel {
     private int BOARD_START_X;
@@ -9,14 +12,21 @@ class GameView extends JPanel {
     private boolean GAME_STARTED;  // true if the game has been started, false if not.
     private boolean GAME_LOST;  // true if lost, false if not lost.
     private boolean GAME_WON; // true if won, false if not won.
+    private boolean GRID_HIDDEN;
+    private Image FLAG;
     private int FLAGS_LAID;
     private int NUMBER_OF_REVEALED_NUMBERS;
 
     GameView() {
         newGame("expert");
+        try {
+            FLAG = ImageIO.read(new File("images/flag.png"));
+        } catch (IOException e) {
+            FLAG = null;
+        }
     }
 
-    private void newGame(String difficulty) {
+    void newGame(String difficulty) {
         switch (difficulty) {
             case "beginner":
                 BOARD_START_X = 365;
@@ -39,19 +49,23 @@ class GameView extends JPanel {
         GAME_STARTED = false;
         GAME_LOST = false;
         GAME_WON = false;
+        GRID_HIDDEN = false;
         FLAGS_LAID = 0;
         NUMBER_OF_REVEALED_NUMBERS = 0;
-        repaint();
     }
 
     void reset() {
         GAME_STARTED = false;
         GAME_LOST = false;
         GAME_WON = false;
+        GRID_HIDDEN = false;
         FLAGS_LAID = 0;
         NUMBER_OF_REVEALED_NUMBERS = 0;
         GAME_GRID.reset();
-        repaint();
+    }
+
+    void hideGrid() {
+        GRID_HIDDEN = true;
     }
 
     void mousePressed(int xPosition, int yPosition, int button) {
@@ -83,7 +97,6 @@ class GameView extends JPanel {
                 GAME_WON = NUMBER_OF_REVEALED_NUMBERS >= GAME_GRID.getBoardHeight() * GAME_GRID.getBoardWidth() -
                         GAME_GRID.getTotalMines();
             }
-            repaint();
         }
     }
 
@@ -95,22 +108,38 @@ class GameView extends JPanel {
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
 
-        GAME_GRID.paint(g);
-
+        g.setFont(new Font("Courier New", Font.PLAIN, 20));
         g.setColor(Color.BLACK);
-        g.drawString("Flags remaining: " + (GAME_GRID.getTotalMines() - FLAGS_LAID), 400, 150);
+        g.drawString(Integer.toString(GAME_GRID.TESTING_MINE_TOTAL), 20, 20);
+        if (GAME_GRID.getTotalMines() - FLAGS_LAID > 9) {
+            g.drawString(Integer.toString(GAME_GRID.getTotalMines() - FLAGS_LAID), 640, 147);
+        } else {
+            g.drawString("0" + (GAME_GRID.getTotalMines() - FLAGS_LAID), 640, 147);
+        }
+        if (FLAG != null) {
+            g.drawImage(FLAG, 670, 125, null);
+            g.drawRect(635, 125, 65, 30);
+        } else {
+            g.drawString("Flags", 600, 150);
+        }
+        g.setFont(new Font("Courier New", Font.PLAIN, 60));
+        g.drawString("Minesweeper", 310, 100);
 
         if (GAME_LOST) {
             g.setColor(Color.RED);
-            g.setFont(new Font("Courier New", Font.BOLD, 60));
-            g.drawString("GAME OVER", 350, 100);
+            g.setFont(new Font("Courier New", Font.PLAIN, 30));
+            g.drawString("GAME OVER", 425, 50);
         }
 
         else if (GAME_WON) {
             g.setColor(Color.GREEN);
-            g.setFont(new Font("Courier New", Font.BOLD, 60));
-            g.drawString("GAME WON!", 350, 100);
+            g.setFont(new Font("Courier New", Font.PLAIN, 30));
+            g.drawString("YOU WIN", 425, 50);
         }
+
+        if (GRID_HIDDEN) { return; }
+
+        GAME_GRID.paint(g);
     }
 
 }
