@@ -125,19 +125,18 @@ class GameView extends JPanel {
         } else {
             g.drawString("Flags", 600, 150);
         }
-        g.setFont(new Font("Courier New", Font.PLAIN, 60));
-        g.drawString("Minesweeper", 310, 100);
 
         if (GAME_LOST) {
             g.setColor(Color.RED);
-            g.setFont(new Font("Courier New", Font.PLAIN, 30));
-            g.drawString("GAME OVER", 425, 50);
-        }
-
-        else if (GAME_WON) {
-            g.setColor(Color.GREEN);
-            g.setFont(new Font("Courier New", Font.PLAIN, 30));
-            g.drawString("YOU WIN", 425, 50);
+            g.setFont(new Font("Courier New", Font.PLAIN, 60));
+            g.drawString("GAME OVER", 350, 100);
+        } else if (GAME_WON) {
+            g.setColor(new Color(0,204,0));
+            g.setFont(new Font("Courier New", Font.PLAIN, 60));
+            g.drawString("YOU WIN!", 370, 100);
+        } else {
+            g.setFont(new Font("Courier New", Font.PLAIN, 60));
+            g.drawString("Minesweeper", 310, 100);
         }
 
         if (GRID_HIDDEN) { return; }
