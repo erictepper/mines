@@ -1,36 +1,50 @@
+import javax.imageio.ImageIO;
+import java.io.IOException;
 import java.util.*;
 import java.awt.*;
 import java.lang.Math;
+import java.io.File;
 
 class GameGrid {
     private int BOARD_HEIGHT;
     private int BOARD_WIDTH;
+    private int NUMBER_OF_MINES;
     private GameTile[][] GAME_GRID;
     private int BOARD_START_X;
     private int BOARD_START_Y;
     private int SQUARE_SIZE;
+    private Image FLAG;
+    private Image MINE;
 
     // gameSize should be one of "beginner", "intermediate", or "expert".
     GameGrid(String gameSize, int boardXStart, int boardYStart, int boardSquareSize) {
-        int numMines = 10;
+        NUMBER_OF_MINES = 10;
         switch (gameSize) {
             case "beginner":
                 BOARD_HEIGHT = 9;
                 BOARD_WIDTH = 9;
-                numMines = 10;
+                NUMBER_OF_MINES = 10;
                 break;
 
             case "intermediate":
                 BOARD_HEIGHT = 16;
                 BOARD_WIDTH = 16;
-                numMines = 40;
+                NUMBER_OF_MINES = 40;
                 break;
 
             case "expert":
                 BOARD_HEIGHT = 16;
                 BOARD_WIDTH = 30;
-                numMines = 99;
+                NUMBER_OF_MINES = 99;
                 break;
+        }
+
+        try {
+            FLAG = ImageIO.read(new File("images/flag.png"));
+            MINE = ImageIO.read(new File("images/mine.png"));
+        } catch (IOException e) {
+            FLAG = null;
+            MINE = null;
         }
 
         BOARD_START_X = boardXStart;
@@ -49,13 +63,13 @@ class GameGrid {
         ArrayList<Integer> rowValues = new ArrayList<>();
         ArrayList<Integer> columnValues = new ArrayList<>();
         Random numberGenerator = new Random();
-        for (int i = 0; i < numMines; i++) {
+        for (int i = 0; i < NUMBER_OF_MINES; i++) {
             rowValues.add(numberGenerator.nextInt(BOARD_HEIGHT));
             columnValues.add(numberGenerator.nextInt(BOARD_WIDTH));
         }
 
         // Fills the grid with 99 mines in the spaces determined above.
-        for (int i = 0; i < numMines; i++) {
+        for (int i = 0; i < NUMBER_OF_MINES; i++) {
             // If the space already has a mine, relocate the mine.
             if (GAME_GRID[rowValues.get(i)][columnValues.get(i)].getActualStatus() == 2) {
                 relocateMine(columnValues.get(i), rowValues.get(i));
@@ -145,6 +159,18 @@ class GameGrid {
         }
     }
 
+    //  TODO: Hint
+    //  void giveHint() {
+    //      for all spaces on the grid
+    //          if flagged and should not be flagged:
+    //              un-flag and return
+    //          else if revealed:
+    //              count # of adjacent correctly flagged, subtract from # of adjacent bombs
+    //              keep index of lowest difference that is not 0
+    //              if difference is 1, flag adjacent bomb and return - no need to continue with loop
+    //          at the index of the lowest difference, flag one adjacent bomb and return.
+    //  }
+
     // Reveals all bombs that are not currently flagged.
     void revealAllBombs() {
         for (int y = 0; y < BOARD_HEIGHT; y++) {
@@ -152,6 +178,15 @@ class GameGrid {
                 if (GAME_GRID[y][x].getActualStatus() == 2) {
                     GAME_GRID[y][x].reveal();
                 }
+            }
+        }
+    }
+
+
+    void reset() {
+        for (int i = 0; i < BOARD_HEIGHT; i++) {
+            for (int j = 0; j < BOARD_WIDTH; j++) {
+                GAME_GRID[i][j].reset();
             }
         }
     }
@@ -189,25 +224,27 @@ class GameGrid {
                                 BOARD_START_Y + ((i + 1) * SQUARE_SIZE) - 7);
                         break;
                     case 2:  // mine tile
-                        g.setColor(Color.RED);
-                        g.fillRect(BOARD_START_X + (j * SQUARE_SIZE),
-                                BOARD_START_Y + (i * SQUARE_SIZE),
-                                SQUARE_SIZE, SQUARE_SIZE);
-                        g.setColor(Color.WHITE);
-                        g.drawString(GAME_GRID[i][j].getLabel(), BOARD_START_X + (j * SQUARE_SIZE) + 7,
-                                BOARD_START_Y + ((i + 1) * SQUARE_SIZE) - 7);
+                        g.drawImage(MINE, BOARD_START_X + (j * SQUARE_SIZE),
+                                BOARD_START_Y + (i * SQUARE_SIZE), null);
                         break;
                     case 3: // flag tile
-                        g.setColor(Color.BLACK);
-                        g.fillRect(BOARD_START_X + (j * SQUARE_SIZE),
-                                BOARD_START_Y + (i * SQUARE_SIZE),
-                                SQUARE_SIZE, SQUARE_SIZE);
-                        g.setColor(Color.WHITE);
-                        g.drawString(GAME_GRID[i][j].getLabel(), BOARD_START_X + (j * SQUARE_SIZE) + 7,
-                                BOARD_START_Y + ((i + 1) * SQUARE_SIZE) - 7);
+                        g.drawImage(FLAG, BOARD_START_X + (j * SQUARE_SIZE),
+                                BOARD_START_Y + (i * SQUARE_SIZE), null);
                         break;
                 }
             }
         }
+    }
+
+    int getBoardWidth() {
+        return BOARD_WIDTH;
+    }
+
+    int getBoardHeight() {
+        return BOARD_HEIGHT;
+    }
+
+    int getTotalMines() {
+        return NUMBER_OF_MINES;
     }
 }

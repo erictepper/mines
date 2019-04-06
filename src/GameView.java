@@ -1,54 +1,84 @@
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.io.File;
+import java.io.IOException;
 
 class GameView extends JPanel {
     private int BOARD_START_X;
-    private static int BOARD_START_Y = 200;
+    private int BOARD_START_Y;
     private static int SQUARE_SIZE = 30;
     private GameGrid GAME_GRID;
     private boolean GAME_STARTED;  // true if the game has been started, false if not.
     private boolean GAME_LOST;  // true if lost, false if not lost.
     private boolean GAME_WON; // true if won, false if not won.
-    private int NUMBER_OF_FLAGS;
+    private boolean GRID_HIDDEN;
+    private Image FLAG;
+    private int FLAGS_LAID;
     private int NUMBER_OF_REVEALED_NUMBERS;
 
     GameView() {
-        BOARD_START_X = 50;
-        GAME_GRID = new GameGrid("expert", BOARD_START_X, BOARD_START_Y, SQUARE_SIZE);
-        GAME_STARTED = false;
-        GAME_LOST = false;
-        GAME_WON = false;
-        NUMBER_OF_FLAGS = 0;
-        NUMBER_OF_REVEALED_NUMBERS = 0;
+        newGame("expert");
+        try {
+            FLAG = ImageIO.read(new File("images/flag.png"));
+        } catch (IOException e) {
+            FLAG = null;
+        }
     }
 
-    private void reset(String difficulty) {
+    void newGame(String difficulty) {
         switch (difficulty) {
             case "beginner":
                 BOARD_START_X = 365;
+                BOARD_START_Y = 300;
                 GAME_GRID = new GameGrid(difficulty, BOARD_START_X, BOARD_START_Y, SQUARE_SIZE);
                 break;
 
             case "intermediate":
                 BOARD_START_X = 260;
+                BOARD_START_Y = 200;
                 GAME_GRID = new GameGrid(difficulty, BOARD_START_X, BOARD_START_Y, SQUARE_SIZE);
                 break;
 
             case "expert":
                 BOARD_START_X = 50;
+                BOARD_START_Y = 200;
                 GAME_GRID = new GameGrid(difficulty, BOARD_START_X, BOARD_START_Y, SQUARE_SIZE);
                 break;
         }
         GAME_STARTED = false;
         GAME_LOST = false;
         GAME_WON = false;
-        NUMBER_OF_FLAGS = 0;
+        GRID_HIDDEN = false;
+        FLAGS_LAID = 0;
         NUMBER_OF_REVEALED_NUMBERS = 0;
     }
 
+    void reset() {
+        GAME_STARTED = false;
+        GAME_LOST = false;
+        GAME_WON = false;
+        GRID_HIDDEN = false;
+        FLAGS_LAID = 0;
+        NUMBER_OF_REVEALED_NUMBERS = 0;
+        GAME_GRID.reset();
+    }
+
+    void hideGrid() {
+        GRID_HIDDEN = true;
+    }
+
+    void showGrid() {
+        GRID_HIDDEN = false;
+    }
+
     void mousePressed(int xPosition, int yPosition, int button) {
-        if (xPosition <= BOARD_START_X || xPosition >= BOARD_START_X + (30*SQUARE_SIZE)) { return; }
-        if (yPosition <= BOARD_START_Y || yPosition >= BOARD_START_Y + (16*SQUARE_SIZE)) { return; }
+        if (xPosition <= BOARD_START_X || xPosition >= BOARD_START_X + (GAME_GRID.getBoardWidth()*SQUARE_SIZE)) {
+            return;
+        }
+        if (yPosition <= BOARD_START_Y || yPosition >= BOARD_START_Y + (GAME_GRID.getBoardHeight()*SQUARE_SIZE)) {
+            return;
+        }
         int gridIndexXPosition = (xPosition - BOARD_START_X) / SQUARE_SIZE;
         int gridIndexYPosition = (yPosition - BOARD_START_Y) / SQUARE_SIZE;
 
@@ -57,7 +87,7 @@ class GameView extends JPanel {
             GAME_STARTED = true;
         }
         if (button == 3) {
-            NUMBER_OF_FLAGS = NUMBER_OF_FLAGS + GAME_GRID.flag(gridIndexXPosition, gridIndexYPosition);
+            FLAGS_LAID = FLAGS_LAID + GAME_GRID.flag(gridIndexXPosition, gridIndexYPosition);
             repaint();
         }
         else if (button == 1) {
@@ -68,9 +98,9 @@ class GameView extends JPanel {
             }
             else {
                 NUMBER_OF_REVEALED_NUMBERS = NUMBER_OF_REVEALED_NUMBERS + typeRevealed;
-                GAME_WON = NUMBER_OF_REVEALED_NUMBERS >= ((16*30) - 99);
+                GAME_WON = NUMBER_OF_REVEALED_NUMBERS >= GAME_GRID.getBoardHeight() * GAME_GRID.getBoardWidth() -
+                        GAME_GRID.getTotalMines();
             }
-            repaint();
         }
     }
 
@@ -82,22 +112,37 @@ class GameView extends JPanel {
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
 
-        GAME_GRID.paint(g);
-
+        g.setFont(new Font("Courier New", Font.PLAIN, 20));
         g.setColor(Color.BLACK);
-        g.drawString("Flags remaining: " + (99 - NUMBER_OF_FLAGS), 400, 150);
+        if (GAME_GRID.getTotalMines() - FLAGS_LAID > 9) {
+            g.drawString(Integer.toString(GAME_GRID.getTotalMines() - FLAGS_LAID), 640, 147);
+        } else {
+            g.drawString("0" + (GAME_GRID.getTotalMines() - FLAGS_LAID), 640, 147);
+        }
+        if (FLAG != null) {
+            g.drawImage(FLAG, 670, 125, null);
+            g.drawRect(635, 125, 65, 30);
+        } else {
+            g.drawString("Flags", 600, 150);
+        }
+        g.setFont(new Font("Courier New", Font.PLAIN, 60));
+        g.drawString("Minesweeper", 310, 100);
 
         if (GAME_LOST) {
             g.setColor(Color.RED);
-            g.setFont(new Font("Courier New", Font.BOLD, 60));
-            g.drawString("GAME OVER", 350, 100);
+            g.setFont(new Font("Courier New", Font.PLAIN, 30));
+            g.drawString("GAME OVER", 425, 50);
         }
 
         else if (GAME_WON) {
             g.setColor(Color.GREEN);
-            g.setFont(new Font("Courier New", Font.BOLD, 60));
-            g.drawString("GAME WON!", 350, 100);
+            g.setFont(new Font("Courier New", Font.PLAIN, 30));
+            g.drawString("YOU WIN", 425, 50);
         }
+
+        if (GRID_HIDDEN) { return; }
+
+        GAME_GRID.paint(g);
     }
 
 }

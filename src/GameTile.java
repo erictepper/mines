@@ -37,6 +37,10 @@ class GameTile {
         else return 0;
     }
 
+    void reset() {
+        DISPLAY_STATUS = 0;
+    }
+
     String getLabel() {
         if (DISPLAY_STATUS == 0) { return ""; }
         else if (DISPLAY_STATUS == 1) {
