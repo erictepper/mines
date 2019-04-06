@@ -15,7 +15,6 @@ class GameGrid {
     private int SQUARE_SIZE;
     private Image FLAG;
     private Image MINE;
-    int TESTING_MINE_TOTAL;  // TODO: Remove this and below for loop after testing.
 
     // gameSize should be one of "beginner", "intermediate", or "expert".
     GameGrid(String gameSize, int boardXStart, int boardYStart, int boardSquareSize) {
@@ -107,15 +106,6 @@ class GameGrid {
         }
 
         updateAdjacentMines();
-
-        TESTING_MINE_TOTAL = 0;  // TODO: Remove this and the following for loop when testing is done.
-        for (int i = 0; i < BOARD_HEIGHT; i++) {
-            for (int j = 0; j < BOARD_WIDTH; j++) {
-                if (GAME_GRID[i][j].getActualStatus() == 2) {
-                    TESTING_MINE_TOTAL++;
-                }
-            }
-        }
     }
 
     // Find a new, random, empty space and place the mine there.

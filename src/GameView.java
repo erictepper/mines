@@ -114,7 +114,6 @@ class GameView extends JPanel {
 
         g.setFont(new Font("Courier New", Font.PLAIN, 20));
         g.setColor(Color.BLACK);
-        g.drawString(Integer.toString(GAME_GRID.TESTING_MINE_TOTAL), 20, 20);
         if (GAME_GRID.getTotalMines() - FLAGS_LAID > 9) {
             g.drawString(Integer.toString(GAME_GRID.getTotalMines() - FLAGS_LAID), 640, 147);
         } else {
