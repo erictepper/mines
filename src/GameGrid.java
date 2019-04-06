@@ -58,7 +58,7 @@ class GameGrid {
                 GAME_GRID[i][j] = new GameTile();
             }
         }
-//
+
         // Generates random grid spaces to place mines.
         ArrayList<Integer> rowValues = new ArrayList<>();
         ArrayList<Integer> columnValues = new ArrayList<>();
