@@ -1,5 +1,6 @@
 class GameTile {
-    private int DISPLAY_STATUS;  // 0 for hidden tile, 1 for number tile, 2 for mine tile, 3 for flag tile
+    private int DISPLAY_STATUS;  // 0 for hidden tile, 1 for number tile, 2 for mine tile, 3 for flag tile, 4 for
+                                 // false-flag tile
     private int TILE_TYPE;  // 1 for number tile, 2 for mine tile
     private int NUMBER_OF_ADJACENT_MINES;
 
@@ -24,6 +25,13 @@ class GameTile {
         else {
             DISPLAY_STATUS = TILE_TYPE;
             return TILE_TYPE;
+        }
+    }
+
+    // Marks the tile as a false flag if it is a number tile and has been flagged, otherwise does nothing.
+    void markAsFalseFlag() {
+        if (DISPLAY_STATUS == 3 && TILE_TYPE == 1) {
+            DISPLAY_STATUS = 4;
         }
     }
 

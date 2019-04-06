@@ -13,8 +13,9 @@ class GameGrid {
     private int BOARD_START_X;
     private int BOARD_START_Y;
     private int SQUARE_SIZE;
-    private Image FLAG;
     private Image MINE;
+    private Image FLAG;
+    private Image FALSE_FLAG;
 
     // gameSize should be one of "beginner", "intermediate", or "expert".
     GameGrid(String gameSize, int boardXStart, int boardYStart, int boardSquareSize) {
@@ -40,11 +41,13 @@ class GameGrid {
         }
 
         try {
-            FLAG = ImageIO.read(new File("images/flag.png"));
             MINE = ImageIO.read(new File("images/mine.png"));
+            FLAG = ImageIO.read(new File("images/flag.png"));
+            FALSE_FLAG = ImageIO.read(new File("images/false_flag.png"));
         } catch (IOException e) {
-            FLAG = null;
             MINE = null;
+            FLAG = null;
+            FALSE_FLAG = null;
         }
 
         BOARD_START_X = boardXStart;
@@ -177,6 +180,8 @@ class GameGrid {
             for (int x = 0; x < BOARD_WIDTH; x++) {
                 if (GAME_GRID[y][x].getActualStatus() == 2) {
                     GAME_GRID[y][x].reveal();
+                } else {
+                    GAME_GRID[y][x].markAsFalseFlag();
                 }
             }
         }
@@ -184,9 +189,9 @@ class GameGrid {
 
 
     void reset() {
-        for (int i = 0; i < BOARD_HEIGHT; i++) {
-            for (int j = 0; j < BOARD_WIDTH; j++) {
-                GAME_GRID[i][j].reset();
+        for (int y = 0; y < BOARD_HEIGHT; y++) {
+            for (int x = 0; x < BOARD_WIDTH; x++) {
+                GAME_GRID[y][x].reset();
             }
         }
     }
@@ -229,6 +234,10 @@ class GameGrid {
                         break;
                     case 3: // flag tile
                         g.drawImage(FLAG, BOARD_START_X + (j * SQUARE_SIZE),
+                                BOARD_START_Y + (i * SQUARE_SIZE), null);
+                        break;
+                    case 4: // false-flag tile
+                        g.drawImage(FALSE_FLAG, BOARD_START_X + (j * SQUARE_SIZE),
                                 BOARD_START_Y + (i * SQUARE_SIZE), null);
                         break;
                 }
