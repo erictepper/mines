@@ -163,16 +163,21 @@ class GameGrid {
     }
 
     //  TODO: Hint
-    //  void giveHint() {
-    //      for all spaces on the grid
-    //          if flagged and should not be flagged:
-    //              un-flag and return
-    //          else if revealed:
-    //              count # of adjacent correctly flagged, subtract from # of adjacent bombs
-    //              keep index of lowest difference that is not 0
-    //              if difference is 1, flag adjacent bomb and return - no need to continue with loop
-    //          at the index of the lowest difference, flag one adjacent bomb and return.
-    //  }
+    void giveHint() {
+        for (int y = 0; y < BOARD_HEIGHT; y++) {
+            for (int x = 0; x < BOARD_WIDTH; x++) {
+                GAME_GRID[y][x].reset();  // stub
+
+                //          if flagged and should not be flagged:
+                //              un-flag and return
+                //          else if revealed:
+                //              count # of adjacent correctly flagged, subtract from # of adjacent bombs
+                //              keep index of lowest difference that is not 0
+                //              if difference is 1, flag adjacent bomb and return - no need to continue with loop
+                //          at the index of the lowest difference, flag one adjacent bomb and return.
+            }
+        }
+    }
 
     // Reveals all bombs that are not currently flagged.
     void revealAllBombs() {
