@@ -64,6 +64,10 @@ class GameView extends JPanel {
         GAME_GRID.reset();
     }
 
+    void giveHint() {
+        FLAGS_LAID = FLAGS_LAID + GAME_GRID.giveHint();
+    }
+
     void hideGrid() {
         GRID_HIDDEN = true;
     }

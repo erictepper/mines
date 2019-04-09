@@ -162,21 +162,64 @@ class GameGrid {
         }
     }
 
-    //  TODO: Hint
-    void giveHint() {
+    // Gives a player a hint. If there exists a false flag, mark it as a false flag. If no false flags exist,
+    // mark a flag in a place it would be the most useful (e.g. next to a tile where only one flag is left).
+    int giveHint() {
+        // Firstly, searches the grid to see if there are any tiles falsely flagged. If one exists, mark it as a false
+        // flag and return.
         for (int y = 0; y < BOARD_HEIGHT; y++) {
             for (int x = 0; x < BOARD_WIDTH; x++) {
-                GAME_GRID[y][x].reset();  // stub
-
-                //          if flagged and should not be flagged:
-                //              un-flag and return
-                //          else if revealed:
-                //              count # of adjacent correctly flagged, subtract from # of adjacent bombs
-                //              keep index of lowest difference that is not 0
-                //              if difference is 1, flag adjacent bomb and return - no need to continue with loop
-                //          at the index of the lowest difference, flag one adjacent bomb and return.
+                GameTile current_game_tile = GAME_GRID[y][x];
+                if (current_game_tile.getActualStatus() == 1 && current_game_tile.getDisplayStatus() == 3) {
+                    current_game_tile.markAsFalseFlag();
+                    return -1;
+                }
             }
         }
+
+        // Searches for the space with the smallest difference between the number of adjacent flags and the number
+        // of adjacent mines. This space must have already been revealed.
+        int lowest_mine_flag_difference_count = 9;
+        int hint_centre_x_index = 0, hint_centre_y_index = 0;
+        search: {
+            for (int y = 0; y < BOARD_HEIGHT; y++) {
+                for (int x = 0; x < BOARD_WIDTH; x++) {
+                    if (GAME_GRID[y][x].getDisplayStatus() != 1) { continue; }
+
+                    int number_of_adjacent_flags = 0;
+
+                    // Counts the number of adjacent flags for GAME_TILE[y][x].
+                    for (int i = Math.max(0, y - 1); i < Math.min(BOARD_HEIGHT, y + 2); i++) {
+                        for (int j = Math.max(0, x - 1); j < Math.min(BOARD_WIDTH, x + 2); j++) {
+                            if (GAME_GRID[i][j].getDisplayStatus() == 3) {
+                                number_of_adjacent_flags++;
+                            }
+                        }
+                    }
+
+                    int diff = GAME_GRID[y][x].getNumberOfAdjacentMines() - number_of_adjacent_flags;
+                    if (diff > 0 && diff < lowest_mine_flag_difference_count) {
+                        lowest_mine_flag_difference_count = diff;
+                        hint_centre_y_index = y;
+                        hint_centre_x_index = x;
+                    }
+                    if (diff == 1) {
+                        break search;
+                    }
+                }
+            }
+        }
+
+        for (int i = Math.max(0, hint_centre_y_index-1); i < Math.min(BOARD_HEIGHT, hint_centre_y_index+2); i++) {
+            for (int j = Math.max(0, hint_centre_x_index - 1); j < Math.min(BOARD_WIDTH, hint_centre_x_index+2); j++) {
+                if (GAME_GRID[i][j].getDisplayStatus() == 0 && GAME_GRID[i][j].getActualStatus() == 2) {
+                    GAME_GRID[i][j].flag();
+                    return 1;
+                }
+            }
+        }
+
+        return 0;
     }
 
     // Reveals all bombs that are not currently flagged.
