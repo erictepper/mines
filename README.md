@@ -13,8 +13,8 @@ intermediate, and advanced.
 them, if a false flag exists, or will have a flag placed in a spot that is most useful.
 
 **Potential future features include:**
-* Press a button to receive a hint if player becomes stuck. 
 * Change new game / reset options to dropdown menu to clean up interface. 
 * Save/load game. 
+* Game timer
 * Scoring system
 * Daily games
