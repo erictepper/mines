@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="433e07ea-2725-4155-8099-6108161a1c40" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/src/GameGrid.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GameGrid.java" afterDir="false" />
-    </list>
+    <list default="true" id="433e07ea-2725-4155-8099-6108161a1c40" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -47,7 +45,7 @@
       <file leaf-file-name="GameGrid.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/GameGrid.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="228">
+            <state relative-caret-position="2120">
               <caret line="213" lean-forward="true" selection-start-line="213" selection-end-line="213" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -236,7 +234,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="2" y="23" width="1400" height="757" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -247,7 +244,7 @@
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50142854" side_tool="true" weight="0.37920937" />
       <window_info anchor="right" id="Maven Projects" order="3" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.329429" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49857143" visible="true" weight="0.37920937" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49857143" weight="0.37920937" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
@@ -739,7 +736,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/GameGrid.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
+        <state relative-caret-position="2120">
           <caret line="213" lean-forward="true" selection-start-line="213" selection-end-line="213" />
           <folding>
             <element signature="imports" expanded="true" />
