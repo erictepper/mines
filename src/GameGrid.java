@@ -210,6 +210,8 @@ class GameGrid {
             }
         }
 
+        if (GAME_GRID[hint_centre_y_index][hint_centre_x_index].getDisplayStatus() != 1) { return 0; }
+
         for (int i = Math.max(0, hint_centre_y_index-1); i < Math.min(BOARD_HEIGHT, hint_centre_y_index+2); i++) {
             for (int j = Math.max(0, hint_centre_x_index - 1); j < Math.min(BOARD_WIDTH, hint_centre_x_index+2); j++) {
                 if (GAME_GRID[i][j].getDisplayStatus() == 0 && GAME_GRID[i][j].getActualStatus() == 2) {
