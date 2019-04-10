@@ -32,6 +32,12 @@ public class Minesweeper implements MouseListener, ActionListener {
         reset.addActionListener(this);
         reset.setActionCommand("reset");
 
+        JButton hint = new JButton("HINT");
+        hint.setFont(new Font("Courier New", Font.PLAIN, 16));
+        hint.setBounds(50, 50, 130, 40);
+        hint.addActionListener(this);
+        hint.setActionCommand("hint");
+
         BEGINNER_BUTTON = new JButton("BEGINNER");
         BEGINNER_BUTTON.setFont(new Font("Courier New", Font.PLAIN, 16));
         BEGINNER_BUTTON.setBounds(185, 300, 130, 40);
@@ -47,6 +53,7 @@ public class Minesweeper implements MouseListener, ActionListener {
 
         GAME_FRAME.add(NEW_GAME_BUTTON);
         GAME_FRAME.add(reset);
+        GAME_FRAME.add(hint);
         GAME_FRAME.add(BEGINNER_BUTTON);
         GAME_FRAME.add(INTERMEDIATE_BUTTON);
         GAME_FRAME.add(EXPERT_BUTTON);
@@ -93,6 +100,10 @@ public class Minesweeper implements MouseListener, ActionListener {
                 EXPERT_BUTTON.removeActionListener(this);
                 NEW_GAME_BUTTON.setActionCommand("new_game_1");
 
+                GAME_FRAME.repaint();
+                break;
+            case "hint":
+                VIEW.giveHint();
                 GAME_FRAME.repaint();
                 break;
             case "new_game_1":

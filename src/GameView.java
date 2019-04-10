@@ -55,13 +55,17 @@ class GameView extends JPanel {
     }
 
     void reset() {
-        GAME_STARTED = false;
+        GAME_STARTED = false;  // TODO: remove
         GAME_LOST = false;
         GAME_WON = false;
         GRID_HIDDEN = false;
         FLAGS_LAID = 0;
         NUMBER_OF_REVEALED_NUMBERS = 0;
         GAME_GRID.reset();
+    }
+
+    void giveHint() {
+        FLAGS_LAID = FLAGS_LAID + GAME_GRID.giveHint();
     }
 
     void hideGrid() {
