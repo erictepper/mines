@@ -224,8 +224,8 @@ class GameGrid {
         return 0;
     }
 
-    // Reveals all bombs that are not currently flagged.
-    void revealAllBombs() {
+    // Reveals all mines that are not currently flagged.
+    void revealAllMines() {
         for (int y = 0; y < BOARD_HEIGHT; y++) {
             for (int x = 0; x < BOARD_WIDTH; x++) {
                 if (GAME_GRID[y][x].getActualStatus() == 2) {
