@@ -14,6 +14,8 @@ them, if a false flag exists, or will have a flag placed in a spot that is most 
 
 **Potential future features include:**
 * Treat control+left-click as a right-click in order to accommodate single-button mouse laptops. 
+* Make the reveal of all bombs upon loss of the game optional, and disable ability to reset the game if bombs have 
+  been revealed.
 * Change new game / reset options to dropdown menu to clean up interface. 
 * Save/load game. 
 * Game timer
@@ -22,4 +24,4 @@ them, if a false flag exists, or will have a flag placed in a spot that is most 
 
 
 **Bugs to fix:**
-* Resets are treated as a new game - the first move upon a reset will move mines. This should not happen.
+No current bugs. 
