@@ -16,7 +16,6 @@ them, if a false flag exists, or will have a flag placed in a spot that is most 
 lay bombs with CTRL+left-click.
 
 **Potential future features include:**
-* Treat control+left-click as a right-click in order to accommodate single-button mouse laptops. 
 * Make the reveal of all bombs upon loss of the game optional, and disable ability to reset the game if bombs have 
   been revealed.
 * Change new game / reset options to dropdown menu to clean up interface. 
