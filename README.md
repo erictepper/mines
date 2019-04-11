@@ -12,6 +12,9 @@ intermediate, and advanced.
 **Version 0.3:** Player can now receive a hint when requested. The player will either have a false flag revealed for 
 them, if a false flag exists, or will have a flag placed in a spot that is most useful.
 
+**Version 0.4:** Player can now use CTRL as a modifier key to change a left-click into a right-click, allowing them to 
+lay bombs with CTRL+left-click.
+
 **Potential future features include:**
 * Treat control+left-click as a right-click in order to accommodate single-button mouse laptops. 
 * Make the reveal of all bombs upon loss of the game optional, and disable ability to reset the game if bombs have 
