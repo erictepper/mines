@@ -22,4 +22,4 @@ them, if a false flag exists, or will have a flag placed in a spot that is most 
 
 
 **Bugs to fix:**
-* Resets are treated as a new game - the first move upon a reset will move mines. This should not happen.
+No current bugs. 
