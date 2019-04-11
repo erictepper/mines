@@ -13,7 +13,7 @@ intermediate, and advanced.
 them, if a false flag exists, or will have a flag placed in a spot that is most useful.
 
 **Version 0.4:** Player can now use CTRL as a modifier key to change a left-click into a right-click, allowing them to 
-lay bombs with CTRL+left-click.
+lay flags with CTRL+left-click.
 
 **Potential future features include:**
 * Make the reveal of all bombs upon loss of the game optional, and disable ability to reset the game if bombs have 
