@@ -1,8 +1,6 @@
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.InputEvent;
-import java.awt.event.MouseEvent;
 import java.io.File;
 import java.io.IOException;
 
