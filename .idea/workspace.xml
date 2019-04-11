@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="433e07ea-2725-4155-8099-6108161a1c40" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Minesweeper/GameView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Minesweeper/GameView.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Minesweeper/Minesweeper.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Minesweeper/Minesweeper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GameView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GameView.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -20,8 +21,8 @@
       <file leaf-file-name="Minesweeper.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Minesweeper.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1035">
-              <caret line="73" column="44" selection-start-line="73" selection-start-column="44" selection-end-line="73" selection-end-column="44" />
+            <state relative-caret-position="132">
+              <caret line="77" column="43" lean-forward="true" selection-start-line="77" selection-start-column="43" selection-end-line="77" selection-end-column="43" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#2441#2442#0" expanded="true" />
@@ -31,15 +32,16 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GameView.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="GameView.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/GameView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-10">
-              <caret line="42" column="26" lean-forward="true" selection-start-line="42" selection-start-column="26" selection-end-line="42" selection-end-column="26" />
+            <state relative-caret-position="30">
+              <caret line="2" column="18" selection-start-line="2" selection-start-column="18" selection-end-line="2" selection-end-column="18" />
               <folding>
-                <element signature="imports" expanded="true" />
                 <element signature="e#2032#2033#0" expanded="true" />
                 <element signature="e#2094#2095#0" expanded="true" />
+                <element signature="e#3840#3841#0" expanded="true" />
+                <element signature="e#3886#3887#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -48,7 +50,7 @@
       <file leaf-file-name="GameGrid.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/GameGrid.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-277">
+            <state relative-caret-position="-939">
               <caret line="34" lean-forward="true" selection-start-line="34" selection-end-line="34" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -66,7 +68,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
@@ -106,10 +108,10 @@
       <list>
         <option value="$PROJECT_DIR$/src/MinesweeperDisplay.java" />
         <option value="$PROJECT_DIR$/src/GameTile.java" />
-        <option value="$PROJECT_DIR$/src/Minesweeper.java" />
         <option value="$PROJECT_DIR$/src/GameGrid.java" />
-        <option value="$PROJECT_DIR$/src/GameView.java" />
         <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/src/Minesweeper.java" />
+        <option value="$PROJECT_DIR$/src/GameView.java" />
       </list>
     </option>
   </component>
@@ -296,9 +298,10 @@
         <state relative-caret-position="630">
           <caret line="43" column="43" selection-start-line="43" selection-start-column="43" selection-end-line="43" selection-end-column="43" />
           <folding>
-            <element signature="imports" expanded="true" />
             <element signature="e#2032#2033#0" expanded="true" />
             <element signature="e#2094#2095#0" expanded="true" />
+            <element signature="e#3840#3841#0" expanded="true" />
+            <element signature="e#3886#3887#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -342,9 +345,10 @@
         <state relative-caret-position="630">
           <caret line="43" column="43" selection-start-line="43" selection-start-column="43" selection-end-line="43" selection-end-column="43" />
           <folding>
-            <element signature="imports" expanded="true" />
             <element signature="e#2032#2033#0" expanded="true" />
             <element signature="e#2094#2095#0" expanded="true" />
+            <element signature="e#3840#3841#0" expanded="true" />
+            <element signature="e#3886#3887#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -388,9 +392,10 @@
         <state relative-caret-position="630">
           <caret line="43" column="43" selection-start-line="43" selection-start-column="43" selection-end-line="43" selection-end-column="43" />
           <folding>
-            <element signature="imports" expanded="true" />
             <element signature="e#2032#2033#0" expanded="true" />
             <element signature="e#2094#2095#0" expanded="true" />
+            <element signature="e#3840#3841#0" expanded="true" />
+            <element signature="e#3886#3887#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -434,9 +439,10 @@
         <state relative-caret-position="630">
           <caret line="43" column="43" selection-start-line="43" selection-start-column="43" selection-end-line="43" selection-end-column="43" />
           <folding>
-            <element signature="imports" expanded="true" />
             <element signature="e#2032#2033#0" expanded="true" />
             <element signature="e#2094#2095#0" expanded="true" />
+            <element signature="e#3840#3841#0" expanded="true" />
+            <element signature="e#3886#3887#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -480,9 +486,10 @@
         <state relative-caret-position="630">
           <caret line="43" column="43" selection-start-line="43" selection-start-column="43" selection-end-line="43" selection-end-column="43" />
           <folding>
-            <element signature="imports" expanded="true" />
             <element signature="e#2032#2033#0" expanded="true" />
             <element signature="e#2094#2095#0" expanded="true" />
+            <element signature="e#3840#3841#0" expanded="true" />
+            <element signature="e#3886#3887#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -526,9 +533,10 @@
         <state relative-caret-position="630">
           <caret line="43" column="43" lean-forward="true" selection-start-line="43" selection-start-column="43" selection-end-line="43" selection-end-column="43" />
           <folding>
-            <element signature="imports" expanded="true" />
             <element signature="e#2032#2033#0" expanded="true" />
             <element signature="e#2094#2095#0" expanded="true" />
+            <element signature="e#3840#3841#0" expanded="true" />
+            <element signature="e#3886#3887#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -572,9 +580,10 @@
         <state relative-caret-position="480">
           <caret line="33" column="32" selection-start-line="33" selection-start-column="32" selection-end-line="33" selection-end-column="32" />
           <folding>
-            <element signature="imports" expanded="true" />
             <element signature="e#2032#2033#0" expanded="true" />
             <element signature="e#2094#2095#0" expanded="true" />
+            <element signature="e#3840#3841#0" expanded="true" />
+            <element signature="e#3886#3887#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -618,9 +627,10 @@
         <state relative-caret-position="480">
           <caret line="33" column="32" lean-forward="true" selection-start-line="33" selection-start-column="32" selection-end-line="33" selection-end-column="32" />
           <folding>
-            <element signature="imports" expanded="true" />
             <element signature="e#2032#2033#0" expanded="true" />
             <element signature="e#2094#2095#0" expanded="true" />
+            <element signature="e#3840#3841#0" expanded="true" />
+            <element signature="e#3886#3887#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -673,44 +683,10 @@
     <entry file="file://$PROJECT_DIR$/images/flag.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Minesweeper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1035">
-          <caret line="73" column="44" selection-start-line="73" selection-start-column="44" selection-end-line="73" selection-end-column="44" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2441#2442#0" expanded="true" />
-            <element signature="e#2474#2475#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/GameTile.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="312">
           <caret line="33" column="31" selection-start-line="33" selection-start-column="31" selection-end-line="33" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GameGrid.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-277">
-          <caret line="34" lean-forward="true" selection-start-line="34" selection-end-line="34" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GameView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-10">
-          <caret line="42" column="26" lean-forward="true" selection-start-line="42" selection-start-column="26" selection-end-line="42" selection-end-column="26" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2032#2033#0" expanded="true" />
-            <element signature="e#2094#2095#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -726,6 +702,41 @@
             <caret line="17" column="2" selection-start-line="17" selection-start-column="2" selection-end-line="17" selection-end-column="2" />
           </first_editor>
           <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GameGrid.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-939">
+          <caret line="34" lean-forward="true" selection-start-line="34" selection-end-line="34" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Minesweeper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="77" column="43" lean-forward="true" selection-start-line="77" selection-start-column="43" selection-end-line="77" selection-end-column="43" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2441#2442#0" expanded="true" />
+            <element signature="e#2474#2475#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GameView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="18" selection-start-line="2" selection-start-column="18" selection-end-line="2" selection-end-column="18" />
+          <folding>
+            <element signature="e#2032#2033#0" expanded="true" />
+            <element signature="e#2094#2095#0" expanded="true" />
+            <element signature="e#3840#3841#0" expanded="true" />
+            <element signature="e#3886#3887#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -72,7 +72,8 @@ public class Minesweeper implements MouseListener, ActionListener {
     public void mouseClicked(MouseEvent e) { }
 
     public void mousePressed(MouseEvent e) {
-        VIEW.mousePressed(e.getX(), e.getY(), e.getButton());
+        int button = (e.isControlDown() && e.getButton() == 1) ? 3 : e.getButton();
+        VIEW.mousePressed(e.getX(), e.getY(), button);
         if (VIEW.getGameStatus()) {
             VIEW.removeMouseListener(this);
         }
