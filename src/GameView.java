@@ -55,7 +55,6 @@ class GameView extends JPanel {
     }
 
     void reset() {
-        GAME_STARTED = false;  // TODO: remove
         GAME_LOST = false;
         GAME_WON = false;
         GRID_HIDDEN = false;
