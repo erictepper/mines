@@ -1,4 +1,4 @@
-# Minesweeper, ver. 1.3
+# Minesweeper, ver. 0.3
 A from-scratch Java implementation of Minesweeper, taking advantage of the java.awt.Graphics library. 
 Class code can be found in [../src](../master/src)
 
