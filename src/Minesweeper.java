@@ -10,13 +10,14 @@ public class Minesweeper implements MouseListener, ActionListener {
     private JButton BEGINNER_BUTTON;
     private JButton INTERMEDIATE_BUTTON;
     private JButton EXPERT_BUTTON;
+    private JButton HINT;
 
     private Minesweeper() {
         GAME_FRAME = new JFrame("Minesweeper");
         GAME_FRAME.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         VIEW = new GameView();
-        VIEW.setSize(1000, 730);
+        VIEW.setSize(1000, 770);
         VIEW.setBackground(Color.WHITE);
         VIEW.addMouseListener(this);
 
@@ -32,33 +33,33 @@ public class Minesweeper implements MouseListener, ActionListener {
         reset.addActionListener(this);
         reset.setActionCommand("reset");
 
-        JButton hint = new JButton("HINT");
-        hint.setFont(new Font("Courier New", Font.PLAIN, 16));
-        hint.setBounds(50, 50, 130, 40);
-        hint.addActionListener(this);
-        hint.setActionCommand("hint");
+        HINT = new JButton("HINT");
+        HINT.setFont(new Font("Courier New", Font.PLAIN, 16));
+        HINT.setBounds(310, 160, 130, 40);
+        HINT.addActionListener(this);
+        HINT.setActionCommand("hint");
 
         BEGINNER_BUTTON = new JButton("BEGINNER");
         BEGINNER_BUTTON.setFont(new Font("Courier New", Font.PLAIN, 16));
-        BEGINNER_BUTTON.setBounds(185, 300, 130, 40);
+        BEGINNER_BUTTON.setBounds(185, 340, 130, 40);
 
         INTERMEDIATE_BUTTON = new JButton("INTERMEDIATE");
         INTERMEDIATE_BUTTON.setFont(new Font("Courier New", Font.PLAIN, 16));
-        INTERMEDIATE_BUTTON.setBounds(425, 300, 150, 40);
+        INTERMEDIATE_BUTTON.setBounds(425, 340, 150, 40);
 
         EXPERT_BUTTON = new JButton("EXPERT");
         EXPERT_BUTTON.setFont(new Font("Courier New", Font.PLAIN, 16));
-        EXPERT_BUTTON.setBounds(685, 300, 130, 40);
+        EXPERT_BUTTON.setBounds(685, 340, 130, 40);
 
 
         GAME_FRAME.add(NEW_GAME_BUTTON);
         GAME_FRAME.add(reset);
-        GAME_FRAME.add(hint);
+        GAME_FRAME.add(HINT);
         GAME_FRAME.add(BEGINNER_BUTTON);
         GAME_FRAME.add(INTERMEDIATE_BUTTON);
         GAME_FRAME.add(EXPERT_BUTTON);
         GAME_FRAME.add(VIEW);
-        GAME_FRAME.setSize(1000, 730);
+        GAME_FRAME.setSize(1000, 770);
         GAME_FRAME.setVisible(true);
         BEGINNER_BUTTON.setVisible(false);
         INTERMEDIATE_BUTTON.setVisible(false);
@@ -99,6 +100,8 @@ public class Minesweeper implements MouseListener, ActionListener {
                 INTERMEDIATE_BUTTON.removeActionListener(this);
                 EXPERT_BUTTON.setVisible(false);
                 EXPERT_BUTTON.removeActionListener(this);
+                HINT.removeActionListener(this);
+                HINT.addActionListener(this);
                 NEW_GAME_BUTTON.setActionCommand("new_game_1");
 
                 GAME_FRAME.repaint();
@@ -123,6 +126,7 @@ public class Minesweeper implements MouseListener, ActionListener {
                 EXPERT_BUTTON.addActionListener(this);
                 EXPERT_BUTTON.setActionCommand("expert");
                 EXPERT_BUTTON.setVisible(true);
+                HINT.removeActionListener(this);
                 NEW_GAME_BUTTON.setActionCommand("new_game_2");
 
                 GAME_FRAME.repaint();
@@ -137,6 +141,7 @@ public class Minesweeper implements MouseListener, ActionListener {
                 INTERMEDIATE_BUTTON.removeActionListener(this);
                 EXPERT_BUTTON.setVisible(false);
                 EXPERT_BUTTON.removeActionListener(this);
+                HINT.addActionListener(this);
                 NEW_GAME_BUTTON.setActionCommand("new_game_1");
 
                 GAME_FRAME.repaint();
@@ -151,6 +156,7 @@ public class Minesweeper implements MouseListener, ActionListener {
                 INTERMEDIATE_BUTTON.removeActionListener(this);
                 EXPERT_BUTTON.setVisible(false);
                 EXPERT_BUTTON.removeActionListener(this);
+                HINT.addActionListener(this);
                 NEW_GAME_BUTTON.setActionCommand("new_game_1");
 
                 GAME_FRAME.repaint();
@@ -165,6 +171,7 @@ public class Minesweeper implements MouseListener, ActionListener {
                 INTERMEDIATE_BUTTON.removeActionListener(this);
                 EXPERT_BUTTON.setVisible(false);
                 EXPERT_BUTTON.removeActionListener(this);
+                HINT.addActionListener(this);
                 NEW_GAME_BUTTON.setActionCommand("new_game_1");
 
                 GAME_FRAME.repaint();
@@ -179,6 +186,7 @@ public class Minesweeper implements MouseListener, ActionListener {
                 INTERMEDIATE_BUTTON.removeActionListener(this);
                 EXPERT_BUTTON.setVisible(false);
                 EXPERT_BUTTON.removeActionListener(this);
+                HINT.addActionListener(this);
                 NEW_GAME_BUTTON.setActionCommand("new_game_1");
 
                 GAME_FRAME.repaint();

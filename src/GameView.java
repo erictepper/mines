@@ -30,19 +30,19 @@ class GameView extends JPanel {
         switch (difficulty) {
             case "beginner":
                 BOARD_START_X = 365;
-                BOARD_START_Y = 300;
+                BOARD_START_Y = 340;
                 GAME_GRID = new GameGrid(difficulty, BOARD_START_X, BOARD_START_Y, SQUARE_SIZE);
                 break;
 
             case "intermediate":
                 BOARD_START_X = 260;
-                BOARD_START_Y = 200;
+                BOARD_START_Y = 240;
                 GAME_GRID = new GameGrid(difficulty, BOARD_START_X, BOARD_START_Y, SQUARE_SIZE);
                 break;
 
             case "expert":
                 BOARD_START_X = 50;
-                BOARD_START_Y = 200;
+                BOARD_START_Y = 240;
                 GAME_GRID = new GameGrid(difficulty, BOARD_START_X, BOARD_START_Y, SQUARE_SIZE);
                 break;
         }
@@ -118,15 +118,15 @@ class GameView extends JPanel {
         g.setFont(new Font("Courier New", Font.PLAIN, 20));
         g.setColor(Color.BLACK);
         if (GAME_GRID.getTotalMines() - FLAGS_LAID > 9) {
-            g.drawString(Integer.toString(GAME_GRID.getTotalMines() - FLAGS_LAID), 640, 147);
+            g.drawString(Integer.toString(GAME_GRID.getTotalMines() - FLAGS_LAID), 640, 187);
         } else {
-            g.drawString("0" + (GAME_GRID.getTotalMines() - FLAGS_LAID), 640, 147);
+            g.drawString("0" + (GAME_GRID.getTotalMines() - FLAGS_LAID), 640, 187);
         }
         if (FLAG != null) {
-            g.drawImage(FLAG, 670, 125, null);
-            g.drawRect(635, 125, 65, 30);
+            g.drawImage(FLAG, 670, 165, null);
+            g.drawRect(635, 165, 65, 30);
         } else {
-            g.drawString("Flags", 600, 150);
+            g.drawString("Flags", 600, 190);
         }
 
         if (GAME_LOST) {
