@@ -18,7 +18,6 @@ lay flags with CTRL+left-click.
 **Potential future features include:**
 * Make the reveal of all bombs upon loss of the game optional, and disable ability to reset the game if bombs have 
   been revealed.
-* Change new game / reset options to dropdown menu to clean up interface. 
 * Save/load game. 
 * Game timer
 * Scoring system
