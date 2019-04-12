@@ -24,13 +24,13 @@ public class Minesweeper implements MouseListener, ActionListener {
 
         NEW_GAME_BUTTON = new JButton("NEW GAME");
         NEW_GAME_BUTTON.setFont(new Font("Courier New", Font.PLAIN, 16));
-        NEW_GAME_BUTTON.setBounds(310, 120, 130, 40);
+        NEW_GAME_BUTTON.setBounds(360, 120, 130, 40);
         NEW_GAME_BUTTON.addActionListener(this);
         NEW_GAME_BUTTON.setActionCommand("new_game_1");
 
         JButton reset = new JButton("RESET");
         reset.setFont(new Font("Courier New", Font.PLAIN, 16));
-        reset.setBounds(450, 120, 130, 40);
+        reset.setBounds(550, 120, 130, 40);
         reset.addActionListener(this);
         reset.setActionCommand("reset");
 
