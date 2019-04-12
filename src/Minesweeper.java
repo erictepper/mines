@@ -42,7 +42,6 @@ public class Minesweeper implements MouseListener, ActionListener {
 
         GAME_TIMER = new Timer(1000, this);
         GAME_TIMER.setActionCommand("timer");
-        GAME_TIMER.start();
 
         BEGINNER_BUTTON = new JButton("BEGINNER");
         BEGINNER_BUTTON.setFont(new Font("Courier New", Font.PLAIN, 16));
@@ -78,6 +77,7 @@ public class Minesweeper implements MouseListener, ActionListener {
     public void mouseClicked(MouseEvent e) { }
 
     public void mousePressed(MouseEvent e) {
+        if (!GAME_INSTANCE.getGameStartedStatus()) { GAME_TIMER.start(); }
         int button = (e.isControlDown() && e.getButton() == 1) ? 3 : e.getButton();
         GAME_INSTANCE.mousePressed(e.getX(), e.getY(), button);
         if (GAME_INSTANCE.getGameStatus()) {
@@ -146,7 +146,7 @@ public class Minesweeper implements MouseListener, ActionListener {
             case "new_game_2":
                 GAME_INSTANCE.showGrid();
                 GAME_INSTANCE.addMouseListener(this);
-                GAME_TIMER.start();
+                if (GAME_INSTANCE.getGameStartedStatus()) { GAME_TIMER.start(); }
 
                 BEGINNER_BUTTON.setVisible(false);
                 BEGINNER_BUTTON.removeActionListener(this);
@@ -162,7 +162,6 @@ public class Minesweeper implements MouseListener, ActionListener {
             case "beginner":
                 GAME_INSTANCE.newGame("beginner");
                 GAME_INSTANCE.addMouseListener(this);
-                GAME_TIMER.start();
 
                 BEGINNER_BUTTON.setVisible(false);
                 BEGINNER_BUTTON.removeActionListener(this);
@@ -178,7 +177,6 @@ public class Minesweeper implements MouseListener, ActionListener {
             case "intermediate":
                 GAME_INSTANCE.newGame("intermediate");
                 GAME_INSTANCE.addMouseListener(this);
-                GAME_TIMER.start();
 
                 BEGINNER_BUTTON.setVisible(false);
                 BEGINNER_BUTTON.removeActionListener(this);
@@ -194,7 +192,6 @@ public class Minesweeper implements MouseListener, ActionListener {
             case "expert":
                 GAME_INSTANCE.newGame("expert");
                 GAME_INSTANCE.addMouseListener(this);
-                GAME_TIMER.start();
 
                 BEGINNER_BUTTON.setVisible(false);
                 BEGINNER_BUTTON.removeActionListener(this);
