@@ -96,7 +96,8 @@ public class Minesweeper implements MouseListener, ActionListener {
     public void actionPerformed(ActionEvent e) {
         switch (e.getActionCommand()) {
             case "timer":
-                System.out.println(GAME_INSTANCE.timerTick());
+                GAME_INSTANCE.timerTick();
+                GAME_FRAME.repaint();
                 break;
             case "reset":
                 GAME_INSTANCE.reset();
