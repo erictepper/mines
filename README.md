@@ -1,4 +1,4 @@
-# Minesweeper, ver. 0.4
+# Minesweeper, ver. 0.5
 A from-scratch Java implementation of Minesweeper, taking advantage of the java.awt.Graphics library. 
 Class code can be found in [../src](../master/src)
 
@@ -15,11 +15,12 @@ them, if a false flag exists, or will have a flag placed in a spot that is most 
 **Version 0.4:** Player can now use CTRL as a modifier key to change a left-click into a right-click, allowing them to 
 lay flags with CTRL+left-click.
 
+**Version 0.5:** Game timer added.
+
 **Potential future features include:**
 * Make the reveal of all bombs upon loss of the game optional, and disable ability to reset the game if bombs have 
   been revealed.
 * Save/load game. 
-* Game timer
 * Scoring system
 * Daily games
 
