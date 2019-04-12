@@ -53,6 +53,7 @@ class Game extends JPanel {
         GRID_HIDDEN = false;
         FLAGS_LAID = 0;
         NUMBER_OF_REVEALED_NUMBERS = 0;
+        SECONDS_ELAPSED = 0;
     }
 
     void reset() {
@@ -61,6 +62,7 @@ class Game extends JPanel {
         GRID_HIDDEN = false;
         FLAGS_LAID = 0;
         NUMBER_OF_REVEALED_NUMBERS = 0;
+        SECONDS_ELAPSED = 0;
         GAME_GRID.reset();
     }
 
@@ -76,7 +78,7 @@ class Game extends JPanel {
         GRID_HIDDEN = false;
     }
 
-    // Ticks the timer and returns the current number of seconds elapsed. 
+    // Ticks the timer and returns the current number of seconds elapsed.
     int timerTick() {
         return SECONDS_ELAPSED++;
     }
