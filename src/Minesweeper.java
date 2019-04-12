@@ -5,18 +5,19 @@ import java.awt.event.*;
 
 public class Minesweeper implements MouseListener, ActionListener {
     private JFrame GAME_FRAME;
-    private GameView VIEW;
+    private Game VIEW;
     private JButton NEW_GAME_BUTTON;
     private JButton BEGINNER_BUTTON;
     private JButton INTERMEDIATE_BUTTON;
     private JButton EXPERT_BUTTON;
     private JButton HINT;
+    private Timer GAME_TIMER;
 
     private Minesweeper() {
         GAME_FRAME = new JFrame("Minesweeper");
         GAME_FRAME.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        VIEW = new GameView();
+        VIEW = new Game();
         VIEW.setSize(1000, 770);
         VIEW.setBackground(Color.WHITE);
         VIEW.addMouseListener(this);
@@ -38,6 +39,10 @@ public class Minesweeper implements MouseListener, ActionListener {
         HINT.setBounds(310, 160, 130, 40);
         HINT.addActionListener(this);
         HINT.setActionCommand("hint");
+
+        GAME_TIMER = new Timer(1000, this);
+        GAME_TIMER.setActionCommand("timer");
+        GAME_TIMER.start();
 
         BEGINNER_BUTTON = new JButton("BEGINNER");
         BEGINNER_BUTTON.setFont(new Font("Courier New", Font.PLAIN, 16));
@@ -89,6 +94,9 @@ public class Minesweeper implements MouseListener, ActionListener {
 
     public void actionPerformed(ActionEvent e) {
         switch (e.getActionCommand()) {
+            case "timer":
+                System.out.println("Timer fired!");
+                break;
             case "reset":
                 VIEW.reset();
                 VIEW.removeMouseListener(this);
