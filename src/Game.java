@@ -62,7 +62,6 @@ class Game extends JPanel {
         GRID_HIDDEN = false;
         FLAGS_LAID = 0;
         NUMBER_OF_REVEALED_NUMBERS = 0;
-        SECONDS_ELAPSED = 0;
         GAME_GRID.reset();
     }
 
@@ -80,7 +79,7 @@ class Game extends JPanel {
 
     // Ticks the timer and returns the current number of seconds elapsed.
     int timerTick() {
-        return SECONDS_ELAPSED++;
+        return ++SECONDS_ELAPSED;
     }
 
     void mousePressed(int xPosition, int yPosition, int button) {
