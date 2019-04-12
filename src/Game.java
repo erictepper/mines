@@ -4,7 +4,7 @@ import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 
-class GameView extends JPanel {
+class Game extends JPanel {
     private int BOARD_START_X;
     private int BOARD_START_Y;
     private static int SQUARE_SIZE = 30;
@@ -16,8 +16,9 @@ class GameView extends JPanel {
     private Image FLAG;
     private int FLAGS_LAID;
     private int NUMBER_OF_REVEALED_NUMBERS;
+    private int SECONDS_ELAPSED;
 
-    GameView() {
+    Game() {
         newGame("expert");
         try {
             FLAG = ImageIO.read(new File("images/flag.png"));
@@ -73,6 +74,11 @@ class GameView extends JPanel {
 
     void showGrid() {
         GRID_HIDDEN = false;
+    }
+
+    // Ticks the timer and returns the current number of seconds elapsed. 
+    int timerTick() {
+        return SECONDS_ELAPSED++;
     }
 
     void mousePressed(int xPosition, int yPosition, int button) {
