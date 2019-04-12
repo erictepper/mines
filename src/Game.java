@@ -124,6 +124,18 @@ class Game extends JPanel {
 
         g.setFont(new Font("Courier New", Font.PLAIN, 20));
         g.setColor(Color.BLACK);
+        int seconds_mod_60_elapsed = SECONDS_ELAPSED % 60;
+        int minutes_elapsed = SECONDS_ELAPSED / 60;
+        String seconds_display;
+        String minutes_display;
+        if (seconds_mod_60_elapsed < 10) { seconds_display = "0" + seconds_mod_60_elapsed; } else {
+            seconds_display = Integer.toString(seconds_mod_60_elapsed);
+        }
+        if (minutes_elapsed < 10) { minutes_display = "0" + minutes_elapsed; } else {
+            minutes_display = Integer.toString(minutes_elapsed);
+        }
+        String timer_display = minutes_display + ":" + seconds_display;
+        g.drawString(timer_display, 500, 187);
         if (GAME_GRID.getTotalMines() - FLAGS_LAID > 9) {
             g.drawString(Integer.toString(GAME_GRID.getTotalMines() - FLAGS_LAID), 640, 187);
         } else {
