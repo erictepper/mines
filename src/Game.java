@@ -78,8 +78,8 @@ class Game extends JPanel {
     }
 
     // Ticks the timer and returns the current number of seconds elapsed.
-    int timerTick() {
-        return ++SECONDS_ELAPSED;
+    void timerTick() {
+        ++SECONDS_ELAPSED;
     }
 
     void mousePressed(int xPosition, int yPosition, int button) {
