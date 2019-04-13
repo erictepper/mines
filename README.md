@@ -19,10 +19,13 @@ lay flags with CTRL+left-click.
 
 **Potential future features include:**
 * Make the reveal of all bombs upon loss of the game optional, and disable ability to reset the game if bombs have 
-  been revealed.
-* Save/load game. 
-* Scoring system
-* Daily games
+  been revealed. 
+* Scoring system. 
+* Deploy to web. 
+* Use cookies? to save/load games. 
+* Save high scores using cookies?
+* Store daily games in a SQL server? 
+* Store daily games in a SQL
 
 
 **Bugs to fix:**
