@@ -104,7 +104,7 @@ class Game extends JPanel {
             int typeRevealed = GAME_GRID.reveal(gridIndexXPosition, gridIndexYPosition);
             if (typeRevealed == -1) {
                 GAME_LOST = true;
-                GAME_GRID.revealAllMines();
+                // GAME_GRID.revealAllMines(); TODO: remove or fix this
             }
             else {
                 NUMBER_OF_REVEALED_NUMBERS = NUMBER_OF_REVEALED_NUMBERS + typeRevealed;
