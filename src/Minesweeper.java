@@ -13,6 +13,8 @@ public class Minesweeper implements MouseListener, ActionListener {
     private JButton HINT;
     private Timer GAME_TIMER;
     private Boolean DISPLAY_REVEAL_MINES_DIALOGUE;
+    private JButton REVEAL_MINES_YES;
+    private JButton REVEAL_MINES_NO;
 
     private Minesweeper() {
         GAME_FRAME = new JFrame("Minesweeper");
@@ -79,8 +81,9 @@ public class Minesweeper implements MouseListener, ActionListener {
 
     public void mouseClicked(MouseEvent e) { }
 
+    // Handles the interaction of the mouse with the interface.
     public void mousePressed(MouseEvent e) {
-        if (!GAME_INSTANCE.getGameStartedStatus()) { GAME_TIMER.start(); }
+        if (!GAME_INSTANCE.getGameStartedStatus()) { GAME_TIMER.start(); }  // TODO: potentially move to Game.java
         int button = (e.isControlDown() && e.getButton() == 1) ? 3 : e.getButton();
         GAME_INSTANCE.mousePressed(e.getX(), e.getY(), button);
         if (GAME_INSTANCE.getGameStatus()) {
