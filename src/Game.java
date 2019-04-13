@@ -116,6 +116,8 @@ class Game extends JPanel {
 
     boolean getGameStartedStatus() { return GAME_STARTED; }
 
+    boolean getGameLostStatus() { return GAME_LOST; }
+
     boolean getGameStatus() {
         return (GAME_LOST || GAME_WON);
     }
