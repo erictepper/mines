@@ -77,6 +77,10 @@ class Game extends JPanel {
         repaint();
     }
 
+    void revealAllMines() {
+        GAME_GRID.revealAllMines();
+    }
+
     void giveHint() {
         FLAGS_LAID = FLAGS_LAID + GAME_GRID.giveHint();
     }
@@ -88,6 +92,8 @@ class Game extends JPanel {
     void showGrid() {
         GRID_HIDDEN = false;
     }
+
+    boolean isGridHidden() { return GRID_HIDDEN; }
 
     // Ticks the timer and returns the current number of seconds elapsed.
     void timerTick() {
@@ -180,7 +186,7 @@ class Game extends JPanel {
             g.drawString("Minesweeper", 310, 100);
         }
 
-        if (true) { // DISPLAY_REVEAL_MINES_DIALOGUE
+        if (DISPLAY_REVEAL_MINES_DIALOGUE) {
             g.setFont(new Font("Courier New", Font.PLAIN, 12));
             g.setColor(Color.BLACK);
             g.drawString("Would you like to reveal all mines?", 335,225);
