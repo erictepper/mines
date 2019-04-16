@@ -3,7 +3,6 @@ import javax.swing.*;
 import java.awt.event.*;
 
 
-
 public class Minesweeper implements MouseListener, ActionListener {
     private JFrame GAME_FRAME;
     private Game GAME_INSTANCE;
