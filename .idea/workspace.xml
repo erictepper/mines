@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="433e07ea-2725-4155-8099-6108161a1c40" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Minesweeper/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Minesweeper/Game.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Minesweeper/Minesweeper.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Minesweeper/Minesweeper.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game.java" afterDir="false" />
@@ -23,8 +22,8 @@
       <file leaf-file-name="Minesweeper.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Minesweeper.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="128">
-              <caret line="50" column="38" selection-start-line="50" selection-start-column="38" selection-end-line="50" selection-end-column="38" />
+            <state relative-caret-position="193">
+              <caret line="130" column="17" lean-forward="true" selection-start-line="130" selection-start-column="17" selection-end-line="130" selection-end-column="17" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -35,10 +34,12 @@
       <file leaf-file-name="Game.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Game.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="347">
-              <caret line="185" column="66" selection-start-line="185" selection-start-column="66" selection-end-line="185" selection-end-column="66" />
+            <state relative-caret-position="130">
+              <caret line="89" column="5" lean-forward="true" selection-start-line="89" selection-start-column="5" selection-end-line="89" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#2352#2353#0" expanded="true" />
+                <element signature="e#2394#2395#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -47,8 +48,8 @@
       <file leaf-file-name="GameGrid.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/GameGrid.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="41">
-              <caret line="34" selection-start-line="34" selection-end-line="34" />
+            <state relative-caret-position="69">
+              <caret line="166" column="13" selection-start-line="166" selection-start-column="8" selection-end-line="166" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -90,6 +91,7 @@
       <find>new_game_button</find>
       <find>revealallbombs</find>
       <find>markas</find>
+      <find>giveh</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -297,6 +299,8 @@
           <caret line="43" column="43" selection-start-line="43" selection-start-column="43" selection-end-line="43" selection-end-column="43" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#2352#2353#0" expanded="true" />
+            <element signature="e#2394#2395#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -341,6 +345,8 @@
           <caret line="43" column="43" selection-start-line="43" selection-start-column="43" selection-end-line="43" selection-end-column="43" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#2352#2353#0" expanded="true" />
+            <element signature="e#2394#2395#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -385,6 +391,8 @@
           <caret line="43" column="43" selection-start-line="43" selection-start-column="43" selection-end-line="43" selection-end-column="43" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#2352#2353#0" expanded="true" />
+            <element signature="e#2394#2395#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -429,6 +437,8 @@
           <caret line="43" column="43" selection-start-line="43" selection-start-column="43" selection-end-line="43" selection-end-column="43" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#2352#2353#0" expanded="true" />
+            <element signature="e#2394#2395#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -473,6 +483,8 @@
           <caret line="43" column="43" selection-start-line="43" selection-start-column="43" selection-end-line="43" selection-end-column="43" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#2352#2353#0" expanded="true" />
+            <element signature="e#2394#2395#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -517,6 +529,8 @@
           <caret line="43" column="43" lean-forward="true" selection-start-line="43" selection-start-column="43" selection-end-line="43" selection-end-column="43" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#2352#2353#0" expanded="true" />
+            <element signature="e#2394#2395#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -561,6 +575,8 @@
           <caret line="33" column="32" selection-start-line="33" selection-start-column="32" selection-end-line="33" selection-end-column="32" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#2352#2353#0" expanded="true" />
+            <element signature="e#2394#2395#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -605,6 +621,8 @@
           <caret line="33" column="32" lean-forward="true" selection-start-line="33" selection-start-column="32" selection-end-line="33" selection-end-column="32" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#2352#2353#0" expanded="true" />
+            <element signature="e#2394#2395#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -681,8 +699,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/GameGrid.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="41">
-          <caret line="34" selection-start-line="34" selection-end-line="34" />
+        <state relative-caret-position="69">
+          <caret line="166" column="13" selection-start-line="166" selection-start-column="8" selection-end-line="166" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -691,18 +709,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Game.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="347">
-          <caret line="185" column="66" selection-start-line="185" selection-start-column="66" selection-end-line="185" selection-end-column="66" />
+        <state relative-caret-position="130">
+          <caret line="89" column="5" lean-forward="true" selection-start-line="89" selection-start-column="5" selection-end-line="89" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#2352#2353#0" expanded="true" />
+            <element signature="e#2394#2395#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Minesweeper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="128">
-          <caret line="50" column="38" selection-start-line="50" selection-start-column="38" selection-end-line="50" selection-end-column="38" />
+        <state relative-caret-position="193">
+          <caret line="130" column="17" lean-forward="true" selection-start-line="130" selection-start-column="17" selection-end-line="130" selection-end-column="17" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
