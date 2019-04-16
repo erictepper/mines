@@ -21,8 +21,6 @@ lay flags with CTRL+left-click.
 it will no longer be possible to reset the game. 
 
 **Potential future features include:**
-* Make the reveal of all bombs upon loss of the game optional, and disable ability to reset the game if bombs have 
-  been revealed. 
 * Scoring system. 
 * Deploy to web. 
 * Use cookies? to save/load games. 
