@@ -13,6 +13,7 @@ class Game extends JPanel {
     private boolean GAME_LOST;  // true if lost, false if not lost.
     private boolean GAME_WON; // true if won, false if not won.
     private boolean GRID_HIDDEN;
+    private Boolean DISPLAY_REVEAL_MINES_DIALOGUE;
     private Image FLAG;
     private int FLAGS_LAID;
     private int NUMBER_OF_REVEALED_NUMBERS;
@@ -51,6 +52,7 @@ class Game extends JPanel {
         GAME_LOST = false;
         GAME_WON = false;
         GRID_HIDDEN = false;
+        DISPLAY_REVEAL_MINES_DIALOGUE = false;
         FLAGS_LAID = 0;
         NUMBER_OF_REVEALED_NUMBERS = 0;
         SECONDS_ELAPSED = 0;
@@ -65,6 +67,20 @@ class Game extends JPanel {
         GAME_GRID.reset();
     }
 
+    void showRevealDialogue() {
+        DISPLAY_REVEAL_MINES_DIALOGUE = true;
+        repaint();
+    }
+
+    void hideRevealDialogue() {
+        DISPLAY_REVEAL_MINES_DIALOGUE = false;
+        repaint();
+    }
+
+    void revealAllMines() {
+        GAME_GRID.revealAllMines();
+    }
+
     void giveHint() {
         FLAGS_LAID = FLAGS_LAID + GAME_GRID.giveHint();
     }
@@ -77,11 +93,14 @@ class Game extends JPanel {
         GRID_HIDDEN = false;
     }
 
+    boolean isGridHidden() { return GRID_HIDDEN; }
+
     // Ticks the timer and returns the current number of seconds elapsed.
     void timerTick() {
         ++SECONDS_ELAPSED;
     }
 
+    // Handles the interaction of the mouse with the game.
     void mousePressed(int xPosition, int yPosition, int button) {
         if (xPosition <= BOARD_START_X || xPosition >= BOARD_START_X + (GAME_GRID.getBoardWidth()*SQUARE_SIZE)) {
             return;
@@ -104,7 +123,6 @@ class Game extends JPanel {
             int typeRevealed = GAME_GRID.reveal(gridIndexXPosition, gridIndexYPosition);
             if (typeRevealed == -1) {
                 GAME_LOST = true;
-                GAME_GRID.revealAllMines();
             }
             else {
                 NUMBER_OF_REVEALED_NUMBERS = NUMBER_OF_REVEALED_NUMBERS + typeRevealed;
@@ -116,6 +134,8 @@ class Game extends JPanel {
 
     boolean getGameStartedStatus() { return GAME_STARTED; }
 
+    boolean getGameLostStatus() { return GAME_LOST; }
+
     boolean getGameStatus() {
         return (GAME_LOST || GAME_WON);
     }
@@ -126,6 +146,7 @@ class Game extends JPanel {
 
         g.setFont(new Font("Courier New", Font.PLAIN, 20));
         g.setColor(Color.BLACK);
+
         int seconds_mod_60_elapsed = SECONDS_ELAPSED % 60;
         int minutes_elapsed = SECONDS_ELAPSED / 60;
         String seconds_display;
@@ -138,6 +159,7 @@ class Game extends JPanel {
         }
         String timer_display = minutes_display + ":" + seconds_display;
         g.drawString(timer_display, 500, 187);
+
         if (GAME_GRID.getTotalMines() - FLAGS_LAID > 9) {
             g.drawString(Integer.toString(GAME_GRID.getTotalMines() - FLAGS_LAID), 640, 187);
         } else {
@@ -161,6 +183,12 @@ class Game extends JPanel {
         } else {
             g.setFont(new Font("Courier New", Font.PLAIN, 60));
             g.drawString("Minesweeper", 310, 100);
+        }
+
+        if (DISPLAY_REVEAL_MINES_DIALOGUE) {
+            g.setFont(new Font("Courier New", Font.PLAIN, 12));
+            g.setColor(Color.BLACK);
+            g.drawString("Would you like to reveal all mines?", 335,225);
         }
 
         if (GRID_HIDDEN) { return; }

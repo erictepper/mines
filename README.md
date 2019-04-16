@@ -1,4 +1,4 @@
-# Minesweeper, ver. 0.5
+# Minesweeper, ver. 0.6
 A from-scratch Java implementation of Minesweeper, taking advantage of the java.awt.Graphics library. 
 Class code can be found in [../src](../master/src)
 
@@ -17,13 +17,17 @@ lay flags with CTRL+left-click.
 
 **Version 0.5:** Game timer added.
 
+**Version 0.6:** It is now optional to have all bombs revealed upon a loss. If all bombs are revealed, 
+it will no longer be possible to reset the game. 
+
 **Potential future features include:**
-* Make the reveal of all bombs upon loss of the game optional, and disable ability to reset the game if bombs have 
-  been revealed.
-* Save/load game. 
-* Scoring system
-* Daily games
+* Scoring system. 
+* Deploy to web. 
+* Use cookies? to save/load games. 
+* Save high scores using cookies?
+* Store daily games in a SQL server? 
+* Store daily games in a SQL
 
 
 **Bugs to fix:**
-No current bugs. 
+* Every once in a while, relocateMine will relocate a mine to the same spot. 
