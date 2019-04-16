@@ -13,6 +13,7 @@ class Game extends JPanel {
     private boolean GAME_LOST;  // true if lost, false if not lost.
     private boolean GAME_WON; // true if won, false if not won.
     private boolean GRID_HIDDEN;
+    private Boolean DISPLAY_REVEAL_MINES_DIALOGUE;
     private Image FLAG;
     private int FLAGS_LAID;
     private int NUMBER_OF_REVEALED_NUMBERS;
@@ -51,6 +52,7 @@ class Game extends JPanel {
         GAME_LOST = false;
         GAME_WON = false;
         GRID_HIDDEN = false;
+        DISPLAY_REVEAL_MINES_DIALOGUE = false;
         FLAGS_LAID = 0;
         NUMBER_OF_REVEALED_NUMBERS = 0;
         SECONDS_ELAPSED = 0;
@@ -63,6 +65,16 @@ class Game extends JPanel {
         FLAGS_LAID = 0;
         NUMBER_OF_REVEALED_NUMBERS = 0;
         GAME_GRID.reset();
+    }
+
+    void showRevealDialogue() {
+        DISPLAY_REVEAL_MINES_DIALOGUE = true;
+        repaint();
+    }
+
+    void hideRevealDialogue() {
+        DISPLAY_REVEAL_MINES_DIALOGUE = false;
+        repaint();
     }
 
     void giveHint() {
@@ -129,6 +141,7 @@ class Game extends JPanel {
 
         g.setFont(new Font("Courier New", Font.PLAIN, 20));
         g.setColor(Color.BLACK);
+
         int seconds_mod_60_elapsed = SECONDS_ELAPSED % 60;
         int minutes_elapsed = SECONDS_ELAPSED / 60;
         String seconds_display;
@@ -141,6 +154,7 @@ class Game extends JPanel {
         }
         String timer_display = minutes_display + ":" + seconds_display;
         g.drawString(timer_display, 500, 187);
+
         if (GAME_GRID.getTotalMines() - FLAGS_LAID > 9) {
             g.drawString(Integer.toString(GAME_GRID.getTotalMines() - FLAGS_LAID), 640, 187);
         } else {
@@ -164,6 +178,12 @@ class Game extends JPanel {
         } else {
             g.setFont(new Font("Courier New", Font.PLAIN, 60));
             g.drawString("Minesweeper", 310, 100);
+        }
+
+        if (true) { // DISPLAY_REVEAL_MINES_DIALOGUE
+            g.setFont(new Font("Courier New", Font.PLAIN, 12));
+            g.setColor(Color.BLACK);
+            g.drawString("Would you like to reveal all mines?", 335,225);
         }
 
         if (GRID_HIDDEN) { return; }

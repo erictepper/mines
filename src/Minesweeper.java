@@ -7,12 +7,12 @@ public class Minesweeper implements MouseListener, ActionListener {
     private JFrame GAME_FRAME;
     private Game GAME_INSTANCE;
     private JButton NEW_GAME_BUTTON;
+    private JButton RESET_BUTTON;
     private JButton BEGINNER_BUTTON;
     private JButton INTERMEDIATE_BUTTON;
     private JButton EXPERT_BUTTON;
     private JButton HINT;
     private Timer GAME_TIMER;
-    private Boolean DISPLAY_REVEAL_MINES_DIALOGUE;
     private JButton REVEAL_MINES_YES;
     private JButton REVEAL_MINES_NO;
 
@@ -31,11 +31,11 @@ public class Minesweeper implements MouseListener, ActionListener {
         NEW_GAME_BUTTON.addActionListener(this);
         NEW_GAME_BUTTON.setActionCommand("new_game_1");
 
-        JButton reset = new JButton("RESET");
-        reset.setFont(new Font("Courier New", Font.PLAIN, 16));
-        reset.setBounds(550, 120, 130, 40);
-        reset.addActionListener(this);
-        reset.setActionCommand("reset");
+        RESET_BUTTON = new JButton("RESET");
+        RESET_BUTTON.setFont(new Font("Courier New", Font.PLAIN, 16));
+        RESET_BUTTON.setBounds(550, 120, 130, 40);
+        RESET_BUTTON.addActionListener(this);
+        RESET_BUTTON.setActionCommand("reset");
 
         HINT = new JButton("HINT");
         HINT.setFont(new Font("Courier New", Font.PLAIN, 16));
@@ -46,7 +46,13 @@ public class Minesweeper implements MouseListener, ActionListener {
         GAME_TIMER = new Timer(1000, this);
         GAME_TIMER.setActionCommand("timer");
 
-        DISPLAY_REVEAL_MINES_DIALOGUE = false;
+        REVEAL_MINES_YES = new JButton("Yes");
+        REVEAL_MINES_YES.setFont(new Font("Courier New", Font.PLAIN, 12));
+        REVEAL_MINES_YES.setBounds(585, 207, 50, 30);
+
+        REVEAL_MINES_NO = new JButton("No");
+        REVEAL_MINES_NO.setFont(new Font("Courier New", Font.PLAIN, 12));
+        REVEAL_MINES_NO.setBounds(635, 207, 50, 30);
 
         BEGINNER_BUTTON = new JButton("BEGINNER");
         BEGINNER_BUTTON.setFont(new Font("Courier New", Font.PLAIN, 16));
@@ -62,8 +68,10 @@ public class Minesweeper implements MouseListener, ActionListener {
 
 
         GAME_FRAME.add(NEW_GAME_BUTTON);
-        GAME_FRAME.add(reset);
+        GAME_FRAME.add(RESET_BUTTON);
         GAME_FRAME.add(HINT);
+        GAME_FRAME.add(REVEAL_MINES_YES);
+        GAME_FRAME.add(REVEAL_MINES_NO);
         GAME_FRAME.add(BEGINNER_BUTTON);
         GAME_FRAME.add(INTERMEDIATE_BUTTON);
         GAME_FRAME.add(EXPERT_BUTTON);
@@ -90,7 +98,8 @@ public class Minesweeper implements MouseListener, ActionListener {
             GAME_INSTANCE.removeMouseListener(this);
             GAME_TIMER.stop();
             if (GAME_INSTANCE.getGameLostStatus()) {
-                DISPLAY_REVEAL_MINES_DIALOGUE = true;
+                GAME_INSTANCE.showRevealDialogue();
+                // RESET_BUTTON.setEnabled(false);
             }
         }
         GAME_FRAME.repaint();
