@@ -30,4 +30,4 @@ it will no longer be possible to reset the game.
 
 
 **Bugs to fix:**
-No current bugs. 
+* Every once in a while, relocateMine will relocate a mine to the same spot. 
