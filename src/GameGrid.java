@@ -114,7 +114,6 @@ class GameGrid {
     // Find a new, random, empty space and place the mine there.
     private void relocateMine(int xPosition, int yPosition) {
         Random numberGenerator = new Random();
-        GAME_GRID[yPosition][xPosition].setTileType(1); // TODO Bug: Every once in a while, will relocate mine to the same spot.
         int j = numberGenerator.nextInt(BOARD_HEIGHT);
         int k = numberGenerator.nextInt(BOARD_WIDTH);
         while (GAME_GRID[j][k].getActualStatus() == 2) {
@@ -122,6 +121,7 @@ class GameGrid {
             k = numberGenerator.nextInt(BOARD_WIDTH);
         }
         GAME_GRID[j][k].setTileType(2);
+        GAME_GRID[yPosition][xPosition].setTileType(1);
     }
 
     // Counts and stores the number of adjacent mines for each GameTile.
