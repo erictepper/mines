@@ -1,4 +1,4 @@
-# Minesweeper, ver. 0.6
+# Minesweeper, ver. 0.6.1
 A from-scratch Java implementation of Minesweeper, taking advantage of the java.awt.Graphics library. 
 Class code can be found in [../src](../master/src)
 
@@ -18,7 +18,9 @@ lay flags with CTRL+left-click.
 **Version 0.5:** Game timer added.
 
 **Version 0.6:** It is now optional to have all bombs revealed upon a loss. If all bombs are revealed, 
-it will no longer be possible to reset the game. 
+it will no longer be possible to reset the game.
+* **0.6.1:** Fixed bug where relocateMine will sometimes relocate a mine back to the 
+same spot. 
 
 **Potential future features include:**
 * Scoring system. 
@@ -30,4 +32,4 @@ it will no longer be possible to reset the game.
 
 
 **Bugs to fix:**
-* Every once in a while, relocateMine will relocate a mine to the same spot. 
+No current known bugs.
