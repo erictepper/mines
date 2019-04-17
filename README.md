@@ -23,7 +23,8 @@ it will no longer be possible to reset the game.
 same spot. 
 
 **Potential future features include:**
-* Scoring system. 
+* Time penalty for using a hint. 
+* Scoring system other than timer? 
 * Deploy to web. 
 * Use cookies? to save/load games. 
 * Save high scores using cookies?
