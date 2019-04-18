@@ -18,6 +18,7 @@ class Game extends JPanel {
     private int FLAGS_LAID;
     private int NUMBER_OF_REVEALED_NUMBERS;
     private int SECONDS_ELAPSED;
+    private int TIME_PENALTY;
 
     Game() {
         newGame("expert");
