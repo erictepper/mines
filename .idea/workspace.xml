@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="433e07ea-2725-4155-8099-6108161a1c40" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -31,12 +32,14 @@
       <file leaf-file-name="Game.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Game.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="212">
-              <caret line="20" column="29" selection-start-line="20" selection-start-column="29" selection-end-line="20" selection-end-column="29" />
+            <state relative-caret-position="230">
+              <caret line="157" column="61" selection-start-line="157" selection-start-column="61" selection-end-line="157" selection-end-column="61" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#2744#2745#0" expanded="true" />
                 <element signature="e#2777#2778#0" expanded="true" />
+                <element signature="e#2878#2879#0" expanded="true" />
+                <element signature="e#2912#2913#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -89,6 +92,7 @@
       <find>revealallbombs</find>
       <find>markas</find>
       <find>giveh</find>
+      <find>seconds_elapsed</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -298,6 +302,8 @@
             <element signature="imports" expanded="true" />
             <element signature="e#2744#2745#0" expanded="true" />
             <element signature="e#2777#2778#0" expanded="true" />
+            <element signature="e#2878#2879#0" expanded="true" />
+            <element signature="e#2912#2913#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -344,6 +350,8 @@
             <element signature="imports" expanded="true" />
             <element signature="e#2744#2745#0" expanded="true" />
             <element signature="e#2777#2778#0" expanded="true" />
+            <element signature="e#2878#2879#0" expanded="true" />
+            <element signature="e#2912#2913#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -390,6 +398,8 @@
             <element signature="imports" expanded="true" />
             <element signature="e#2744#2745#0" expanded="true" />
             <element signature="e#2777#2778#0" expanded="true" />
+            <element signature="e#2878#2879#0" expanded="true" />
+            <element signature="e#2912#2913#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -436,6 +446,8 @@
             <element signature="imports" expanded="true" />
             <element signature="e#2744#2745#0" expanded="true" />
             <element signature="e#2777#2778#0" expanded="true" />
+            <element signature="e#2878#2879#0" expanded="true" />
+            <element signature="e#2912#2913#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -482,6 +494,8 @@
             <element signature="imports" expanded="true" />
             <element signature="e#2744#2745#0" expanded="true" />
             <element signature="e#2777#2778#0" expanded="true" />
+            <element signature="e#2878#2879#0" expanded="true" />
+            <element signature="e#2912#2913#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -528,6 +542,8 @@
             <element signature="imports" expanded="true" />
             <element signature="e#2744#2745#0" expanded="true" />
             <element signature="e#2777#2778#0" expanded="true" />
+            <element signature="e#2878#2879#0" expanded="true" />
+            <element signature="e#2912#2913#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -574,6 +590,8 @@
             <element signature="imports" expanded="true" />
             <element signature="e#2744#2745#0" expanded="true" />
             <element signature="e#2777#2778#0" expanded="true" />
+            <element signature="e#2878#2879#0" expanded="true" />
+            <element signature="e#2912#2913#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -620,6 +638,8 @@
             <element signature="imports" expanded="true" />
             <element signature="e#2744#2745#0" expanded="true" />
             <element signature="e#2777#2778#0" expanded="true" />
+            <element signature="e#2878#2879#0" expanded="true" />
+            <element signature="e#2912#2913#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -716,12 +736,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Game.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
-          <caret line="20" column="29" selection-start-line="20" selection-start-column="29" selection-end-line="20" selection-end-column="29" />
+        <state relative-caret-position="230">
+          <caret line="157" column="61" selection-start-line="157" selection-start-column="61" selection-end-line="157" selection-end-column="61" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#2744#2745#0" expanded="true" />
             <element signature="e#2777#2778#0" expanded="true" />
+            <element signature="e#2878#2879#0" expanded="true" />
+            <element signature="e#2912#2913#0" expanded="true" />
           </folding>
         </state>
       </provider>
