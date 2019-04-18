@@ -57,6 +57,7 @@ class Game extends JPanel {
         FLAGS_LAID = 0;
         NUMBER_OF_REVEALED_NUMBERS = 0;
         SECONDS_ELAPSED = 0;
+        TIME_PENALTY = 0;
     }
 
     void reset() {
@@ -99,6 +100,11 @@ class Game extends JPanel {
     // Ticks the timer and returns the current number of seconds elapsed.
     void timerTick() {
         ++SECONDS_ELAPSED;
+    }
+
+    // Adds a hint penalty to the timer.
+    void hintPenalty() {
+        TIME_PENALTY += 30;
     }
 
     // Handles the interaction of the mouse with the game.
