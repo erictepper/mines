@@ -154,8 +154,8 @@ class Game extends JPanel {
         g.setFont(new Font("Courier New", Font.PLAIN, 20));
         g.setColor(Color.BLACK);
 
-        int seconds_mod_60_elapsed = SECONDS_ELAPSED % 60;
-        int minutes_elapsed = SECONDS_ELAPSED / 60;
+        int seconds_mod_60_elapsed = (SECONDS_ELAPSED + TIME_PENALTY) % 60;
+        int minutes_elapsed = (SECONDS_ELAPSED + TIME_PENALTY) / 60;
         String seconds_display;
         String minutes_display;
         if (seconds_mod_60_elapsed < 10) { seconds_display = "0" + seconds_mod_60_elapsed; } else {
