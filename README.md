@@ -25,12 +25,12 @@ same spot.
 **Version 0.7:** There is now a time penalty for using a hint. 
 
 **Potential future features include:**
+* Add help button & screen that explains how to play the game. 
 * Scoring system other than timer? 
 * Deploy to web. 
 * Use cookies? to save/load games. 
 * Save high scores using cookies?
 * Store daily games in a SQL server? 
-* Store daily games in a SQL
 
 
 **Bugs to fix:**
