@@ -124,7 +124,7 @@ public class Minesweeper implements MouseListener, ActionListener {
                 GAME_INSTANCE.timerTick();
                 GAME_FRAME.repaint();
                 break;
-            case "hint":
+            case "hint":  // TODO: call method to add penalty to timer
                 if (!GAME_INSTANCE.getGameStatus() && !GAME_INSTANCE.isGridHidden()) {
                     GAME_INSTANCE.giveHint();
                     GAME_FRAME.repaint();
