@@ -124,12 +124,7 @@ class Game extends JPanel {
 
     // Handles the interaction of the mouse with the game.
     void mousePressed(int xPosition, int yPosition, int button) {
-        if (xPosition <= BOARD_START_X || xPosition >= BOARD_START_X + (GAME_GRID.getBoardWidth()*SQUARE_SIZE)) {
-            return;
-        }
-        if (yPosition <= BOARD_START_Y || yPosition >= BOARD_START_Y + (GAME_GRID.getBoardHeight()*SQUARE_SIZE)) {
-            return;
-        }
+        if (!inBounds(xPosition, yPosition)) { return; }
         int gridIndexXPosition = (xPosition - BOARD_START_X) / SQUARE_SIZE;
         int gridIndexYPosition = (yPosition - BOARD_START_Y) / SQUARE_SIZE;
 
