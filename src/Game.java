@@ -82,6 +82,7 @@ class Game extends JPanel {
     }
 
     void showHintPenaltyDialogue() {
+        if (getGameStatus()) { return; }  // if the game is over, no point in showing the dialogue - return.
         DISPLAY_HINT_PENALTY_DIALOGUE = true;
         repaint();
     }
@@ -165,7 +166,7 @@ class Game extends JPanel {
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
 
-        if (!getGameStatus() && DISPLAY_HINT_PENALTY_DIALOGUE) {
+        if (DISPLAY_HINT_PENALTY_DIALOGUE) {
             g.setFont(new Font("Courier New", Font.PLAIN, 10));
             g.setColor(Color.RED);
             g.drawString("You will incur a", 190, 165);
