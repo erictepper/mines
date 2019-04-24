@@ -117,13 +117,13 @@ public class Minesweeper implements MouseListener, ActionListener {
 
     public void mouseEntered(MouseEvent e) {
         if (e.getSource().equals(HINT)) {
-            System.out.println("Test");
+            GAME_INSTANCE.showHintPenaltyDialogue();
         }
     }
 
     public void mouseExited(MouseEvent e) {
         if (e.getSource().equals(HINT)) {
-            System.out.println("Test");
+            GAME_INSTANCE.hideHintPenaltyDialogue();
         }
     }
 
