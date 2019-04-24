@@ -163,9 +163,8 @@ class Game extends JPanel {
     }
 
     // Checks if the coordinates are within the bounds of the game grid.
-    // TODO: finish implementing this method.
     boolean inBounds(int x, int y) {
-        return false;  // stub
+        return GAME_GRID.inBounds(x, y);
     }
 
     @Override
