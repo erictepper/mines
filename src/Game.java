@@ -84,7 +84,9 @@ class Game extends JPanel {
     }
 
     void giveHint() {
-        FLAGS_LAID = FLAGS_LAID + GAME_GRID.giveHint();
+        int flags_change = GAME_GRID.giveHint();
+        FLAGS_LAID = FLAGS_LAID + flags_change;
+        if (flags_change != 0) { hintPenalty(); }
     }
 
     void hideGrid() {
