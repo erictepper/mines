@@ -162,6 +162,12 @@ class Game extends JPanel {
         return (GAME_LOST || GAME_WON);
     }
 
+    // Checks if the coordinates are within the bounds of the game grid.
+    // TODO: finish implementing this method. 
+    boolean inBounds(int x, int y) {
+        return false;  // stub
+    }
+
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
