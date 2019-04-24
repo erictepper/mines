@@ -42,6 +42,7 @@ public class Minesweeper implements MouseListener, ActionListener {
         HINT.setBounds(310, 160, 130, 40);
         HINT.addActionListener(this);
         HINT.setActionCommand("hint");
+        HINT.addMouseListener(this);
 
         GAME_TIMER = new Timer(1000, this);
         GAME_TIMER.setActionCommand("timer");
@@ -114,9 +115,17 @@ public class Minesweeper implements MouseListener, ActionListener {
 
     public void mouseReleased(MouseEvent e) { }
 
-    public void mouseEntered(MouseEvent e) { }
+    public void mouseEntered(MouseEvent e) {
+        if (e.getSource().equals(HINT)) {
+            System.out.println("Test");
+        }
+    }
 
-    public void mouseExited(MouseEvent e) { }
+    public void mouseExited(MouseEvent e) {
+        if (e.getSource().equals(HINT)) {
+            System.out.println("Test");
+        }
+    }
 
     public void actionPerformed(ActionEvent e) {
         switch (e.getActionCommand()) {
