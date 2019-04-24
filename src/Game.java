@@ -165,6 +165,14 @@ class Game extends JPanel {
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
 
+        if (!getGameStatus() && DISPLAY_HINT_PENALTY_DIALOGUE) {
+            g.setFont(new Font("Courier New", Font.PLAIN, 10));
+            g.setColor(Color.RED);
+            g.drawString("You will incur a", 190, 165);
+            g.drawString("penalty of 30 seconds", 175, 180);
+            g.drawString("if you use a hint!", 185, 195);
+        }
+
         g.setFont(new Font("Courier New", Font.PLAIN, 20));
         g.setColor(Color.BLACK);
 
