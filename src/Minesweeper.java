@@ -98,6 +98,7 @@ public class Minesweeper implements MouseListener, ActionListener {
 
     // Handles the interaction of the mouse with the interface.
     public void mousePressed(MouseEvent e) {
+        // TODO: Fix bug! Check if mouse press is within game board bounds before starting game. 
         if (!GAME_INSTANCE.getGameStartedStatus()) { GAME_TIMER.start(); }  // TODO: potentially move to Game.java
         int button = (e.isControlDown() && e.getButton() == 1) ? 3 : e.getButton();
         GAME_INSTANCE.mousePressed(e.getX(), e.getY(), button);
@@ -117,13 +118,17 @@ public class Minesweeper implements MouseListener, ActionListener {
 
     public void mouseEntered(MouseEvent e) {
         if (e.getSource().equals(HINT)) {
-            System.out.println("Test");
+            GAME_INSTANCE.showHintPenaltyDialogue();
+            // we also repaint the GAME_FRAME, otherwise the buttons disappear.
+            GAME_FRAME.repaint();
         }
     }
 
     public void mouseExited(MouseEvent e) {
         if (e.getSource().equals(HINT)) {
-            System.out.println("Test");
+            GAME_INSTANCE.hideHintPenaltyDialogue();
+            // we also repaint the GAME_FRAME, otherwise the buttons disappear.
+            GAME_FRAME.repaint();
         }
     }
 

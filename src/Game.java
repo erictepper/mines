@@ -14,6 +14,7 @@ class Game extends JPanel {
     private boolean GAME_WON; // true if won, false if not won.
     private boolean GRID_HIDDEN;
     private Boolean DISPLAY_REVEAL_MINES_DIALOGUE;
+    private Boolean DISPLAY_HINT_PENALTY_DIALOGUE;
     private Image FLAG;
     private int FLAGS_LAID;
     private int NUMBER_OF_REVEALED_NUMBERS;
@@ -54,6 +55,7 @@ class Game extends JPanel {
         GAME_WON = false;
         GRID_HIDDEN = false;
         DISPLAY_REVEAL_MINES_DIALOGUE = false;
+        DISPLAY_HINT_PENALTY_DIALOGUE = false;
         FLAGS_LAID = 0;
         NUMBER_OF_REVEALED_NUMBERS = 0;
         SECONDS_ELAPSED = 0;
@@ -76,6 +78,17 @@ class Game extends JPanel {
 
     void hideRevealDialogue() {
         DISPLAY_REVEAL_MINES_DIALOGUE = false;
+        repaint();
+    }
+
+    void showHintPenaltyDialogue() {
+        if (getGameStatus()) { return; }  // if the game is over, no point in showing the dialogue - return.
+        DISPLAY_HINT_PENALTY_DIALOGUE = true;
+        repaint();
+    }
+
+    void hideHintPenaltyDialogue() {
+        DISPLAY_HINT_PENALTY_DIALOGUE = false;
         repaint();
     }
 
@@ -152,6 +165,14 @@ class Game extends JPanel {
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
+
+        if (DISPLAY_HINT_PENALTY_DIALOGUE) {
+            g.setFont(new Font("Courier New", Font.PLAIN, 10));
+            g.setColor(Color.RED);
+            g.drawString("You will incur a", 190, 165);
+            g.drawString("penalty of 30 seconds", 175, 180);
+            g.drawString("if you use a hint!", 185, 195);
+        }
 
         g.setFont(new Font("Courier New", Font.PLAIN, 20));
         g.setColor(Color.BLACK);
