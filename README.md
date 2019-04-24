@@ -37,4 +37,4 @@ seconds if they use a hint.
 
 
 **Bugs to fix:**
-No current known bugs.
+* If game has not started and mouse is pressed outside of game grid, game will start regardless. 
