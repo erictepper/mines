@@ -37,4 +37,5 @@ seconds if they use a hint.
 * Store daily games in a SQL server? 
 
 
-**Bugs to fix:** No current known bugs.
+**Bugs to fix:** 
+* Hint dialogue displays even when game has not started yet.
