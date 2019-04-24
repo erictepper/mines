@@ -1,4 +1,4 @@
-# Minesweeper, ver. 0.6.1
+# Minesweeper, ver. 0.7
 A from-scratch Java implementation of Minesweeper, taking advantage of the java.awt.Graphics library. 
 Class code can be found in [../src](../master/src)
 
@@ -22,14 +22,15 @@ it will no longer be possible to reset the game.
 * **0.6.1:** Fixed bug where relocateMine will sometimes relocate a mine back to the 
 same spot. 
 
+**Version 0.7:** There is now a time penalty for using a hint. 
+
 **Potential future features include:**
-* Time penalty for using a hint. 
+* Add help button & screen that explains how to play the game. 
 * Scoring system other than timer? 
 * Deploy to web. 
 * Use cookies? to save/load games. 
 * Save high scores using cookies?
 * Store daily games in a SQL server? 
-* Store daily games in a SQL
 
 
 **Bugs to fix:**

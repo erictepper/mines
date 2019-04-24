@@ -18,6 +18,7 @@ class Game extends JPanel {
     private int FLAGS_LAID;
     private int NUMBER_OF_REVEALED_NUMBERS;
     private int SECONDS_ELAPSED;
+    private int TIME_PENALTY;
 
     Game() {
         newGame("expert");
@@ -56,6 +57,7 @@ class Game extends JPanel {
         FLAGS_LAID = 0;
         NUMBER_OF_REVEALED_NUMBERS = 0;
         SECONDS_ELAPSED = 0;
+        TIME_PENALTY = 0;
     }
 
     void reset() {
@@ -82,7 +84,9 @@ class Game extends JPanel {
     }
 
     void giveHint() {
-        FLAGS_LAID = FLAGS_LAID + GAME_GRID.giveHint();
+        int flags_change = GAME_GRID.giveHint();
+        FLAGS_LAID = FLAGS_LAID + flags_change;
+        if (flags_change != 0) { hintPenalty(); }
     }
 
     void hideGrid() {
@@ -98,6 +102,11 @@ class Game extends JPanel {
     // Ticks the timer and returns the current number of seconds elapsed.
     void timerTick() {
         ++SECONDS_ELAPSED;
+    }
+
+    // Adds a hint penalty to the timer.
+    private void hintPenalty() {
+        TIME_PENALTY += 30;
     }
 
     // Handles the interaction of the mouse with the game.
@@ -147,8 +156,8 @@ class Game extends JPanel {
         g.setFont(new Font("Courier New", Font.PLAIN, 20));
         g.setColor(Color.BLACK);
 
-        int seconds_mod_60_elapsed = SECONDS_ELAPSED % 60;
-        int minutes_elapsed = SECONDS_ELAPSED / 60;
+        int seconds_mod_60_elapsed = (SECONDS_ELAPSED + TIME_PENALTY) % 60;
+        int minutes_elapsed = (SECONDS_ELAPSED + TIME_PENALTY) / 60;
         String seconds_display;
         String minutes_display;
         if (seconds_mod_60_elapsed < 10) { seconds_display = "0" + seconds_mod_60_elapsed; } else {
@@ -159,6 +168,31 @@ class Game extends JPanel {
         }
         String timer_display = minutes_display + ":" + seconds_display;
         g.drawString(timer_display, 500, 187);
+
+        // Draws the time penalty if it is above 0.
+        if (TIME_PENALTY > 0) {
+            int penalty_seconds_mod_60_elapsed = TIME_PENALTY % 60;
+            int penalty_minutes_elapsed = TIME_PENALTY / 60;
+            String penalty_seconds_display;
+            String penalty_minutes_display;
+            if (penalty_seconds_mod_60_elapsed < 10) {
+                penalty_seconds_display = "0" + penalty_seconds_mod_60_elapsed;
+            } else {
+                penalty_seconds_display = Integer.toString(penalty_seconds_mod_60_elapsed);
+            }
+            if (penalty_minutes_elapsed < 10) {
+                penalty_minutes_display = "0" + penalty_minutes_elapsed;
+            } else {
+                penalty_minutes_display = Integer.toString(penalty_minutes_elapsed);
+            }
+            String penalty_display = "+ " + penalty_minutes_display + ":" + penalty_seconds_display;
+            g.setFont(new Font("Courier New", Font.PLAIN, 14));
+            g.setColor(Color.RED);
+            g.drawString(penalty_display, 500, 207);
+
+            g.setFont(new Font("Courier New", Font.PLAIN, 20));
+            g.setColor(Color.BLACK);
+        }
 
         if (GAME_GRID.getTotalMines() - FLAGS_LAID > 9) {
             g.drawString(Integer.toString(GAME_GRID.getTotalMines() - FLAGS_LAID), 640, 187);
