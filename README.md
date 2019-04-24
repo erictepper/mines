@@ -25,6 +25,7 @@ same spot.
 **Version 0.7:** There is now a time penalty for using a hint. 
 
 **Potential future features include:**
+* Add mouseover dialogue for hint button that warns player they will incur a penalty of 30 seconds if they use a hint. 
 * Add help button & screen that explains how to play the game. 
 * Scoring system other than timer? 
 * Deploy to web. 
