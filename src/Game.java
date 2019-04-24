@@ -105,7 +105,7 @@ class Game extends JPanel {
     }
 
     // Adds a hint penalty to the timer.
-    void hintPenalty() {
+    private void hintPenalty() {
         TIME_PENALTY += 30;  // TODO: reference this method when the hint button is pressed.
     }
 
@@ -168,6 +168,31 @@ class Game extends JPanel {
         }
         String timer_display = minutes_display + ":" + seconds_display;
         g.drawString(timer_display, 500, 187);
+
+        // Draws the time penalty if it is above 0.
+        if (TIME_PENALTY > 0) {
+            int penalty_seconds_mod_60_elapsed = TIME_PENALTY % 60;
+            int penalty_minutes_elapsed = TIME_PENALTY / 60;
+            String penalty_seconds_display;
+            String penalty_minutes_display;
+            if (penalty_seconds_mod_60_elapsed < 10) {
+                penalty_seconds_display = "0" + penalty_seconds_mod_60_elapsed;
+            } else {
+                penalty_seconds_display = Integer.toString(penalty_seconds_mod_60_elapsed);
+            }
+            if (penalty_minutes_elapsed < 10) {
+                penalty_minutes_display = "0" + penalty_minutes_elapsed;
+            } else {
+                penalty_minutes_display = Integer.toString(penalty_minutes_elapsed);
+            }
+            String penalty_display = "+ " + penalty_minutes_display + ":" + penalty_seconds_display;
+            g.setFont(new Font("Courier New", Font.PLAIN, 14));
+            g.setColor(Color.RED);
+            g.drawString(penalty_display, 500, 207);
+
+            g.setFont(new Font("Courier New", Font.PLAIN, 20));
+            g.setColor(Color.BLACK);
+        }
 
         if (GAME_GRID.getTotalMines() - FLAGS_LAID > 9) {
             g.drawString(Integer.toString(GAME_GRID.getTotalMines() - FLAGS_LAID), 640, 187);
