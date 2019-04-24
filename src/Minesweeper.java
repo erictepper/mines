@@ -118,12 +118,16 @@ public class Minesweeper implements MouseListener, ActionListener {
     public void mouseEntered(MouseEvent e) {
         if (e.getSource().equals(HINT)) {
             GAME_INSTANCE.showHintPenaltyDialogue();
+            // we also repaint the GAME_FRAME, otherwise the buttons disappear.
+            GAME_FRAME.repaint();
         }
     }
 
     public void mouseExited(MouseEvent e) {
         if (e.getSource().equals(HINT)) {
             GAME_INSTANCE.hideHintPenaltyDialogue();
+            // we also repaint the GAME_FRAME, otherwise the buttons disappear.
+            GAME_FRAME.repaint();
         }
     }
 
