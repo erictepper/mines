@@ -308,8 +308,8 @@ class GameGrid {
     }
 
     // Checks if the coordinates are within the bounds of the game grid.
-    // TODO: finish implementing this method.
     boolean inBounds(int x, int y) {
-        return false;  // stub
+        return (x > BOARD_START_X && x < BOARD_START_X + (BOARD_WIDTH*SQUARE_SIZE) && y > BOARD_START_Y
+            && y < BOARD_START_Y + (BOARD_HEIGHT*SQUARE_SIZE));
     }
 }
