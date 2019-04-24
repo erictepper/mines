@@ -14,6 +14,7 @@ class Game extends JPanel {
     private boolean GAME_WON; // true if won, false if not won.
     private boolean GRID_HIDDEN;
     private Boolean DISPLAY_REVEAL_MINES_DIALOGUE;
+    private Boolean DISPLAY_HINT_PENALTY_DIALOGUE;
     private Image FLAG;
     private int FLAGS_LAID;
     private int NUMBER_OF_REVEALED_NUMBERS;
@@ -54,6 +55,7 @@ class Game extends JPanel {
         GAME_WON = false;
         GRID_HIDDEN = false;
         DISPLAY_REVEAL_MINES_DIALOGUE = false;
+        DISPLAY_HINT_PENALTY_DIALOGUE = false;
         FLAGS_LAID = 0;
         NUMBER_OF_REVEALED_NUMBERS = 0;
         SECONDS_ELAPSED = 0;
@@ -76,6 +78,16 @@ class Game extends JPanel {
 
     void hideRevealDialogue() {
         DISPLAY_REVEAL_MINES_DIALOGUE = false;
+        repaint();
+    }
+
+    void showHintPenaltyDialogue() {
+        DISPLAY_HINT_PENALTY_DIALOGUE = true;
+        repaint();
+    }
+
+    void hideHintPenaltyDialogue() {
+        DISPLAY_HINT_PENALTY_DIALOGUE = false;
         repaint();
     }
 
