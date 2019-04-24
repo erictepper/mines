@@ -106,7 +106,7 @@ class Game extends JPanel {
 
     // Adds a hint penalty to the timer.
     private void hintPenalty() {
-        TIME_PENALTY += 30;  // TODO: reference this method when the hint button is pressed.
+        TIME_PENALTY += 30;
     }
 
     // Handles the interaction of the mouse with the game.
