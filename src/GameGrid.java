@@ -306,4 +306,10 @@ class GameGrid {
     int getTotalMines() {
         return NUMBER_OF_MINES;
     }
+
+    // Checks if the coordinates are within the bounds of the game grid.
+    // TODO: finish implementing this method.
+    boolean inBounds(int x, int y) {
+        return false;  // stub
+    }
 }
