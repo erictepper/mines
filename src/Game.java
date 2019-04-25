@@ -83,7 +83,8 @@ class Game extends JPanel {
 
     void showHintPenaltyDialogue() {
         // if the game is over or has not started yet, no point in showing the dialogue - return.
-        if (getGameStatus() || !getGameStartedStatus()) { return; }
+        // if the 'new game' dialogue is up, also no point in showing the hint dialogue - return.
+        if (getGameStatus() || !getGameStartedStatus() || isGridHidden()) { return; }
         DISPLAY_HINT_PENALTY_DIALOGUE = true;
         repaint();
     }
