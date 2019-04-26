@@ -314,6 +314,7 @@ public class Minesweeper implements MouseListener, ActionListener {
                 break;
             case "instructions_2":
                 GAME_INSTANCE.showGrid();
+                GAME_INSTANCE.hideGameInstructions();
                 if (!GAME_INSTANCE.getGameStatus()) {
                     GAME_INSTANCE.addMouseListener(this);
                     if (GAME_INSTANCE.getGameStartedStatus()) { GAME_TIMER.start(); }
