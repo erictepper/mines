@@ -40,4 +40,5 @@ when the board is hidden).
 * Store daily games in a SQL server? 
 
 
-**Bugs to fix:** No current known bugs. 
+**Bugs to fix:** 
+* Start game from new game screen rather than on expert mode. 
