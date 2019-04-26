@@ -7,6 +7,7 @@ public class Minesweeper implements MouseListener, ActionListener {
     private JFrame GAME_FRAME;
     private Game GAME_INSTANCE;
     private JButton NEW_GAME_BUTTON;
+    private JButton INSTRUCTIONS_BUTTON;
     private JButton RESET_BUTTON;
     private JButton BEGINNER_BUTTON;
     private JButton INTERMEDIATE_BUTTON;
@@ -30,6 +31,12 @@ public class Minesweeper implements MouseListener, ActionListener {
         NEW_GAME_BUTTON.setBounds(360, 120, 130, 40);
         NEW_GAME_BUTTON.addActionListener(this);
         NEW_GAME_BUTTON.setActionCommand("new_game_1");
+
+        INSTRUCTIONS_BUTTON = new JButton("?");
+        INSTRUCTIONS_BUTTON.setFont(new Font("Courier New", Font.PLAIN, 16));
+        INSTRUCTIONS_BUTTON.setBounds(505, 120, 30, 40);
+        INSTRUCTIONS_BUTTON.addActionListener(this);
+        INSTRUCTIONS_BUTTON.setActionCommand("instructions_1");
 
         RESET_BUTTON = new JButton("RESET");
         RESET_BUTTON.setFont(new Font("Courier New", Font.PLAIN, 16));
@@ -73,6 +80,7 @@ public class Minesweeper implements MouseListener, ActionListener {
 
 
         GAME_FRAME.add(NEW_GAME_BUTTON);
+        GAME_FRAME.add(INSTRUCTIONS_BUTTON);
         GAME_FRAME.add(RESET_BUTTON);
         GAME_FRAME.add(HINT);
         GAME_FRAME.add(REVEAL_MINES_YES);
