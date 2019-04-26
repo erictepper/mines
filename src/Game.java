@@ -13,8 +13,8 @@ class Game extends JPanel {
     private boolean GAME_LOST;  // true if lost, false if not lost.
     private boolean GAME_WON; // true if won, false if not won.
     private boolean GRID_HIDDEN;
-    private Boolean DISPLAY_REVEAL_MINES_DIALOGUE;
-    private Boolean DISPLAY_HINT_PENALTY_DIALOGUE;
+    private boolean DISPLAY_REVEAL_MINES_DIALOGUE;
+    private boolean DISPLAY_HINT_PENALTY_DIALOGUE;
     private Image FLAG;
     private int FLAGS_LAID;
     private int NUMBER_OF_REVEALED_NUMBERS;
