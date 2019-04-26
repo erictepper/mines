@@ -1,4 +1,4 @@
-# Minesweeper, ver. 0.8.2
+# Minesweeper, ver. 0.9
 A from-scratch Java implementation of Minesweeper, taking advantage of the java.awt.Graphics library. 
 Class code can be found in [../src](../master/src)
 
@@ -30,8 +30,9 @@ seconds if they use a hint.
 * **0.8.2:** Hint penalty dialogue will no longer display when game is not in play (e.g. before it starts, after it ends, or 
 when the board is hidden).
 
-**Potential future features include:**
-* Add help button & screen that explains how to play the game. 
+**Version 0.9:** Added help button & screen that explains how to play the game.
+
+**Potential future features include:** 
 * Scoring system other than timer? 
 * Deploy to web. 
 * Use cookies? to save/load games. 
