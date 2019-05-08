@@ -67,7 +67,7 @@
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="283">
+              <first_editor relative-caret-position="542">
                 <caret line="43" column="62" selection-start-line="43" selection-start-column="62" selection-end-line="43" selection-end-column="62" />
               </first_editor>
               <second_editor />
@@ -117,8 +117,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="31" />
-    <option name="y" value="43" />
+    <option name="x" value="30" />
+    <option name="y" value="23" />
     <option name="width" value="1400" />
     <option name="height" value="757" />
   </component>
@@ -127,8 +127,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="AndroidView" />
-      <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -151,6 +149,8 @@
           <select />
         </subPane>
       </pane>
+      <pane id="AndroidView" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -239,8 +239,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="31" y="43" width="1400" height="757" extended-state="0" />
-    <editor active="true" />
+    <frame x="30" y="23" width="1400" height="757" extended-state="0" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -250,7 +249,7 @@
       <window_info anchor="right" id="Capture Analysis" order="3" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50142854" side_tool="true" weight="0.37920937" />
       <window_info anchor="right" id="Maven Projects" order="3" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49857143" visible="true" weight="0.37920937" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49857143" weight="0.37920937" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.329429" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Capture Tool" order="2" />
@@ -718,7 +717,7 @@
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="283">
+          <first_editor relative-caret-position="542">
             <caret line="43" column="62" selection-start-line="43" selection-start-column="62" selection-end-line="43" selection-end-column="62" />
           </first_editor>
           <second_editor />
