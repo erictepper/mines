@@ -268,9 +268,13 @@ class Game extends JPanel {
     }
 
     private void paintGameInstructions(Graphics g) {
-        g.setFont(new Font("Courier New", Font.PLAIN, 12));
+        g.setFont(new Font("Courier New", Font.PLAIN, 14));
         g.setColor(Color.BLACK);
-        g.drawString("Test", 335, 500);
+        g.drawString("The game is made up of a grid of tiles that start off hidden.", 60, 274);
+        g.drawString("There are two types of tiles: a MINE TILE and a NUMBER TILE.", 60, 304);
+        g.drawString(" - BEGINNER mode contains 10 mine tiles and 71 number tiles.", 60, 324);
+        g.drawString(" - INTERMEDIATE mode contains 40 mine tiles and 216 number tiles.", 60, 344);
+        g.drawString(" - EXPERT mode contains 99 mine tiles and 381 number tiles.", 60, 364);
     }
 
 }
