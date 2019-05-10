@@ -258,9 +258,19 @@ class Game extends JPanel {
             g.drawString("Would you like to reveal all mines?", 335,225);
         }
 
+        if (DISPLAY_GAME_INSTRUCTIONS) {
+            paintGameInstructions(g);
+        }
+
         if (GRID_HIDDEN) { return; }
 
         GAME_GRID.paint(g);
+    }
+
+    private void paintGameInstructions(Graphics g) {
+        g.setFont(new Font("Courier New", Font.PLAIN, 12));
+        g.setColor(Color.BLACK);
+        g.drawString("Test", 335, 500);
     }
 
 }
