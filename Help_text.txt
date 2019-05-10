@@ -1,6 +1,6 @@
 The game is made up of a grid of tiles, that are hidden in the beginning. 
 
-There are two types of tiles: a NUMBER TILE and a MINE TILE. 
+There are two types of tiles: a MINE TILE and a NUMBER TILE.
  - BEGINNER mode contains 10 mine tiles and 71 number tiles.
  - INTERMEDIATE mode contains 40 mine tiles and 216 number tiles.
  - EXPERT mode contains 99 mine tiles and 381 number tiles.
