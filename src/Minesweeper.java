@@ -106,6 +106,7 @@ public class Minesweeper implements MouseListener, ActionListener {
 
     // Handles the interaction of the mouse with the interface.
     public void mousePressed(MouseEvent e) {
+        if (e.getSource().equals(HINT)) { return; }
         int x = e.getX();
         int y = e.getY();
         if (!GAME_INSTANCE.getGameStartedStatus() && GAME_INSTANCE.inBounds(x, y)) { GAME_TIMER.start(); }  // TODO: potentially move to Game.java
@@ -170,7 +171,9 @@ public class Minesweeper implements MouseListener, ActionListener {
                 GAME_INSTANCE.reset();
                 GAME_INSTANCE.removeMouseListener(this);
                 GAME_INSTANCE.addMouseListener(this);
-                GAME_TIMER.start();
+                if (!GAME_INSTANCE.getGameStatus()) {
+                    if (GAME_INSTANCE.getGameStartedStatus()) { GAME_TIMER.start(); }
+                }
 
                 BEGINNER_BUTTON.setVisible(false);
                 BEGINNER_BUTTON.removeActionListener(this);
@@ -187,6 +190,7 @@ public class Minesweeper implements MouseListener, ActionListener {
                 GAME_INSTANCE.hideRevealDialogue();
                 REVEAL_MINES_YES.setVisible(false);
                 REVEAL_MINES_NO.setVisible(false);
+                GAME_INSTANCE.hideGameInstructions();
 
                 GAME_FRAME.repaint();
                 break;
@@ -210,6 +214,7 @@ public class Minesweeper implements MouseListener, ActionListener {
                 HINT.removeActionListener(this);
                 NEW_GAME_BUTTON.setActionCommand("new_game_2");
                 INSTRUCTIONS_BUTTON.setActionCommand("instructions_1");
+                GAME_INSTANCE.hideGameInstructions();
 
                 GAME_FRAME.repaint();
                 break;
@@ -228,6 +233,7 @@ public class Minesweeper implements MouseListener, ActionListener {
                 EXPERT_BUTTON.removeActionListener(this);
                 HINT.addActionListener(this);
                 NEW_GAME_BUTTON.setActionCommand("new_game_1");
+                GAME_INSTANCE.hideGameInstructions();
 
                 GAME_FRAME.repaint();
                 break;
@@ -249,6 +255,7 @@ public class Minesweeper implements MouseListener, ActionListener {
                 GAME_INSTANCE.hideRevealDialogue();
                 REVEAL_MINES_YES.setVisible(false);
                 REVEAL_MINES_NO.setVisible(false);
+                GAME_INSTANCE.hideGameInstructions();
 
                 GAME_FRAME.repaint();
                 break;
@@ -270,6 +277,7 @@ public class Minesweeper implements MouseListener, ActionListener {
                 GAME_INSTANCE.hideRevealDialogue();
                 REVEAL_MINES_YES.setVisible(false);
                 REVEAL_MINES_NO.setVisible(false);
+                GAME_INSTANCE.hideGameInstructions();
 
                 GAME_FRAME.repaint();
                 break;
@@ -291,6 +299,7 @@ public class Minesweeper implements MouseListener, ActionListener {
                 GAME_INSTANCE.hideRevealDialogue();
                 REVEAL_MINES_YES.setVisible(false);
                 REVEAL_MINES_NO.setVisible(false);
+                GAME_INSTANCE.hideGameInstructions();
 
                 GAME_FRAME.repaint();
                 break;
@@ -316,6 +325,7 @@ public class Minesweeper implements MouseListener, ActionListener {
                 GAME_INSTANCE.showGrid();
                 GAME_INSTANCE.hideGameInstructions();
                 if (!GAME_INSTANCE.getGameStatus()) {
+                    GAME_INSTANCE.removeMouseListener(this);
                     GAME_INSTANCE.addMouseListener(this);
                     if (GAME_INSTANCE.getGameStartedStatus()) { GAME_TIMER.start(); }
                 }
