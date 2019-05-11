@@ -33,6 +33,7 @@ when the board is hidden).
 **Version 0.9:** Added help button & screen that explains how to play the game.
 
 **Potential future features include:** 
+* Add "click anywhere to begin" text to game screen before game start.
 * Scoring system other than timer? 
 * Deploy to web. 
 * Use cookies? to save/load games. 
