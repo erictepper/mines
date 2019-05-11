@@ -16,6 +16,7 @@ class Game extends JPanel {
     private boolean DISPLAY_GAME_INSTRUCTIONS;
     private boolean DISPLAY_REVEAL_MINES_DIALOGUE;
     private boolean DISPLAY_HINT_PENALTY_DIALOGUE;
+    private Image MINE;
     private Image FLAG;
     private int FLAGS_LAID;
     private int NUMBER_OF_REVEALED_NUMBERS;
@@ -25,8 +26,10 @@ class Game extends JPanel {
     Game() {
         newGame("expert");
         try {
+            MINE = ImageIO.read(new File("images/mine.png"));
             FLAG = ImageIO.read(new File("images/flag.png"));
         } catch (IOException e) {
+            MINE = null;
             FLAG = null;
         }
     }
@@ -275,6 +278,67 @@ class Game extends JPanel {
         g.drawString(" - BEGINNER mode contains 10 mine tiles and 71 number tiles.", 60, 324);
         g.drawString(" - INTERMEDIATE mode contains 40 mine tiles and 216 number tiles.", 60, 344);
         g.drawString(" - EXPERT mode contains 99 mine tiles and 381 number tiles.", 60, 364);
+        g.drawString("A MINE TILE contains a mine.", 60, 394);
+        g.drawString("A NUMBER TILE is a space without a mine. A number tile will instead contain a number that counts the number", 60, 424);
+        g.drawString("of adjacent mines. This number counts all mines touching the space - top, bottom, left, right, *and*", 60, 438);
+        g.drawString("diagonally adjacent mines. You may see an example of this at the top-right.", 60, 452);
+        paintExampleTiles(g);
+        g.drawString("The GOAL of the game is to reveal all number tiles without revealing a single mine tile. If you reveal", 60, 482);
+        g.drawString("a mine tile, you lose.", 60, 496);
+        g.drawString("To REVEAL a tile, put your mouse over the tile and press LEFT-CLICK on your mouse. Remember to try to only", 60, 526);
+        g.drawString("reveal tiles where you do not think a mine exists.", 60, 540);
+    }
+
+    private void paintExampleTiles(Graphics g) {
+        g.setFont(new Font("Courier New", Font.PLAIN, 20));
+
+        GameTile[][] example_grid = new GameTile[3][3];
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                example_grid[i][j] = new GameTile();
+            }
+        }
+
+        example_grid[0][0].setTileType(2);
+        example_grid[0][1].setNumberOfAdjacentMines(3);
+        example_grid[0][2].setTileType(2);
+        example_grid[1][0].setTileType(2);
+        example_grid[1][1].setNumberOfAdjacentMines(4);
+        example_grid[1][2].setNumberOfAdjacentMines(2);
+        example_grid[2][0].setNumberOfAdjacentMines(2);
+        example_grid[2][1].setTileType(2);
+        example_grid[2][2].setNumberOfAdjacentMines(1);
+
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                example_grid[i][j].reveal();
+            }
+        }
+
+        int paint_start_x = 700;
+        int paint_start_y = 274;
+
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                switch (example_grid[i][j].getDisplayStatus()) {
+                    case 1:  // number tile
+                        g.setColor(Color.WHITE);
+                        g.fillRect(paint_start_x + (j * SQUARE_SIZE),
+                                paint_start_y + (i * SQUARE_SIZE),
+                                SQUARE_SIZE, SQUARE_SIZE);
+                        g.setColor(Color.BLACK);
+                        g.drawString(example_grid[i][j].getLabel(), paint_start_x + (j * SQUARE_SIZE) + 7,
+                                paint_start_y + ((i + 1) * SQUARE_SIZE) - 7);
+                        break;
+                    case 2:  // mine tile
+                        g.drawImage(MINE, paint_start_x + (j * SQUARE_SIZE),
+                                paint_start_y + (i * SQUARE_SIZE), null);
+                        break;
+                }
+            }
+        }
+
+        g.setFont(new Font("Courier New", Font.PLAIN, 14));
     }
 
 }
