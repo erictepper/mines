@@ -273,20 +273,29 @@ class Game extends JPanel {
     private void paintGameInstructions(Graphics g) {
         g.setFont(new Font("Courier New", Font.PLAIN, 14));
         g.setColor(Color.BLACK);
-        g.drawString("The game is made up of a grid of tiles that start off hidden.", 60, 274);
-        g.drawString("There are two types of tiles: a MINE TILE and a NUMBER TILE.", 60, 304);
-        g.drawString(" - BEGINNER mode contains 10 mine tiles and 71 number tiles.", 60, 324);
-        g.drawString(" - INTERMEDIATE mode contains 40 mine tiles and 216 number tiles.", 60, 344);
-        g.drawString(" - EXPERT mode contains 99 mine tiles and 381 number tiles.", 60, 364);
-        g.drawString("A MINE TILE contains a mine.", 60, 394);
-        g.drawString("A NUMBER TILE is a space without a mine. A number tile will instead contain a number that counts the number", 60, 424);
-        g.drawString("of adjacent mines. This number counts all mines touching the space - top, bottom, left, right, *and*", 60, 438);
-        g.drawString("diagonally adjacent mines. You may see an example of this at the top-right.", 60, 452);
+        g.drawString("The game is made up of a grid of tiles that start off hidden.", 60, 254);
+        g.drawString("There are two types of tiles: a MINE TILE and a NUMBER TILE.", 60, 284);
+        g.drawString(" - BEGINNER mode contains 10 mine tiles and 71 number tiles.", 60, 304);
+        g.drawString(" - INTERMEDIATE mode contains 40 mine tiles and 216 number tiles.", 60, 324);
+        g.drawString(" - EXPERT mode contains 99 mine tiles and 381 number tiles.", 60, 344);
+        g.drawString("A MINE TILE contains a mine.", 60, 374);
+        g.drawString("A NUMBER TILE is a space without a mine. A number tile will instead contain a number that counts the number", 60, 404);
+        g.drawString("of adjacent mines. This number counts all mines touching the space - top, bottom, left, right, *and*", 60, 418);
+        g.drawString("diagonally adjacent mines. You may see an example of this at the top-right.", 60, 432);
         paintExampleTiles(g);
-        g.drawString("The GOAL of the game is to reveal all number tiles without revealing a single mine tile. If you reveal", 60, 482);
-        g.drawString("a mine tile, you lose.", 60, 496);
-        g.drawString("To REVEAL a tile, put your mouse over the tile and press LEFT-CLICK on your mouse. Remember to try to only", 60, 526);
-        g.drawString("reveal tiles where you do not think a mine exists.", 60, 540);
+        g.drawString("The GOAL of the game is to reveal all number tiles without revealing a single mine tile. If you reveal", 60, 462);
+        g.drawString("a mine tile, you lose.", 60, 476);
+        g.drawString("To REVEAL a tile, put your mouse over the tile and press LEFT-CLICK on your mouse. Remember to try to only", 60, 506);
+        g.drawString("reveal tiles where you do not think a mine exists.", 60, 520);
+        g.drawString("You may find it helpful to place a FLAG on spaces where you think a mine may be hiding. This will give you", 60, 550);
+        g.drawString("a visual indicator of where you think the mines are, which could help you reveal more number tiles. To", 60, 564);
+        g.drawString("place a FLAG, you can either mouse over a tile and press RIGHT-CLICK on your mouse, OR you can mouse over", 60, 578);
+        g.drawString("a tile and press CTRL on your keyboard and LEFT-CLICK on your mouse at the same time.", 60, 592);
+        g.drawString("A TIMER will track your progress. ", 60, 622);
+        g.drawString("You may receive a HINT, but you will receive a 30-second penalty on the timer if you use a hint.", 60, 652);
+        g.drawString("If you LOSE, you may choose to reveal all mines. This may help you see your mistakes and help you learn.", 60, 682);
+        g.drawString("You may RESET the game (but not if you have chosen have the mines revealed for you). This will give you", 60, 712);
+        g.drawString("another chance if you lose, HOWEVER the timer will keep running.", 60, 726);
     }
 
     private void paintExampleTiles(Graphics g) {
