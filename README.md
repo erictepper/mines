@@ -1,4 +1,4 @@
-# Minesweeper, ver. 0.8.2
+# Minesweeper, ver. 0.9
 A from-scratch Java implementation of Minesweeper, taking advantage of the java.awt.Graphics library. 
 Class code can be found in [../src](../master/src)
 
@@ -27,11 +27,14 @@ same spot.
 **Version 0.8:** Added mouseover dialogue for the hint button - warns the player they will incur a penalty of 30 
 seconds if they use a hint.
 * **0.8.1:** Fixed bug where game will begin on a mouse press that is outside of the game grid.
-* **0.8.2:** Hint penalty dialogue will no longer display when game is not in play (e.g. before it starts, after it ends, or 
-when the board is hidden).
+* **0.8.2:** Hint penalty dialogue will no longer display when game is not in play (e.g. before it starts, after it 
+ends, or when the board is hidden).
 
-**Potential future features include:**
-* Add help button & screen that explains how to play the game. 
+**Version 0.9:** Added help button & screen that explains how to play the game. Fixed formatting to conform to Google's
+style guide at [https://google.github.io/styleguide/javaguide.html](https://google.github.io/styleguide/javaguide.html).
+
+**Potential future features include:** 
+* Add "click anywhere to begin" text to game screen before game start.
 * Scoring system other than timer? 
 * Deploy to web. 
 * Use cookies? to save/load games. 
@@ -39,4 +42,5 @@ when the board is hidden).
 * Store daily games in a SQL server? 
 
 
-**Bugs to fix:** No current known bugs. 
+**Bugs to fix:** 
+* Start game from new game screen rather than on expert mode. 

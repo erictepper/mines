@@ -1,0 +1,26 @@
+The game is made up of a grid of tiles, that are hidden in the beginning. 
+
+There are two types of tiles: a MINE TILE and a NUMBER TILE.
+ - BEGINNER mode contains 10 mine tiles and 71 number tiles.
+ - INTERMEDIATE mode contains 40 mine tiles and 216 number tiles.
+ - EXPERT mode contains 99 mine tiles and 381 number tiles.
+
+A MINE TILE contains a mine. 
+
+A NUMBER TILE is a space without a mine. A number tile will instead contain a number that counts the number of adjacent mines. 
+This number counts all mines touching the space - top, bottom, left, right, *and* diagonally adjacent mines. You may see an example of this to the right. 
+
+The GOAL of the game is to reveal all number tiles without revealing a single mine tile. If you reveal a mine tile, you lose. 
+
+To REVEAL a tile, put your mouse over the tile and press LEFT-CLICK on your mouse. Remember to try to only reveal tiles where you do not think a mine exists. 
+
+You may find it helpful to place a FLAG on spaces where you think a mine may be hiding. This will give you a visual indicator of where you think the mines are, which could help you reveal more number tiles. 
+To place a FLAG, you can either mouse over a tile and press RIGHT-CLICK on your mouse, OR you can mouse over a tile and press CTRL on your keyboard and LEFT-CLICK on your mouse at the same time. 
+
+A TIMER will track your progress. 
+
+You may receive a HINT, but you will receive a 30-second penalty on the timer if you use a hint. 
+
+If you lose, you may choose to REVEAL all mines. This may help you see your mistakes and help you learn. 
+
+You may RESET the game (but not if you have chosen have the mines revealed for you). This will give you another chance if you lose, HOWEVER the timer will keep running. 
