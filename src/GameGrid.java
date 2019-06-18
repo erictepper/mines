@@ -39,7 +39,7 @@ class GameGrid {
         numberOfMines = 99;
         break;
       default:
-        throw new IllegalArgumentException("gameSize must be one of \"beginner\", \"intermediate\", or \"expert.\"");
+        throw new IllegalArgumentException("gameSize must be one of \"beginner\", \"intermediate\", or \"expert\".");
     }
 
     try {
