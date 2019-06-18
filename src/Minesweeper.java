@@ -4,98 +4,98 @@ import java.awt.event.*;
 
 
 public class Minesweeper implements MouseListener, ActionListener {
-  private JFrame GAME_FRAME;
-  private Game GAME_INSTANCE;
-  private JButton NEW_GAME_BUTTON;
-  private JButton INSTRUCTIONS_BUTTON;
-  private JButton RESET_BUTTON;
-  private JButton BEGINNER_BUTTON;
-  private JButton INTERMEDIATE_BUTTON;
-  private JButton EXPERT_BUTTON;
-  private JButton HINT;
-  private Timer GAME_TIMER;
-  private JButton REVEAL_MINES_YES;
-  private JButton REVEAL_MINES_NO;
+  private JFrame gameFrame;
+  private Game gameInstance;
+  private JButton newGameButton;
+  private JButton instructionsButton;
+  private JButton resetButton;
+  private JButton beginnerButton;
+  private JButton intermediateButton;
+  private JButton expertButton;
+  private JButton hintButton;
+  private Timer gameTimer;
+  private JButton revealMinesYes;
+  private JButton revealMinesNo;
 
   private Minesweeper() {
-    GAME_FRAME = new JFrame("Minesweeper");
-    GAME_FRAME.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    gameFrame = new JFrame("Minesweeper");
+    gameFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-    GAME_INSTANCE = new Game();
-    GAME_INSTANCE.setSize(1000, 770);
-    GAME_INSTANCE.setBackground(Color.WHITE);
-    GAME_INSTANCE.addMouseListener(this);
+    gameInstance = new Game();
+    gameInstance.setSize(1000, 770);
+    gameInstance.setBackground(Color.WHITE);
+    gameInstance.addMouseListener(this);
 
-    NEW_GAME_BUTTON = new JButton("NEW GAME");
-    NEW_GAME_BUTTON.setFont(new Font("Courier New", Font.PLAIN, 16));
-    NEW_GAME_BUTTON.setBounds(360, 120, 130, 40);
-    NEW_GAME_BUTTON.addActionListener(this);
-    NEW_GAME_BUTTON.setActionCommand("new_game_1");
+    newGameButton = new JButton("NEW GAME");
+    newGameButton.setFont(new Font("Courier New", Font.PLAIN, 16));
+    newGameButton.setBounds(360, 120, 130, 40);
+    newGameButton.addActionListener(this);
+    newGameButton.setActionCommand("new_game_1");
 
-    INSTRUCTIONS_BUTTON = new JButton("?");
-    INSTRUCTIONS_BUTTON.setFont(new Font("Courier New", Font.PLAIN, 16));
-    INSTRUCTIONS_BUTTON.setBounds(505, 120, 30, 40);
-    INSTRUCTIONS_BUTTON.addActionListener(this);
-    INSTRUCTIONS_BUTTON.setActionCommand("instructions_1");
+    instructionsButton = new JButton("?");
+    instructionsButton.setFont(new Font("Courier New", Font.PLAIN, 16));
+    instructionsButton.setBounds(505, 120, 30, 40);
+    instructionsButton.addActionListener(this);
+    instructionsButton.setActionCommand("instructions_1");
 
-    RESET_BUTTON = new JButton("RESET");
-    RESET_BUTTON.setFont(new Font("Courier New", Font.PLAIN, 16));
-    RESET_BUTTON.setBounds(550, 120, 130, 40);
-    RESET_BUTTON.addActionListener(this);
-    RESET_BUTTON.setActionCommand("reset");
+    resetButton = new JButton("RESET");
+    resetButton.setFont(new Font("Courier New", Font.PLAIN, 16));
+    resetButton.setBounds(550, 120, 130, 40);
+    resetButton.addActionListener(this);
+    resetButton.setActionCommand("reset");
 
-    HINT = new JButton("HINT");
-    HINT.setFont(new Font("Courier New", Font.PLAIN, 16));
-    HINT.setBounds(310, 160, 130, 40);
-    HINT.addActionListener(this);
-    HINT.setActionCommand("hint");
-    HINT.addMouseListener(this);
+    hintButton = new JButton("HINT");
+    hintButton.setFont(new Font("Courier New", Font.PLAIN, 16));
+    hintButton.setBounds(310, 160, 130, 40);
+    hintButton.addActionListener(this);
+    hintButton.setActionCommand("hint");
+    hintButton.addMouseListener(this);
 
-    GAME_TIMER = new Timer(1000, this);
-    GAME_TIMER.setActionCommand("timer");
+    gameTimer = new Timer(1000, this);
+    gameTimer.setActionCommand("timer");
 
-    REVEAL_MINES_YES = new JButton("Yes");
-    REVEAL_MINES_YES.setFont(new Font("Courier New", Font.PLAIN, 12));
-    REVEAL_MINES_YES.setBounds(585, 207, 50, 30);
-    REVEAL_MINES_YES.addActionListener(this);
-    REVEAL_MINES_YES.setActionCommand("reveal_yes");
+    revealMinesYes = new JButton("Yes");
+    revealMinesYes.setFont(new Font("Courier New", Font.PLAIN, 12));
+    revealMinesYes.setBounds(585, 207, 50, 30);
+    revealMinesYes.addActionListener(this);
+    revealMinesYes.setActionCommand("reveal_yes");
 
-    REVEAL_MINES_NO = new JButton("No");
-    REVEAL_MINES_NO.setFont(new Font("Courier New", Font.PLAIN, 12));
-    REVEAL_MINES_NO.setBounds(635, 207, 50, 30);
-    REVEAL_MINES_NO.addActionListener(this);
-    REVEAL_MINES_NO.setActionCommand("reveal_no");
+    revealMinesNo = new JButton("No");
+    revealMinesNo.setFont(new Font("Courier New", Font.PLAIN, 12));
+    revealMinesNo.setBounds(635, 207, 50, 30);
+    revealMinesNo.addActionListener(this);
+    revealMinesNo.setActionCommand("reveal_no");
 
-    BEGINNER_BUTTON = new JButton("BEGINNER");
-    BEGINNER_BUTTON.setFont(new Font("Courier New", Font.PLAIN, 16));
-    BEGINNER_BUTTON.setBounds(185, 340, 130, 40);
+    beginnerButton = new JButton("BEGINNER");
+    beginnerButton.setFont(new Font("Courier New", Font.PLAIN, 16));
+    beginnerButton.setBounds(185, 340, 130, 40);
 
-    INTERMEDIATE_BUTTON = new JButton("INTERMEDIATE");
-    INTERMEDIATE_BUTTON.setFont(new Font("Courier New", Font.PLAIN, 16));
-    INTERMEDIATE_BUTTON.setBounds(425, 340, 150, 40);
+    intermediateButton = new JButton("INTERMEDIATE");
+    intermediateButton.setFont(new Font("Courier New", Font.PLAIN, 16));
+    intermediateButton.setBounds(425, 340, 150, 40);
 
-    EXPERT_BUTTON = new JButton("EXPERT");
-    EXPERT_BUTTON.setFont(new Font("Courier New", Font.PLAIN, 16));
-    EXPERT_BUTTON.setBounds(685, 340, 130, 40);
+    expertButton = new JButton("EXPERT");
+    expertButton.setFont(new Font("Courier New", Font.PLAIN, 16));
+    expertButton.setBounds(685, 340, 130, 40);
 
 
-    GAME_FRAME.add(NEW_GAME_BUTTON);
-    GAME_FRAME.add(INSTRUCTIONS_BUTTON);
-    GAME_FRAME.add(RESET_BUTTON);
-    GAME_FRAME.add(HINT);
-    GAME_FRAME.add(REVEAL_MINES_YES);
-    GAME_FRAME.add(REVEAL_MINES_NO);
-    GAME_FRAME.add(BEGINNER_BUTTON);
-    GAME_FRAME.add(INTERMEDIATE_BUTTON);
-    GAME_FRAME.add(EXPERT_BUTTON);
-    GAME_FRAME.add(GAME_INSTANCE);
-    GAME_FRAME.setSize(1000, 770);
-    GAME_FRAME.setVisible(true);
-    REVEAL_MINES_YES.setVisible(false);
-    REVEAL_MINES_NO.setVisible(false);
-    BEGINNER_BUTTON.setVisible(false);
-    INTERMEDIATE_BUTTON.setVisible(false);
-    EXPERT_BUTTON.setVisible(false);
+    gameFrame.add(newGameButton);
+    gameFrame.add(instructionsButton);
+    gameFrame.add(resetButton);
+    gameFrame.add(hintButton);
+    gameFrame.add(revealMinesYes);
+    gameFrame.add(revealMinesNo);
+    gameFrame.add(beginnerButton);
+    gameFrame.add(intermediateButton);
+    gameFrame.add(expertButton);
+    gameFrame.add(gameInstance);
+    gameFrame.setSize(1000, 770);
+    gameFrame.setVisible(true);
+    revealMinesYes.setVisible(false);
+    revealMinesNo.setVisible(false);
+    beginnerButton.setVisible(false);
+    intermediateButton.setVisible(false);
+    expertButton.setVisible(false);
   }
 
   public static void main(String[] args) {
@@ -106,234 +106,234 @@ public class Minesweeper implements MouseListener, ActionListener {
 
   // Handles the interaction of the mouse with the interface.
   public void mousePressed(MouseEvent e) {
-    if (e.getSource().equals(HINT)) { return; }
+    if (e.getSource().equals(hintButton)) { return; }
     int x = e.getX();
     int y = e.getY();
-    if (!GAME_INSTANCE.getGameStartedStatus() && GAME_INSTANCE.inBounds(x, y)) { GAME_TIMER.start(); }  // TODO: potentially move to Game.java
+    if (!gameInstance.getGameStartedStatus() && gameInstance.inBounds(x, y)) { gameTimer.start(); }  // TODO: potentially move to Game.java
     int button = (e.isControlDown() && e.getButton() == 1) ? 3 : e.getButton();
-    GAME_INSTANCE.mousePressed(x, y, button);
-    if (GAME_INSTANCE.getGameStatus()) {
-      GAME_INSTANCE.removeMouseListener(this);
-      GAME_TIMER.stop();
-      if (GAME_INSTANCE.getGameLostStatus()) {
-        GAME_INSTANCE.showRevealDialogue();
-        REVEAL_MINES_YES.setVisible(true);
-        REVEAL_MINES_NO.setVisible(true);
+    gameInstance.mousePressed(x, y, button);
+    if (gameInstance.getGameStatus()) {
+      gameInstance.removeMouseListener(this);
+      gameTimer.stop();
+      if (gameInstance.getGameLostStatus()) {
+        gameInstance.showRevealDialogue();
+        revealMinesYes.setVisible(true);
+        revealMinesNo.setVisible(true);
         }
     }
-    GAME_FRAME.repaint();
+    gameFrame.repaint();
   }
 
   public void mouseReleased(MouseEvent e) { }
 
   public void mouseEntered(MouseEvent e) {
-    if (e.getSource().equals(HINT)) {
-      GAME_INSTANCE.showHintPenaltyDialogue();
-      // we also repaint the GAME_FRAME, otherwise the buttons disappear.
-      GAME_FRAME.repaint();
+    if (e.getSource().equals(hintButton)) {
+      gameInstance.showHintPenaltyDialogue();
+      // we also repaint the gameFrame, otherwise the buttons disappear.
+      gameFrame.repaint();
     }
   }
 
     public void mouseExited(MouseEvent e) {
-    if (e.getSource().equals(HINT)) {
-      GAME_INSTANCE.hideHintPenaltyDialogue();
-      // we also repaint the GAME_FRAME, otherwise the buttons disappear.
-      GAME_FRAME.repaint();
+    if (e.getSource().equals(hintButton)) {
+      gameInstance.hideHintPenaltyDialogue();
+      // we also repaint the gameFrame, otherwise the buttons disappear.
+      gameFrame.repaint();
       }
   }
 
   public void actionPerformed(ActionEvent e) {
     switch (e.getActionCommand()) {
       case "timer":
-        GAME_INSTANCE.timerTick();
-        GAME_FRAME.repaint();
+        gameInstance.timerTick();
+        gameFrame.repaint();
         break;
       case "hint":
-        if (!GAME_INSTANCE.getGameStatus() && !GAME_INSTANCE.isGridHidden()) {
-          GAME_INSTANCE.giveHint();
-          GAME_FRAME.repaint();
+        if (!gameInstance.getGameStatus() && !gameInstance.isGridHidden()) {
+          gameInstance.giveHint();
+          gameFrame.repaint();
         }
         break;
       case "reveal_yes":
-        GAME_INSTANCE.revealAllMines();
-        RESET_BUTTON.setEnabled(false);
-        GAME_INSTANCE.hideRevealDialogue();
-        REVEAL_MINES_YES.setVisible(false);
-        REVEAL_MINES_NO.setVisible(false);
-        GAME_FRAME.repaint();
+        gameInstance.revealAllMines();
+        resetButton.setEnabled(false);
+        gameInstance.hideRevealDialogue();
+        revealMinesYes.setVisible(false);
+        revealMinesNo.setVisible(false);
+        gameFrame.repaint();
         break;
       case "reveal_no":
-        GAME_INSTANCE.hideRevealDialogue();
-        REVEAL_MINES_YES.setVisible(false);
-        REVEAL_MINES_NO.setVisible(false);
+        gameInstance.hideRevealDialogue();
+        revealMinesYes.setVisible(false);
+        revealMinesNo.setVisible(false);
         break;
       case "reset":
-        GAME_INSTANCE.reset();
-        GAME_INSTANCE.removeMouseListener(this);
-        GAME_INSTANCE.addMouseListener(this);
-        if (!GAME_INSTANCE.getGameStatus()) {
-          if (GAME_INSTANCE.getGameStartedStatus()) { GAME_TIMER.start(); }
+        gameInstance.reset();
+        gameInstance.removeMouseListener(this);
+        gameInstance.addMouseListener(this);
+        if (!gameInstance.getGameStatus()) {
+          if (gameInstance.getGameStartedStatus()) { gameTimer.start(); }
         }
 
-        BEGINNER_BUTTON.setVisible(false);
-        BEGINNER_BUTTON.removeActionListener(this);
-        INTERMEDIATE_BUTTON.setVisible(false);
-        INTERMEDIATE_BUTTON.removeActionListener(this);
-        EXPERT_BUTTON.setVisible(false);
-        EXPERT_BUTTON.removeActionListener(this);
-        HINT.removeActionListener(this);
-        HINT.addActionListener(this);
-        NEW_GAME_BUTTON.setActionCommand("new_game_1");
-        INSTRUCTIONS_BUTTON.setActionCommand("instructions_1");
+        beginnerButton.setVisible(false);
+        beginnerButton.removeActionListener(this);
+        intermediateButton.setVisible(false);
+        intermediateButton.removeActionListener(this);
+        expertButton.setVisible(false);
+        expertButton.removeActionListener(this);
+        hintButton.removeActionListener(this);
+        hintButton.addActionListener(this);
+        newGameButton.setActionCommand("new_game_1");
+        instructionsButton.setActionCommand("instructions_1");
 
-        RESET_BUTTON.setEnabled(true);
-        GAME_INSTANCE.hideRevealDialogue();
-        REVEAL_MINES_YES.setVisible(false);
-        REVEAL_MINES_NO.setVisible(false);
-        GAME_INSTANCE.hideGameInstructions();
+        resetButton.setEnabled(true);
+        gameInstance.hideRevealDialogue();
+        revealMinesYes.setVisible(false);
+        revealMinesNo.setVisible(false);
+        gameInstance.hideGameInstructions();
 
-        GAME_FRAME.repaint();
+        gameFrame.repaint();
         break;
       case "new_game_1":
-        GAME_INSTANCE.hideGrid();
-        GAME_INSTANCE.removeMouseListener(this);
-        GAME_TIMER.stop();
+        gameInstance.hideGrid();
+        gameInstance.removeMouseListener(this);
+        gameTimer.stop();
 
-        BEGINNER_BUTTON.removeActionListener(this);
-        BEGINNER_BUTTON.addActionListener(this);
-        BEGINNER_BUTTON.setActionCommand("beginner");
-        BEGINNER_BUTTON.setVisible(true);
-        INTERMEDIATE_BUTTON.removeActionListener(this);
-        INTERMEDIATE_BUTTON.addActionListener(this);
-        INTERMEDIATE_BUTTON.setActionCommand("intermediate");
-        INTERMEDIATE_BUTTON.setVisible(true);
-        EXPERT_BUTTON.removeActionListener(this);
-        EXPERT_BUTTON.addActionListener(this);
-        EXPERT_BUTTON.setActionCommand("expert");
-        EXPERT_BUTTON.setVisible(true);
-        HINT.removeActionListener(this);
-        NEW_GAME_BUTTON.setActionCommand("new_game_2");
-        INSTRUCTIONS_BUTTON.setActionCommand("instructions_1");
-        GAME_INSTANCE.hideGameInstructions();
+        beginnerButton.removeActionListener(this);
+        beginnerButton.addActionListener(this);
+        beginnerButton.setActionCommand("beginner");
+        beginnerButton.setVisible(true);
+        intermediateButton.removeActionListener(this);
+        intermediateButton.addActionListener(this);
+        intermediateButton.setActionCommand("intermediate");
+        intermediateButton.setVisible(true);
+        expertButton.removeActionListener(this);
+        expertButton.addActionListener(this);
+        expertButton.setActionCommand("expert");
+        expertButton.setVisible(true);
+        hintButton.removeActionListener(this);
+        newGameButton.setActionCommand("new_game_2");
+        instructionsButton.setActionCommand("instructions_1");
+        gameInstance.hideGameInstructions();
 
-        GAME_FRAME.repaint();
+        gameFrame.repaint();
         break;
       case "new_game_2":
-        GAME_INSTANCE.showGrid();
-        if (!GAME_INSTANCE.getGameStatus()) {
-          GAME_INSTANCE.addMouseListener(this);
-          if (GAME_INSTANCE.getGameStartedStatus()) { GAME_TIMER.start(); }
+        gameInstance.showGrid();
+        if (!gameInstance.getGameStatus()) {
+          gameInstance.addMouseListener(this);
+          if (gameInstance.getGameStartedStatus()) { gameTimer.start(); }
         }
 
-        BEGINNER_BUTTON.setVisible(false);
-        BEGINNER_BUTTON.removeActionListener(this);
-        INTERMEDIATE_BUTTON.setVisible(false);
-        INTERMEDIATE_BUTTON.removeActionListener(this);
-        EXPERT_BUTTON.setVisible(false);
-        EXPERT_BUTTON.removeActionListener(this);
-        HINT.addActionListener(this);
-        NEW_GAME_BUTTON.setActionCommand("new_game_1");
-        GAME_INSTANCE.hideGameInstructions();
+        beginnerButton.setVisible(false);
+        beginnerButton.removeActionListener(this);
+        intermediateButton.setVisible(false);
+        intermediateButton.removeActionListener(this);
+        expertButton.setVisible(false);
+        expertButton.removeActionListener(this);
+        hintButton.addActionListener(this);
+        newGameButton.setActionCommand("new_game_1");
+        gameInstance.hideGameInstructions();
 
-        GAME_FRAME.repaint();
+        gameFrame.repaint();
         break;
       case "beginner":
-        GAME_INSTANCE.newGame("beginner");
-        GAME_INSTANCE.addMouseListener(this);
+        gameInstance.newGame("beginner");
+        gameInstance.addMouseListener(this);
 
-        BEGINNER_BUTTON.setVisible(false);
-        BEGINNER_BUTTON.removeActionListener(this);
-        INTERMEDIATE_BUTTON.setVisible(false);
-        INTERMEDIATE_BUTTON.removeActionListener(this);
-        EXPERT_BUTTON.setVisible(false);
-        EXPERT_BUTTON.removeActionListener(this);
-        HINT.addActionListener(this);
-        NEW_GAME_BUTTON.setActionCommand("new_game_1");
-        INSTRUCTIONS_BUTTON.setActionCommand("instructions_1");
+        beginnerButton.setVisible(false);
+        beginnerButton.removeActionListener(this);
+        intermediateButton.setVisible(false);
+        intermediateButton.removeActionListener(this);
+        expertButton.setVisible(false);
+        expertButton.removeActionListener(this);
+        hintButton.addActionListener(this);
+        newGameButton.setActionCommand("new_game_1");
+        instructionsButton.setActionCommand("instructions_1");
 
-        RESET_BUTTON.setEnabled(true);
-        GAME_INSTANCE.hideRevealDialogue();
-        REVEAL_MINES_YES.setVisible(false);
-        REVEAL_MINES_NO.setVisible(false);
-        GAME_INSTANCE.hideGameInstructions();
+        resetButton.setEnabled(true);
+        gameInstance.hideRevealDialogue();
+        revealMinesYes.setVisible(false);
+        revealMinesNo.setVisible(false);
+        gameInstance.hideGameInstructions();
 
-        GAME_FRAME.repaint();
+        gameFrame.repaint();
         break;
       case "intermediate":
-        GAME_INSTANCE.newGame("intermediate");
-        GAME_INSTANCE.addMouseListener(this);
+        gameInstance.newGame("intermediate");
+        gameInstance.addMouseListener(this);
 
-        BEGINNER_BUTTON.setVisible(false);
-        BEGINNER_BUTTON.removeActionListener(this);
-        INTERMEDIATE_BUTTON.setVisible(false);
-        INTERMEDIATE_BUTTON.removeActionListener(this);
-        EXPERT_BUTTON.setVisible(false);
-        EXPERT_BUTTON.removeActionListener(this);
-        HINT.addActionListener(this);
-        NEW_GAME_BUTTON.setActionCommand("new_game_1");
-        INSTRUCTIONS_BUTTON.setActionCommand("instructions_1");
+        beginnerButton.setVisible(false);
+        beginnerButton.removeActionListener(this);
+        intermediateButton.setVisible(false);
+        intermediateButton.removeActionListener(this);
+        expertButton.setVisible(false);
+        expertButton.removeActionListener(this);
+        hintButton.addActionListener(this);
+        newGameButton.setActionCommand("new_game_1");
+        instructionsButton.setActionCommand("instructions_1");
 
-        RESET_BUTTON.setEnabled(true);
-        GAME_INSTANCE.hideRevealDialogue();
-        REVEAL_MINES_YES.setVisible(false);
-        REVEAL_MINES_NO.setVisible(false);
-        GAME_INSTANCE.hideGameInstructions();
+        resetButton.setEnabled(true);
+        gameInstance.hideRevealDialogue();
+        revealMinesYes.setVisible(false);
+        revealMinesNo.setVisible(false);
+        gameInstance.hideGameInstructions();
 
-        GAME_FRAME.repaint();
+        gameFrame.repaint();
         break;
       case "expert":
-        GAME_INSTANCE.newGame("expert");
-        GAME_INSTANCE.addMouseListener(this);
+        gameInstance.newGame("expert");
+        gameInstance.addMouseListener(this);
 
-        BEGINNER_BUTTON.setVisible(false);
-        BEGINNER_BUTTON.removeActionListener(this);
-        INTERMEDIATE_BUTTON.setVisible(false);
-        INTERMEDIATE_BUTTON.removeActionListener(this);
-        EXPERT_BUTTON.setVisible(false);
-        EXPERT_BUTTON.removeActionListener(this);
-        HINT.addActionListener(this);
-        NEW_GAME_BUTTON.setActionCommand("new_game_1");
-        INSTRUCTIONS_BUTTON.setActionCommand("instructions_1");
+        beginnerButton.setVisible(false);
+        beginnerButton.removeActionListener(this);
+        intermediateButton.setVisible(false);
+        intermediateButton.removeActionListener(this);
+        expertButton.setVisible(false);
+        expertButton.removeActionListener(this);
+        hintButton.addActionListener(this);
+        newGameButton.setActionCommand("new_game_1");
+        instructionsButton.setActionCommand("instructions_1");
 
-        RESET_BUTTON.setEnabled(true);
-        GAME_INSTANCE.hideRevealDialogue();
-        REVEAL_MINES_YES.setVisible(false);
-        REVEAL_MINES_NO.setVisible(false);
-        GAME_INSTANCE.hideGameInstructions();
+        resetButton.setEnabled(true);
+        gameInstance.hideRevealDialogue();
+        revealMinesYes.setVisible(false);
+        revealMinesNo.setVisible(false);
+        gameInstance.hideGameInstructions();
 
-        GAME_FRAME.repaint();
+        gameFrame.repaint();
         break;
       case "instructions_1":
-        GAME_INSTANCE.hideGrid();
-        GAME_INSTANCE.showGameInstructions();
-        GAME_INSTANCE.removeMouseListener(this);
-        GAME_TIMER.stop();
+        gameInstance.hideGrid();
+        gameInstance.showGameInstructions();
+        gameInstance.removeMouseListener(this);
+        gameTimer.stop();
 
-        BEGINNER_BUTTON.setVisible(false);
-        BEGINNER_BUTTON.removeActionListener(this);
-        INTERMEDIATE_BUTTON.setVisible(false);
-        INTERMEDIATE_BUTTON.removeActionListener(this);
-        EXPERT_BUTTON.setVisible(false);
-        EXPERT_BUTTON.removeActionListener(this);
-        HINT.removeActionListener(this);
-        NEW_GAME_BUTTON.setActionCommand("new_game_1");
-        INSTRUCTIONS_BUTTON.setActionCommand("instructions_2");
+        beginnerButton.setVisible(false);
+        beginnerButton.removeActionListener(this);
+        intermediateButton.setVisible(false);
+        intermediateButton.removeActionListener(this);
+        expertButton.setVisible(false);
+        expertButton.removeActionListener(this);
+        hintButton.removeActionListener(this);
+        newGameButton.setActionCommand("new_game_1");
+        instructionsButton.setActionCommand("instructions_2");
 
-        GAME_FRAME.repaint();
+        gameFrame.repaint();
         break;
       case "instructions_2":
-        GAME_INSTANCE.showGrid();
-        GAME_INSTANCE.hideGameInstructions();
-        if (!GAME_INSTANCE.getGameStatus()) {
-          GAME_INSTANCE.removeMouseListener(this);
-          GAME_INSTANCE.addMouseListener(this);
-          if (GAME_INSTANCE.getGameStartedStatus()) { GAME_TIMER.start(); }
+        gameInstance.showGrid();
+        gameInstance.hideGameInstructions();
+        if (!gameInstance.getGameStatus()) {
+          gameInstance.removeMouseListener(this);
+          gameInstance.addMouseListener(this);
+          if (gameInstance.getGameStartedStatus()) { gameTimer.start(); }
         }
 
-        HINT.addActionListener(this);
-        INSTRUCTIONS_BUTTON.setActionCommand("instructions_1");
+        hintButton.addActionListener(this);
+        instructionsButton.setActionCommand("instructions_1");
 
-        GAME_FRAME.repaint();
+        gameFrame.repaint();
     }
   }
 }
