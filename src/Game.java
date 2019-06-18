@@ -18,8 +18,8 @@ class Game extends JPanel {
   private boolean isHintPenaltyDialogueShown;
   private static Image mineImage;
   private static Image flagImage;
-  private int flagsLaid;
-  private int revealedNumbers;
+  private int flagsLaidCount;
+  private int revealedNumbersCount;
   private int secondsElapsed;
   private int timePenalty;
 
@@ -62,8 +62,8 @@ class Game extends JPanel {
     areInstructionsShown = false;
     isRevealMinesDialogueShown = false;
     isHintPenaltyDialogueShown = false;
-    flagsLaid = 0;
-    revealedNumbers = 0;
+    flagsLaidCount = 0;
+    revealedNumbersCount = 0;
     secondsElapsed = 0;
     timePenalty = 0;
   }
@@ -72,8 +72,8 @@ class Game extends JPanel {
     isGameLost = false;
     isGameWon = false;
     isGridHidden = false;
-    flagsLaid = 0;
-    revealedNumbers = 0;
+    flagsLaidCount = 0;
+    revealedNumbersCount = 0;
     gameGrid.reset();
   }
 
@@ -114,7 +114,7 @@ class Game extends JPanel {
 
   void giveHint() {
     int flags_change = gameGrid.giveHint();
-    flagsLaid = flagsLaid + flags_change;
+    flagsLaidCount = flagsLaidCount + flags_change;
     if (flags_change != 0) { hintPenalty(); }
   }
 
@@ -149,7 +149,7 @@ class Game extends JPanel {
       hasGameStarted = true;
     }
     if (button == 3) {
-      flagsLaid = flagsLaid + gameGrid.flag(gridIndexXPosition, gridIndexYPosition);
+      flagsLaidCount = flagsLaidCount + gameGrid.flag(gridIndexXPosition, gridIndexYPosition);
       repaint();
     }
     else if (button == 1) {
@@ -158,8 +158,8 @@ class Game extends JPanel {
         isGameLost = true;
       }
       else {
-        revealedNumbers = revealedNumbers + typeRevealed;
-        isGameWon = revealedNumbers >= gameGrid.getBoardHeight() * gameGrid.getBoardWidth() -
+        revealedNumbersCount = revealedNumbersCount + typeRevealed;
+        isGameWon = revealedNumbersCount >= gameGrid.getBoardHeight() * gameGrid.getBoardWidth() -
             gameGrid.getTotalMines();
       }
     }
@@ -231,10 +231,10 @@ class Game extends JPanel {
       g.setColor(Color.BLACK);
     }
 
-    if (gameGrid.getTotalMines() - flagsLaid > 9) {
-      g.drawString(Integer.toString(gameGrid.getTotalMines() - flagsLaid), 640, 187);
+    if (gameGrid.getTotalMines() - flagsLaidCount > 9) {
+      g.drawString(Integer.toString(gameGrid.getTotalMines() - flagsLaidCount), 640, 187);
     } else {
-      g.drawString("0" + (gameGrid.getTotalMines() - flagsLaid), 640, 187);
+      g.drawString("0" + (gameGrid.getTotalMines() - flagsLaidCount), 640, 187);
     }
     if (flagImage != null) {
       g.drawImage(flagImage, 670, 165, null);
