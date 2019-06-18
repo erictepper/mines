@@ -14,8 +14,8 @@ public class Minesweeper implements MouseListener, ActionListener {
   private JButton expertButton;
   private JButton hintButton;
   private Timer gameTimer;
-  private JButton revealMinesYes;
-  private JButton revealMinesNo;
+  private JButton revealMinesYesButton;
+  private JButton revealMinesNoButton;
 
   private Minesweeper() {
     gameFrame = new JFrame("Minesweeper");
@@ -54,17 +54,17 @@ public class Minesweeper implements MouseListener, ActionListener {
     gameTimer = new Timer(1000, this);
     gameTimer.setActionCommand("timer");
 
-    revealMinesYes = new JButton("Yes");
-    revealMinesYes.setFont(new Font("Courier New", Font.PLAIN, 12));
-    revealMinesYes.setBounds(585, 207, 50, 30);
-    revealMinesYes.addActionListener(this);
-    revealMinesYes.setActionCommand("reveal_yes");
+    revealMinesYesButton = new JButton("Yes");
+    revealMinesYesButton.setFont(new Font("Courier New", Font.PLAIN, 12));
+    revealMinesYesButton.setBounds(585, 207, 50, 30);
+    revealMinesYesButton.addActionListener(this);
+    revealMinesYesButton.setActionCommand("reveal_yes");
 
-    revealMinesNo = new JButton("No");
-    revealMinesNo.setFont(new Font("Courier New", Font.PLAIN, 12));
-    revealMinesNo.setBounds(635, 207, 50, 30);
-    revealMinesNo.addActionListener(this);
-    revealMinesNo.setActionCommand("reveal_no");
+    revealMinesNoButton = new JButton("No");
+    revealMinesNoButton.setFont(new Font("Courier New", Font.PLAIN, 12));
+    revealMinesNoButton.setBounds(635, 207, 50, 30);
+    revealMinesNoButton.addActionListener(this);
+    revealMinesNoButton.setActionCommand("reveal_no");
 
     beginnerButton = new JButton("BEGINNER");
     beginnerButton.setFont(new Font("Courier New", Font.PLAIN, 16));
@@ -83,16 +83,16 @@ public class Minesweeper implements MouseListener, ActionListener {
     gameFrame.add(instructionsButton);
     gameFrame.add(resetButton);
     gameFrame.add(hintButton);
-    gameFrame.add(revealMinesYes);
-    gameFrame.add(revealMinesNo);
+    gameFrame.add(revealMinesYesButton);
+    gameFrame.add(revealMinesNoButton);
     gameFrame.add(beginnerButton);
     gameFrame.add(intermediateButton);
     gameFrame.add(expertButton);
     gameFrame.add(gameInstance);
     gameFrame.setSize(1000, 770);
     gameFrame.setVisible(true);
-    revealMinesYes.setVisible(false);
-    revealMinesNo.setVisible(false);
+    revealMinesYesButton.setVisible(false);
+    revealMinesNoButton.setVisible(false);
     beginnerButton.setVisible(false);
     intermediateButton.setVisible(false);
     expertButton.setVisible(false);
@@ -117,8 +117,8 @@ public class Minesweeper implements MouseListener, ActionListener {
       gameTimer.stop();
       if (gameInstance.getGameLostStatus()) {
         gameInstance.showRevealDialogue();
-        revealMinesYes.setVisible(true);
-        revealMinesNo.setVisible(true);
+        revealMinesYesButton.setVisible(true);
+        revealMinesNoButton.setVisible(true);
         }
     }
     gameFrame.repaint();
@@ -158,14 +158,14 @@ public class Minesweeper implements MouseListener, ActionListener {
         gameInstance.revealAllMines();
         resetButton.setEnabled(false);
         gameInstance.hideRevealDialogue();
-        revealMinesYes.setVisible(false);
-        revealMinesNo.setVisible(false);
+        revealMinesYesButton.setVisible(false);
+        revealMinesNoButton.setVisible(false);
         gameFrame.repaint();
         break;
       case "reveal_no":
         gameInstance.hideRevealDialogue();
-        revealMinesYes.setVisible(false);
-        revealMinesNo.setVisible(false);
+        revealMinesYesButton.setVisible(false);
+        revealMinesNoButton.setVisible(false);
         break;
       case "reset":
         gameInstance.reset();
@@ -188,8 +188,8 @@ public class Minesweeper implements MouseListener, ActionListener {
 
         resetButton.setEnabled(true);
         gameInstance.hideRevealDialogue();
-        revealMinesYes.setVisible(false);
-        revealMinesNo.setVisible(false);
+        revealMinesYesButton.setVisible(false);
+        revealMinesNoButton.setVisible(false);
         gameInstance.hideGameInstructions();
 
         gameFrame.repaint();
@@ -253,8 +253,8 @@ public class Minesweeper implements MouseListener, ActionListener {
 
         resetButton.setEnabled(true);
         gameInstance.hideRevealDialogue();
-        revealMinesYes.setVisible(false);
-        revealMinesNo.setVisible(false);
+        revealMinesYesButton.setVisible(false);
+        revealMinesNoButton.setVisible(false);
         gameInstance.hideGameInstructions();
 
         gameFrame.repaint();
@@ -275,8 +275,8 @@ public class Minesweeper implements MouseListener, ActionListener {
 
         resetButton.setEnabled(true);
         gameInstance.hideRevealDialogue();
-        revealMinesYes.setVisible(false);
-        revealMinesNo.setVisible(false);
+        revealMinesYesButton.setVisible(false);
+        revealMinesNoButton.setVisible(false);
         gameInstance.hideGameInstructions();
 
         gameFrame.repaint();
@@ -297,8 +297,8 @@ public class Minesweeper implements MouseListener, ActionListener {
 
         resetButton.setEnabled(true);
         gameInstance.hideRevealDialogue();
-        revealMinesYes.setVisible(false);
-        revealMinesNo.setVisible(false);
+        revealMinesYesButton.setVisible(false);
+        revealMinesNoButton.setVisible(false);
         gameInstance.hideGameInstructions();
 
         gameFrame.repaint();
