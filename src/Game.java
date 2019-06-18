@@ -310,14 +310,14 @@ class Game extends JPanel {
     }
 
     example_grid[0][0].setTileType(2);
-    example_grid[0][1].setNumberOfAdjacentMines(3);
+    example_grid[0][1].setAdjacentMinesCount(3);
     example_grid[0][2].setTileType(2);
     example_grid[1][0].setTileType(2);
-    example_grid[1][1].setNumberOfAdjacentMines(4);
-    example_grid[1][2].setNumberOfAdjacentMines(2);
-    example_grid[2][0].setNumberOfAdjacentMines(2);
+    example_grid[1][1].setAdjacentMinesCount(4);
+    example_grid[1][2].setAdjacentMinesCount(2);
+    example_grid[2][0].setAdjacentMinesCount(2);
     example_grid[2][1].setTileType(2);
-    example_grid[2][2].setNumberOfAdjacentMines(1);
+    example_grid[2][2].setAdjacentMinesCount(1);
 
     for (int i = 0; i < 3; i++) {
       for (int j = 0; j < 3; j++) {
@@ -336,7 +336,7 @@ class Game extends JPanel {
             g.fillRect(paint_start_x + (j * SQUARE_SIZE), paint_start_y + (i * SQUARE_SIZE), SQUARE_SIZE,
                 SQUARE_SIZE);
             g.setColor(Color.BLACK);
-            g.drawString(example_grid[i][j].getLabel(), paint_start_x + (j * SQUARE_SIZE) + 7,
+            g.drawString(example_grid[i][j].label(), paint_start_x + (j * SQUARE_SIZE) + 7,
                 paint_start_y + ((i + 1) * SQUARE_SIZE) - 7);
             break;
           case 2:  // mine tile

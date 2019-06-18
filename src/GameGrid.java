@@ -134,7 +134,7 @@ class GameGrid {
             totalMines = (gameGrid[iterator1][iterator2].getActualStatus() == 2) ? totalMines + 1 : totalMines;
           }
         }
-        gameGrid[i][j].setNumberOfAdjacentMines(totalMines);
+        gameGrid[i][j].setAdjacentMinesCount(totalMines);
       }
     }
   }
@@ -144,7 +144,7 @@ class GameGrid {
   // If the space has already been revealed, it does nothing and returns 0.
   // Returns -1 if revealed space is a mine, and returns the number of total revealed spaces otherwise.
   int reveal(int xPosition, int yPosition) {
-    if (gameGrid[yPosition][xPosition].getNumberOfAdjacentMines() == 0 &&
+    if (gameGrid[yPosition][xPosition].getAdjacentMinesCount() == 0 &&
         gameGrid[yPosition][xPosition].getDisplayStatus() == 0) {
       int totalRevealed = gameGrid[yPosition][xPosition].reveal();
       for (int i = Math.max(0, yPosition-1); i < Math.min(boardHeight, yPosition+2); i++) {
@@ -169,7 +169,7 @@ class GameGrid {
       for (int x = 0; x < boardWidth; x++) {
         GameTile current_game_tile = gameGrid[y][x];
         if (current_game_tile.getActualStatus() == 1 && current_game_tile.getDisplayStatus() == 3) {
-          current_game_tile.markAsFalseFlag();
+          current_game_tile.setFalseFlag();
           return -1;
         }
       }
@@ -195,7 +195,7 @@ class GameGrid {
             }
           }
 
-          int diff = gameGrid[y][x].getNumberOfAdjacentMines() - number_of_adjacent_flags;
+          int diff = gameGrid[y][x].getAdjacentMinesCount() - number_of_adjacent_flags;
           if (diff > 0 && diff < lowest_mine_flag_difference_count) {
             lowest_mine_flag_difference_count = diff;
             hint_centre_y_index = y;
@@ -229,7 +229,7 @@ class GameGrid {
         if (gameGrid[y][x].getActualStatus() == 2) {
           gameGrid[y][x].reveal();
         } else {
-          gameGrid[y][x].markAsFalseFlag();
+          gameGrid[y][x].setFalseFlag();
         }
       }
     }
@@ -271,7 +271,7 @@ class GameGrid {
             g.fillRect(boardBeginningX + (j * squareSize), boardBeginningY + (i * squareSize), squareSize,
                 squareSize);
             g.setColor(Color.BLACK);
-            g.drawString(gameGrid[i][j].getLabel(), boardBeginningX + (j * squareSize) + 7,
+            g.drawString(gameGrid[i][j].label(), boardBeginningX + (j * squareSize) + 7,
                 boardBeginningY + ((i + 1) * squareSize) - 7);
             break;
           case 2:  // mine tile
