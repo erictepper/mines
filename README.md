@@ -30,7 +30,8 @@ seconds if they use a hint.
 * **0.8.2:** Hint penalty dialogue will no longer display when game is not in play (e.g. before it starts, after it 
 ends, or when the board is hidden).
 
-**Version 0.9:** Added help button & screen that explains how to play the game. Fixed formatting to follow conventions.
+**Version 0.9:** Added help button & screen that explains how to play the game. Fixed formatting to conform to Google's
+style guide at [https://google.github.io/styleguide/javaguide.html](https://google.github.io/styleguide/javaguide.html).
 
 **Potential future features include:** 
 * Add "click anywhere to begin" text to game screen before game start.
