@@ -19,7 +19,7 @@ class GameGrid {
 
   // gameSize should be one of "beginner", "intermediate", or "expert".
   GameGrid(String gameSize, int boardXStart, int boardYStart, int boardSquareSize) {
-    numberOfMines = 10;
+    // numberOfMines = 10;  // TODO: Check to make sure removing this doesn't break anything.
     switch (gameSize) {
       case "beginner":
         boardHeight = 9;
@@ -38,6 +38,8 @@ class GameGrid {
         boardWidth = 30;
         numberOfMines = 99;
         break;
+      default:
+        throw new IllegalArgumentException("gameSize must be one of \"beginner\", \"intermediate\", or \"expert.\"");
     }
 
     try {
