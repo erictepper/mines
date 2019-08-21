@@ -17,7 +17,7 @@ lay flags with CTRL+left-click.
 
 **Version 0.5:** Game timer added.
 
-**Version 0.6:** It is now optional to have all bombs revealed upon a loss. If all bombs are revealed, 
+**Version 0.6:** It is now optional to have all mines revealed upon a loss. If all mines are revealed, 
 it will no longer be possible to reset the game.
 * **0.6.1:** Fixed bug where relocateMine will sometimes relocate a mine back to the 
 same spot. 
