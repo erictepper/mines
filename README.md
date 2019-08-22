@@ -48,4 +48,4 @@ style guide at [https://google.github.io/styleguide/javaguide.html](https://goog
 
 
 **Bugs to fix:** 
-* Start game from new game screen rather than on expert mode. 
+* No current known bugs. 
