@@ -39,6 +39,7 @@ style guide at [https://google.github.io/styleguide/javaguide.html](https://goog
 
 **Potential future features include:** 
 * Add "click anywhere to begin" text to game screen before game start.
+* Create alternative for when mine and flag images cannot be found.
 * Scoring system other than timer? 
 * Deploy to web. 
 * Use cookies? to save/load games. 
