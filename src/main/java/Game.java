@@ -3,6 +3,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.io.File;
 import java.io.IOException;
+import java.lang.*;
 
 class Game extends JPanel {
   private int boardBeginningX;
@@ -26,8 +27,8 @@ class Game extends JPanel {
   Game() {
     newGame("expert");
     try {
-      mineImage = ImageIO.read(new File("resources/images/mine.png"));
-      flagImage = ImageIO.read(new File("resources/images/flag.png"));
+      mineImage = ImageIO.read(this.getClass().getResource("images/mine.png"));
+      flagImage = ImageIO.read(this.getClass().getResource("images/flag.png"));
     } catch (IOException e) {
       mineImage = null;  // TODO: create an alternative when the image cannot be found
       flagImage = null;  // TODO: create an alternative when the image cannot be found
