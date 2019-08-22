@@ -97,6 +97,7 @@ public class Minesweeper implements MouseListener, ActionListener {
     intermediateButton.setVisible(false);
     expertButton.setVisible(false);
 
+    // Starts the game on the new game screen. 
     actionPerformed(new ActionEvent(newGameButton, 0,"new_game_1"));
   }
 
