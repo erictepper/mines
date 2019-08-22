@@ -30,8 +30,9 @@ class Game extends JPanel {
       mineImage = ImageIO.read(getClass().getResource("images/mine.png"));
       flagImage = ImageIO.read(getClass().getResource("images/flag.png"));
     } catch (IOException e) {
-      System.out.println("Package is missing mine/flag image(s)");
-      System.exit(1);
+      System.out.println("Package is missing image(s) for mines and flags.");
+      mineImage = null;  // TODO: create an alternative when the image cannot be found
+      flagImage = null;  // TODO: create an alternative when the image cannot be found
     }
   }
 
