@@ -48,6 +48,7 @@ style guide at [https://google.github.io/styleguide/javaguide.html](https://goog
 * Use cookies? to save/load games. 
 * Save high scores using cookies?
 * Store daily games in a SQL server? 
+* Rewritten license.
 
 
 ###### Bugs to fix:
