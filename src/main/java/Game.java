@@ -27,8 +27,8 @@ class Game extends JPanel {
   Game() {
     newGame("expert");
     try {
-      mineImage = ImageIO.read(this.getClass().getResource("images/mine.png"));
-      flagImage = ImageIO.read(this.getClass().getResource("images/flag.png"));
+      mineImage = ImageIO.read(getClass().getResource("images/mine.png"));
+      flagImage = ImageIO.read(getClass().getResource("images/flag.png"));
     } catch (IOException e) {
       mineImage = null;  // TODO: create an alternative when the image cannot be found
       flagImage = null;  // TODO: create an alternative when the image cannot be found
