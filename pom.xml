@@ -9,6 +9,22 @@
   <name>Minesweeper</name>
   <url>https://github.com/erictepper/Minesweeper</url>
 
+  <developers>
+    <developer>
+      <id>erictepper</id>
+      <name>Eric Tepper</name>
+      <email>eric.tepper@me.com</email>
+      <url>https://github.com/erictepper</url>
+      <roles>
+        <role>developer</role>
+      </roles>
+      <timezone>America/Vancouver</timezone>
+      <properties>
+        <picUrl>https://avatars2.githubusercontent.com/u/17136505</picUrl>
+      </properties>
+    </developer>
+  </developers>
+
   <properties>
     <java.version>10.0.1</java.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
