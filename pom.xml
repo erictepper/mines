@@ -3,11 +3,11 @@
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>com.github.erictepper.minesweeper</groupId>
-  <artifactId>minesweeper</artifactId>
+  <groupId>com.github.erictepper.mines</groupId>
+  <artifactId>mines</artifactId>
   <version>0.9</version>
-  <name>Minesweeper</name>
-  <url>https://github.com/erictepper/Minesweeper</url>
+  <name>Mines</name>
+  <url>https://github.com/erictepper/mines</url>
 
   <developers>
     <developer>
@@ -52,7 +52,7 @@
         <configuration>
           <archive>
             <manifest>
-              <mainClass>Minesweeper</mainClass>
+              <mainClass>Mines</mainClass>
             </manifest>
           </archive>
         </configuration>
