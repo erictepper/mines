@@ -1,7 +1,8 @@
 # mines
-ver. 0.9.0
 
 ### General Info
+Version 0.9.0
+
 A from-scratch Java clone of Minesweeper, taking advantage of the java.awt.Graphics library. 
 Class code can be found in [src/main/java](../master/src/main/java).
 
