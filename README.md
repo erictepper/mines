@@ -1,14 +1,16 @@
-# Minesweeper, ver. 0.9
+# mines
+ver. 0.9.0
+
 ### General Info
-A from-scratch Java implementation of Minesweeper, taking advantage of the java.awt.Graphics library. 
+A from-scratch Java clone of Minesweeper, taking advantage of the java.awt.Graphics library. 
 Class code can be found in [src/main/java](../master/src/main/java).
 
 This project requires Maven 3.1.2 to build and can be built by running `mvn clean package` from the command line. This 
-will build the project in the `target/` directory, and the application can then be run from the `minesweeper-0.9.jar` 
+will build the project in the `target/` directory, and the application can then be run from the `mines-0.9.jar` 
 java executable. 
 
 ### Versions
-**Version 0:** Minesweeper game, with only expert mode available, and no option to reset or create a new game.
+**Version 0:** Mines game, with only expert mode available, and no option to reset or create a new game.
 
 **Version 0.1:** Ability to reset and create new game added, with all three difficulties available - beginner, 
 intermediate, and advanced.
