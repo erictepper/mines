@@ -3,7 +3,7 @@ import javax.swing.*;
 import java.awt.event.*;
 
 
-public class Minesweeper implements MouseListener, ActionListener {
+public class Mines implements MouseListener, ActionListener {
   private JFrame gameFrame;
   private Game gameInstance;
   private JButton newGameButton;
@@ -17,8 +17,8 @@ public class Minesweeper implements MouseListener, ActionListener {
   private JButton revealMinesYesButton;
   private JButton revealMinesNoButton;
 
-  private Minesweeper() {
-    gameFrame = new JFrame("Minesweeper");
+  private Mines() {
+    gameFrame = new JFrame("Mines");
     gameFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
     gameInstance = new Game();
@@ -102,7 +102,7 @@ public class Minesweeper implements MouseListener, ActionListener {
   }
 
   public static void main(String[] args) {
-    new Minesweeper();
+    new Mines();
   }
 
   public void mouseClicked(MouseEvent e) { }
