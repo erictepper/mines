@@ -242,7 +242,7 @@ class Game extends JPanel {
       g.drawImage(flagImage, 670, 165, null);
       g.drawRect(635, 165, 65, 30);
       } else {
-      g.drawString("Flags", 600, 190);
+      g.drawString("F", 600, 190);
     }
 
     if (isGameLost) {
