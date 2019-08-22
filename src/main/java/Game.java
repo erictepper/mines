@@ -255,7 +255,7 @@ class Game extends JPanel {
       g.drawString("YOU WIN!", 370, 100);
     } else {
       g.setFont(new Font("Courier New", Font.PLAIN, 60));
-      g.drawString("Mines", 340, 100);
+      g.drawString("Mines", 440, 100);
     }
 
     if (isRevealMinesDialogueShown) {
