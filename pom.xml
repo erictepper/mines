@@ -6,5 +6,7 @@
   <groupId>com.github.erictepper</groupId>
   <artifactId>minesweeper</artifactId>
   <version>0.9</version>
+  <name>Minesweeper</name>
+  <url>https://github.com/erictepper/Minesweeper</url>
 
 </project>
