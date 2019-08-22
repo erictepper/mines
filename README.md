@@ -1,6 +1,6 @@
 # Minesweeper, ver. 0.9
 A from-scratch Java implementation of Minesweeper, taking advantage of the java.awt.Graphics library. 
-Class code can be found in [../src](../master/src)
+Class code can be found in [src/main/java](../master/src/main/java)
 
 **Version 0:** Minesweeper game, with only expert mode available, and no option to reset or create a new game.
 
