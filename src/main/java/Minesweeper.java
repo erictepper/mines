@@ -96,6 +96,8 @@ public class Minesweeper implements MouseListener, ActionListener {
     beginnerButton.setVisible(false);
     intermediateButton.setVisible(false);
     expertButton.setVisible(false);
+
+    actionPerformed(new ActionEvent(newGameButton, 0,"new_game_1"));
   }
 
   public static void main(String[] args) {
