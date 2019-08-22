@@ -17,9 +17,6 @@
     <maven.compiler.target>1.10</maven.compiler.target>
   </properties>
 
-  <dependencies>
-  </dependencies>
-
   <build>
     <resources>
       <resource>
