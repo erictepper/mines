@@ -1,4 +1,5 @@
 # Minesweeper, ver. 0.9
+#### General Info
 A from-scratch Java implementation of Minesweeper, taking advantage of the java.awt.Graphics library. 
 Class code can be found in [src/main/java](../master/src/main/java).
 
@@ -6,6 +7,7 @@ This project requires Maven 3.1.2 to build and can be built by running `mvn clea
 will build the project in the `target/` directory, and the application can then be run from the `minesweeper-0.9.jar` 
 java executable. 
 
+#### Versions
 **Version 0:** Minesweeper game, with only expert mode available, and no option to reset or create a new game.
 
 **Version 0.1:** Ability to reset and create new game added, with all three difficulties available - beginner, 
@@ -37,7 +39,8 @@ ends, or when the board is hidden).
 **Version 0.9:** Added help button & screen that explains how to play the game. Fixed formatting to conform to Google's
 style guide at [https://google.github.io/styleguide/javaguide.html](https://google.github.io/styleguide/javaguide.html).
 
-**Potential future features include:** 
+#### To-do
+###### Potential future features include: 
 * Add "click anywhere to begin" text to game screen before game start.
 * Create alternative for when mine and flag images cannot be found.
 * Scoring system other than timer? 
@@ -48,5 +51,5 @@ style guide at [https://google.github.io/styleguide/javaguide.html](https://goog
 * Added license. 
 
 
-**Bugs to fix:** 
+###### Bugs to fix:
 * No current known bugs. 
