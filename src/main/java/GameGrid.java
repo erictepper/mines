@@ -45,7 +45,7 @@ class GameGrid {
       mineImage = ImageIO.read(getClass().getResource("images/mine.png"));
       flagImage = ImageIO.read(getClass().getResource("images/flag.png"));
       falseFlagImage = ImageIO.read(getClass().getResource("images/false_flag.png"));
-    } catch (IOException e) {
+    } catch (Exception e) {
       mineImage = null;
       flagImage = null;
       falseFlagImage = null;
