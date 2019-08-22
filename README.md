@@ -3,8 +3,8 @@ A from-scratch Java implementation of Minesweeper, taking advantage of the java.
 Class code can be found in [src/main/java](../master/src/main/java).
 
 This project requires Maven 3.1.2 to build and can be built by running `mvn clean package` from the command line. This 
-will build the project in the `target/` directory, and the program can then be run from the `minesweeper-0.9.jar` java 
-executable. 
+will build the project in the `target/` directory, and the application can then be run from the `minesweeper-0.9.jar` 
+java executable. 
 
 **Version 0:** Minesweeper game, with only expert mode available, and no option to reset or create a new game.
 
