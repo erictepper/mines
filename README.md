@@ -1,13 +1,13 @@
 # mines
 
 ### General Info
-Version 0.9.0
+Version 0.10.0
 
 A from-scratch Java clone of Minesweeper, taking advantage of the java.awt.Graphics library. 
 Class code can be found in [src/main/java](../master/src/main/java).
 
 This project requires Maven 3.1.2 to build and can be built by running `mvn clean package` from the command line. This 
-will build the project in the `target/` directory, and the application can then be run from the `mines-0.9.jar` 
+will build the project in the `target/` directory, and the application can then be run from the `mines-0.10.jar` 
 java executable. 
 
 ### Versions
@@ -41,6 +41,8 @@ ends, or when the board is hidden).
 
 **Version 0.9:** Added help button & screen that explains how to play the game. Fixed formatting to conform to Google's
 style guide at [https://google.github.io/styleguide/javaguide.html](https://google.github.io/styleguide/javaguide.html).
+
+**Version 0.10:** Minesweeper will have the option to run from Java Web Start so it can be hosted on the web.  
 
 ### To-do
 ###### Potential future features include: 
