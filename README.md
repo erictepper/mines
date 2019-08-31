@@ -6,7 +6,7 @@ Version 0.10.0
 A from-scratch Java clone of Minesweeper, taking advantage of the java.awt.Graphics library. 
 Class code can be found in [src/main/java](../master/src/main/java).
 
-This project requires Maven 3.1.2 to build and can be built by running `mvn clean package` from the command line. This 
+This project requires Maven 3.6.1 to build and can be built by running `mvn clean package` from the command line. This 
 will build the project in the `target/` directory, and the application can then be run from the `mines-0.10.jar` 
 java executable. 
 
