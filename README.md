@@ -1,5 +1,7 @@
 # mines
 
+## Download [here](https://github.com/erictepper/mines/releases/download/v1.0.0/mines-1.0.0.jar) to play. The game requires at least Java 8 to run. If you are using a Mac, when the file is downloaded, right-click on the file and click "Open", then press "Open" again.
+
 ### General Info
 Version 1.0.0
 
