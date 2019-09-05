@@ -51,7 +51,6 @@ style guide at [https://google.github.io/styleguide/javaguide.html](https://goog
 * Add "click anywhere to begin" text to game screen before game start.
 * Create alternative for when mine and flag images cannot be found.
 * Scoring system other than timer? 
-* Host downloadable .jar online. 
 * Use cookies? to save/load games. 
 * Save high scores using cookies?
 * Store daily games in a SQL server? 
