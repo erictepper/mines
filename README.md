@@ -8,11 +8,6 @@ Version 1.0.0
 A from-scratch Java clone of Minesweeper, taking advantage of the java.awt.Graphics library. 
 Class code can be found in [src/main/java](../master/src/main/java).
 
-This game may be downloaded and played by downloading the executable .jar file 
-[here](https://github.com/erictepper/mines/releases/download/v1.0.0/mines-1.0.0.jar). The game requires at least Java 8 
-to run. If you are using a Mac, when the file is downloaded, right-click on the file and click "Open", then press 
-"Open" again.
-
 This project requires Maven 3.6.1 to build and can be built by running `mvn clean package` from the command line. This 
 will build the project in the `target/` directory, and the application can then be run from the `mines-1.0.0.jar` 
 java executable. 
