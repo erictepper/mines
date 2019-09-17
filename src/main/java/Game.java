@@ -297,7 +297,7 @@ class Game extends JPanel {
     g.drawString("A TIMER will track your progress. ", 60, 617);
     g.drawString("You may receive a HINT, but you will receive a 30-second penalty on the timer if you use a hint.", 60, 647);
     g.drawString("If you LOSE, you may choose to reveal all mines. This may help you see your mistakes and help you learn.", 60, 677);
-    g.drawString("You may RESET the game (but not if you have chosen have the mines revealed for you). This will give you", 60, 707);
+    g.drawString("You may RESET the game (but not if you have chosen to have the mines revealed for you). This will give you", 60, 707);
     g.drawString("another chance if you lose, HOWEVER the timer will keep running.", 60, 721);
   }
 
