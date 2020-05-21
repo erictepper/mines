@@ -1,0 +1,3 @@
+public enum TileStatus {
+  HIDDEN, FLAGGED, FALSE_FLAGGED, REVEALED  // TODO: Remove FALSE_FLAGGED
+}

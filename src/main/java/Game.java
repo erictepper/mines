@@ -146,7 +146,7 @@ class Game extends JPanel {
     int gridIndexYPosition = (yPosition - boardBeginningY) / SQUARE_SIZE;
 
     if (!hasGameStarted && button == 1) {
-      gameGrid.moveMines(gridIndexXPosition, gridIndexYPosition);
+      gameGrid.moveMines(gridIndexYPosition, gridIndexXPosition);
       hasGameStarted = true;
     }
     if (button == 3) {
@@ -154,7 +154,7 @@ class Game extends JPanel {
       repaint();
     }
     else if (button == 1) {
-      int typeRevealed = gameGrid.reveal(gridIndexXPosition, gridIndexYPosition);
+      int typeRevealed = gameGrid.reveal(gridIndexYPosition, gridIndexXPosition);
       if (typeRevealed == -1) {
         isGameLost = true;
       }
@@ -302,22 +302,22 @@ class Game extends JPanel {
   private void paintExampleTiles(Graphics g) {
     g.setFont(new Font("Courier New", Font.PLAIN, 20));
 
-    GameTile[][] example_grid = new GameTile[3][3];
+    Tile[][] example_grid = new Tile[3][3];
     for (int i = 0; i < 3; i++) {
       for (int j = 0; j < 3; j++) {
-        example_grid[i][j] = new GameTile();
+        example_grid[i][j] = new NumberTile();
       }
     }
 
-    example_grid[0][0].setTileType(2);
-    example_grid[0][1].setAdjacentMinesCount(3);
-    example_grid[0][2].setTileType(2);
-    example_grid[1][0].setTileType(2);
-    example_grid[1][1].setAdjacentMinesCount(4);
-    example_grid[1][2].setAdjacentMinesCount(2);
-    example_grid[2][0].setAdjacentMinesCount(2);
-    example_grid[2][1].setTileType(2);
-    example_grid[2][2].setAdjacentMinesCount(1);
+    example_grid[0][0] = new MineTile();
+    ((NumberTile) example_grid[0][1]).setAdjacentMinesCount(3);
+    example_grid[0][2] = new MineTile();
+    example_grid[1][0] = new MineTile();
+    ((NumberTile) example_grid[1][1]).setAdjacentMinesCount(4);
+    ((NumberTile) example_grid[1][2]).setAdjacentMinesCount(2);
+    ((NumberTile) example_grid[2][0]).setAdjacentMinesCount(2);
+    example_grid[2][1] = new MineTile();
+    ((NumberTile) example_grid[2][2]).setAdjacentMinesCount(1);
 
     for (int i = 0; i < 3; i++) {
       for (int j = 0; j < 3; j++) {
@@ -330,19 +330,21 @@ class Game extends JPanel {
 
     for (int i = 0; i < 3; i++) {
       for (int j = 0; j < 3; j++) {
-        switch (example_grid[i][j].getDisplayStatus()) {
-          case 1:  // number tile
-            g.setColor(Color.WHITE);
-            g.fillRect(paint_start_x + (j * SQUARE_SIZE), paint_start_y + (i * SQUARE_SIZE), SQUARE_SIZE,
-                SQUARE_SIZE);
-            g.setColor(Color.BLACK);
-            g.drawString(example_grid[i][j].label(), paint_start_x + (j * SQUARE_SIZE) + 7,
-                paint_start_y + ((i + 1) * SQUARE_SIZE) - 7);
-            break;
-          case 2:  // mine tile
-            g.drawImage(mineImage, paint_start_x + (j * SQUARE_SIZE),
+        if (!example_grid[i][j].isMine()) {
+          g.setColor(Color.WHITE);
+          g.fillRect(paint_start_x + (j * SQUARE_SIZE), paint_start_y + (i * SQUARE_SIZE), SQUARE_SIZE,
+              SQUARE_SIZE);
+          g.setColor(Color.BLACK);
+          int adjacentMinesCount = ((NumberTile) example_grid[i][j]).getAdjacentMinesCount();
+          String label = (adjacentMinesCount == 0) ? "" : String.valueOf(adjacentMinesCount);
+          g.drawString(
+              label,
+              paint_start_x + (j * SQUARE_SIZE) + 7,
+              paint_start_y + ((i + 1) * SQUARE_SIZE) - 7
+          );
+        } else {
+          g.drawImage(mineImage, paint_start_x + (j * SQUARE_SIZE),
                 paint_start_y + (i * SQUARE_SIZE), null);
-            break;
         }
       }
     }
