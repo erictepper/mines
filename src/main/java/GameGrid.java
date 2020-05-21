@@ -1,21 +1,20 @@
 import javax.imageio.ImageIO;
-import java.io.IOException;
 import java.util.*;
 import java.awt.*;
 import java.lang.Math;
-import java.io.File;
 
 class GameGrid {
-  private int boardHeight;
-  private int boardWidth;
-  private int numberOfMines;
-  private GameTile[][] gameGrid;
-  private int boardBeginningX;
-  private int boardBeginningY;
   private static int squareSize;
   private static Image mineImage;
   private static Image flagImage;
   private static Image falseFlagImage;
+
+  private final int boardHeight;
+  private final int boardWidth;
+  private final int numberOfMines;
+  private final GameTile[][] gameGrid;
+  private final int boardBeginningX;
+  private final int boardBeginningY;
 
   // gameSize should be one of "beginner", "intermediate", or "expert".
   GameGrid(String gameSize, int boardXStart, int boardYStart, int boardSquareSize) {
