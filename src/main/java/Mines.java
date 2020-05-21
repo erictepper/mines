@@ -4,18 +4,18 @@ import java.awt.event.*;
 
 
 public class Mines implements MouseListener, ActionListener {
-  private JFrame gameFrame;
-  private Game gameInstance;
-  private JButton newGameButton;
-  private JButton instructionsButton;
-  private JButton resetButton;
-  private JButton beginnerButton;
-  private JButton intermediateButton;
-  private JButton expertButton;
-  private JButton hintButton;
-  private Timer gameTimer;
-  private JButton revealMinesYesButton;
-  private JButton revealMinesNoButton;
+  private final JFrame gameFrame;
+  private final Game gameInstance;
+  private final JButton newGameButton;
+  private final JButton instructionsButton;
+  private final JButton resetButton;
+  private final JButton beginnerButton;
+  private final JButton intermediateButton;
+  private final JButton expertButton;
+  private final JButton hintButton;
+  private final Timer gameTimer;
+  private final JButton revealMinesYesButton;
+  private final JButton revealMinesNoButton;
 
   private Mines() {
     gameFrame = new JFrame("Mines");

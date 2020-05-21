@@ -1,14 +1,15 @@
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
-import java.io.File;
-import java.io.IOException;
 import java.lang.*;
 
 class Game extends JPanel {
+  private static final int SQUARE_SIZE = 30;
+  private static Image mineImage;
+  private static Image flagImage;
+
   private int boardBeginningX;
   private int boardBeginningY;
-  private static final int SQUARE_SIZE = 30;
   private GameGrid gameGrid;
   private boolean hasGameStarted;  // true if the game has been started, false if not.
   private boolean isGameLost;  // true if lost, false if not lost.
@@ -17,8 +18,6 @@ class Game extends JPanel {
   private boolean areInstructionsShown;
   private boolean isRevealMinesDialogueShown;
   private boolean isHintPenaltyDialogueShown;
-  private static Image mineImage;
-  private static Image flagImage;
   private int flagsLaidCount;
   private int revealedNumbersCount;
   private int secondsElapsed;
@@ -197,8 +196,7 @@ class Game extends JPanel {
 
     int seconds_mod_60_elapsed = (secondsElapsed + timePenalty) % 60;
     int minutes_elapsed = (secondsElapsed + timePenalty) / 60;
-    String seconds_display;
-    String minutes_display;
+    String seconds_display, minutes_display;
     if (seconds_mod_60_elapsed < 10) { seconds_display = "0" + seconds_mod_60_elapsed; } else {
       seconds_display = Integer.toString(seconds_mod_60_elapsed);
     }
